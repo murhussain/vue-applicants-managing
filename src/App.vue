@@ -1,5 +1,7 @@
+<script setup>
+import TheDashboard from './components/layout/TheDashboard.vue';
+</script>
+
 <template>
-  <h1 class="text-3xl font-bold underline text-primary">
-    Hello world!
-  </h1>
+  <TheDashboard />
 </template>
