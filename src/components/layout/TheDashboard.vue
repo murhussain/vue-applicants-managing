@@ -16,7 +16,7 @@ import TheHeader from './TheHeader.vue';
 
       <!-- Page Content -->
       <section className="p-4 bg-red-200 flex-1 overflow-x-hidden overflow-y-auto scrollbar-hide">
-        <div className="bg-green-100 min-h-full flex flex-col p-2 rounded-lg space-y-2">
+        <div className="bg-green-100 min-h-full p-2 rounded-lg space-y-2">
           <!-- <slot></slot> -->
           <p>Here comes main content</p>
         </div>
