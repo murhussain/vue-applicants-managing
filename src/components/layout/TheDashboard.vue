@@ -15,11 +15,12 @@ import TheHeader from './TheHeader.vue';
       <TheHeader />
 
       <!-- Page Content -->
-      <section className="p-4 bg-red-200 flex-1 overflow-x-hidden overflow-y-auto scrollbar-hide">
-        <div className="bg-green-100 min-h-full p-2 rounded-lg space-y-2">
-          <!-- <slot></slot> -->
-          <p>Here comes main content</p>
-        </div>
+      <section className="px-12 pt-8 flex-1 overflow-x-hidden overflow-y-auto scrollbar-hide">
+        <!-- <div className="bg-green-100 p-2 rounded-lg space-y-2">
+           <slot></slot> 
+          <p>Here comes main content</p> 
+        </div> -->
+        <slot></slot>
       </section>
     </main>
   </div>

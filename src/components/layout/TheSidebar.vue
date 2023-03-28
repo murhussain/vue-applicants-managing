@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
+
 <template>
   <div class="bg-gray text-primary w-64 flex-shrink-0 h-screen">
     <div class="p-4 flex justify-between items-center">
@@ -15,7 +19,7 @@
         >
           <!-- Add a dashboard icon here -->
         </svg>
-        <a href="#" class="text-gray-400 hover:text-primary">Dashboard</a>
+        <RouterLink to="/" class="text-gray-400 hover:text-primary">Dashboard</RouterLink>
       </li>
       <li class="flex items-center mb-4">
         <svg
@@ -35,7 +39,7 @@
         >
           <!-- Add a settings icon here -->
         </svg>
-        <a href="#" class="text-gray-400 hover:text-primary">Settings</a>
+        <RouterLink to="/about" class="text-gray-400 hover:text-primary">About</RouterLink>
       </li>
     </ul>
   </div>
