@@ -10,7 +10,8 @@ module.exports = {
       colors: {
         // Light color pallette
         'primary': '#7586ec',
-        'accent': '#d6dbf9',
+        'primary-dark': '#5e6bbd',
+        'accent': '#9eaaf2',
         'secondary': '#ff7b1c',
         'secondary-accent': '#ffe5d2',
         'third': '#48D1D0',
