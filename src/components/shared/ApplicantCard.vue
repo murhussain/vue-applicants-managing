@@ -6,10 +6,10 @@ import IconHand from '@/components/icons/IconHand.vue'
   <div class="applicant-card">
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-gray-200 bg-primary rounded-full"></div>
-        <div class="flex flex-col">
-          <div class="text-sm text-black font-semibold">Irene Sacchi</div>
-          <div class="text-xs text-gray">Software Engineer</div>
+        <div class="w-10 h-10 bg-third rounded-full"></div>
+        <div class="flex flex-col -space-y-1">
+          <div class="text-base text-black font-semibold">Irene Sacchi</div>
+          <div class="text-sm text-gray">Software Engineer</div>
         </div>
       </div>
       <IconHand />

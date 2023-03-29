@@ -25,4 +25,8 @@
   .tag {
     @apply border border-gray/40 rounded-3xl px-2 py-px text-xs text-gray
   }
+
+  .side-icons{
+    @apply h-10 w-10 text-gray
+  }
 }
