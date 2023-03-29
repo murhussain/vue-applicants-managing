@@ -1,6 +1,6 @@
 <script setup>
-// import { RouterLink } from 'vue-router'
 import TheSidebarIcons from './portions/TheSidebarIcons.vue';
+import TheSidebarContent from './portions/TheSidebarContent.vue';
 </script>
 
 <template>
@@ -10,13 +10,7 @@ import TheSidebarIcons from './portions/TheSidebarIcons.vue';
     <TheSidebarIcons />
 
     <!-- Sidebar content section {Jobs} -->
-    <div class="flex-1 flex flex-col justify-between h-full">
-      <div class="space-y-6">
-        <p class="">first</p>
-        <p class="">middle</p>
-      </div>
-      <p class="bg-green-500">last</p>
-    </div>
+    <TheSidebarContent />
 
   </div>
 </template>
