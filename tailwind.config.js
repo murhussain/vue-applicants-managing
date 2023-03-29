@@ -24,9 +24,9 @@ module.exports = {
         'gray': '#b8b9c1',
 
         // Dark color pallette
-        'd-body': '#1c1c20',
-        'd-body-accent': '#28282C',
-        'd-body-accent-secondary': '#35353A',
+        'd-body': '#0c0d18',
+        'd-body-accent': '#101321',
+        'd-body-accent-secondary': '#171b2f',
         'd-black': '#0c0d18',
         'd-gray': '#b8b9c1',
         'd-white': '#CECCD5',

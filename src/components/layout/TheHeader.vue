@@ -2,10 +2,13 @@
 import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
 import IconUserAdd from '../icons/IconUserAdd.vue';
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-  <header class="dark:bg-d-body-accent h-[7rem] flex flex-col justify-end space-y-4 px-12 border-b border-gray/25">
+  <header class="dark:bg-d-body-accent h-[7rem] flex flex-col justify-end space-y-4 px-12 border-b 
+    border-gray/30 dark:border-gray/10"
+  >
     <div class="flex items-center justify-between">
       <p class="text-black dark:text-white font-medium text-3xl capitalize">Senior java developer</p>
       <div class="flex space-x-4 items-center">
@@ -13,7 +16,9 @@ import IconUserAdd from '../icons/IconUserAdd.vue';
           <IconDelete />
         </div>
         <div class="rounded-icons">
-          <IconPen />
+          <RouterLink to="/edit-job">
+            <IconPen />
+          </RouterLink>
         </div>
         <div class="primary-button-rounded">
           <IconUserAdd />

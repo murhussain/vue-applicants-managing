@@ -6,7 +6,8 @@
 @layer components {
 
   .rounded-icons {
-    @apply grid place-content-center rounded-full h-10 w-10 border border-gray dark:border-gray/60
+    @apply grid place-content-center rounded-full h-10 w-10 border border-gray 
+    dark:border-gray/60 dark:hover:border-d-white
   }
 
   .primary-button-rounded {
@@ -15,18 +16,18 @@
   }
 
   .applicant-card-list {
-    @apply p-4 bg-body-accent-secondary rounded-xl space-y-2
+    @apply p-4 bg-body-accent-secondary dark:bg-d-body-accent rounded-xl space-y-2
   }
 
   .applicant-card {
-    @apply p-4 bg-body space-y-4 rounded-lg
+    @apply p-4 bg-body dark:bg-d-body-accent-secondary space-y-4 rounded-lg
   }
 
   .tag {
-    @apply border border-gray/40 rounded-3xl px-2 py-px text-xs text-gray
+    @apply border border-gray/40 border-gray/20 rounded-3xl px-2 py-px text-xs text-gray dark:text-d-white-accent
   }
 
   .side-icons{
-    @apply h-[2rem] w-[2rem] text-gray
+    @apply h-[2rem] w-[2rem] text-gray dark:text-gray/60 dark:hover:text-d-white
   }
 }

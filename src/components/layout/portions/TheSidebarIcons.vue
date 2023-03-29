@@ -10,17 +10,20 @@ import IconPower from '@/components/icons/IconPower.vue'
 import IconLight from '@/components/icons/IconLight.vue'
 import IconDark from '@/components/icons/IconDark.vue'
 import { useDark, useToggle } from '@vueuse/core';
+import { RouterLink } from 'vue-router';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 </script>
 
 <template>
-  <div class="border-r border-gray/25 flex flex-col w-[4rem] justify-between h-full">
+  <div class="border-r border-gray/25 dark:border-gray/10 flex flex-col w-[4rem] justify-between h-full">
     <div class="p-4">
       <IconMenu />
       <div class="mt-[4rem] flex flex-col space-y-6">
-        <IconHome />
+        <RouterLink to='/'>
+          <IconHome />
+        </RouterLink>
         <IconWallet />
         <IconUserGroup />
         <IconMap />
@@ -30,12 +33,17 @@ const toggleDark = useToggle(isDark);
       </div>
     </div>
     <button 
-      class="flex items-center space-x-4 rounded-full px-1 py-[0.18rem] bg-primary/70 mb-4 mx-1"
+      class="flex items-center justify-center rounded-full h-10 w-10 bg-primary mb-4 mx-2"
       @click="toggleDark()"
     >
-      <!-- <IconLight />
-      <IconDark /> -->
-      Da
+      <!-- show IconLight when in light mode -->
+      <template v-if="!isDark">
+        <IconLight />
+      </template>
+      <!-- show IconDark when in dark mode -->
+      <template v-else>
+        <IconDark />
+      </template>
     </button>
   </div>
 </template>

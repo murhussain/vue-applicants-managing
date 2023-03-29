@@ -11,7 +11,7 @@ import TheApplicants from '@/components/shared/TheApplicants.vue'
 
     <div class="space-y-4">
       <!-- The category header of single category -->
-      <CategoryCard title="New" :completedTasks="3" totalTasks="5" bgColor="bg-[#c8cff7]" 
+      <CategoryCard title="New" :completedTasks="3" totalTasks="5" bgColor="bg-[#c8cff7] dark:bg-[#363C5D]" 
         levelColor="bg-primary" statColor="text-primary"
       >
         <template #icon>
@@ -25,8 +25,8 @@ import TheApplicants from '@/components/shared/TheApplicants.vue'
 
     <div class="space-y-4">
       <!-- The category header of single category -->
-      <CategoryCard title="Shortlisted" :completedTasks="5" totalTasks="10" bgColor="bg-secondary-accent" 
-        levelColor="bg-secondary" statColor="text-secondary"
+      <CategoryCard title="Shortlisted" :completedTasks="5" totalTasks="10" bgColor="bg-secondary-accent 
+        dark:bg-[#603920]" levelColor="bg-secondary" statColor="text-secondary"
       >
         <template #icon>
           <IconCheck />
@@ -39,8 +39,8 @@ import TheApplicants from '@/components/shared/TheApplicants.vue'
 
     <div class="space-y-4">
       <!-- The category header of single category -->
-      <CategoryCard title="Interviewed" :completedTasks="7" totalTasks="10" bgColor="bg-third-accent" 
-        levelColor="bg-third" statColor="text-third"
+      <CategoryCard title="Interviewed" :completedTasks="7" totalTasks="10" bgColor="bg-third-accent 
+        dark:bg-[#295255]" levelColor="bg-third" statColor="text-third"
       >
         <template #icon>
           <IconUserTick />
