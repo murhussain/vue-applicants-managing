@@ -5,7 +5,7 @@ import IconUserAdd from '../icons/IconUserAdd.vue';
 </script>
 
 <template>
-  <header class="bg-gray-200 h-[7rem] flex flex-col justify-end space-y-4 px-12 border-b border-gray">
+  <header class="bg-gray-200 h-[7rem] flex flex-col justify-end space-y-4 px-12 border-b border-gray/25">
     <div class="flex items-center justify-between">
       <p class="text-black font-medium text-3xl capitalize">Senior java developer</p>
       <div class="flex space-x-4 items-center">

@@ -27,6 +27,6 @@
   }
 
   .side-icons{
-    @apply h-10 w-10 text-gray
+    @apply h-[2rem] w-[2rem] text-gray
   }
 }
