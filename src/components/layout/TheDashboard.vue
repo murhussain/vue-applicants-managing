@@ -4,7 +4,7 @@ import TheHeader from './TheHeader.vue';
 </script>
 
 <template>
-  <div class="flex h-screen overflow-hidden">
+  <div class="dark:bg-d-body flex h-screen overflow-hidden">
     <!-- Sidebar -->
     <TheSidebar />
 

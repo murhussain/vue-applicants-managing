@@ -24,13 +24,13 @@ module.exports = {
         'gray': '#b8b9c1',
 
         // Dark color pallette
-        'd-bg': '#0d1116',
-        'd-bg-accent': '#161C23',
-        'd-card': '#2d3339',
-        'd-body': '#8b8e91',
-        'd-accent-body': '#45494f',
-        'd-white': '#d1d1d1',
-        'd-accent-white': '#989898',
+        'd-body': '#1c1c20',
+        'd-body-accent': '#28282C',
+        'd-body-accent-secondary': '#35353A',
+        'd-black': '#0c0d18',
+        'd-gray': '#b8b9c1',
+        'd-white': '#CECCD5',
+        'd-white-accent': '#7E7C86',
       }
     },
   },

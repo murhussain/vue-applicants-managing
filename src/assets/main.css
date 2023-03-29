@@ -6,7 +6,7 @@
 @layer components {
 
   .rounded-icons {
-    @apply grid place-content-center rounded-full h-10 w-10 border border-gray
+    @apply grid place-content-center rounded-full h-10 w-10 border border-gray dark:border-gray/60
   }
 
   .primary-button-rounded {
