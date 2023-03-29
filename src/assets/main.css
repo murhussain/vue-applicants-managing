@@ -13,4 +13,16 @@
     @apply flex items-center space-x-2 px-[1.2rem] py-2 font-medium rounded-[1.6rem] shadow-sm text-body 
     bg-primary hover:bg-primary-dark
   }
+
+  .applicant-card-list {
+    @apply p-4 bg-body-accent-secondary rounded-xl
+  }
+
+  .applicant-card {
+    @apply p-4 bg-body space-y-4 rounded-lg
+  }
+
+  .tag {
+    @apply border border-gray/40 rounded-3xl px-2 py-px text-xs text-gray
+  }
 }
