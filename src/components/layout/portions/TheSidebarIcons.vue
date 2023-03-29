@@ -9,6 +9,10 @@ import IconSetting from '@/components/icons/IconSetting.vue'
 import IconPower from '@/components/icons/IconPower.vue'
 import IconLight from '@/components/icons/IconLight.vue'
 import IconDark from '@/components/icons/IconDark.vue'
+import { useDark, useToggle } from '@vueuse/core';
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
 
 <template>
@@ -25,10 +29,13 @@ import IconDark from '@/components/icons/IconDark.vue'
         <IconPower />
       </div>
     </div>
-    <button class="flex items-center space-x-4 rounded-full px-1 py-[0.18rem] bg-primary/70 mb-4 mx-1"
+    <button 
+      class="flex items-center space-x-4 rounded-full px-1 py-[0.18rem] bg-primary/70 mb-4 mx-1"
+      @click="toggleDark()"
     >
-      <IconLight />
-      <IconDark />
+      <!-- <IconLight />
+      <IconDark /> -->
+      Da
     </button>
   </div>
 </template>

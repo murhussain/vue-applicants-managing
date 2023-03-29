@@ -9,7 +9,7 @@ import TheJob from '@/components/shared/TheJob.vue'
     <div class="space-y-2">
       <!-- The header section of the sidebar -->
       <div class="h-[4.7rem] flex items-center justify-between p-4 border-b border-gray/25">
-        <p class="text-black font-medium text-2xl">Jobs</p>
+        <p class="text-black dark:text-body font-medium text-2xl">Jobs</p>
         <div class="flex items-center space-x-4">
           <IconSearch />
           <div class="p-1 bg-primary flex items-center rounded-xl justify-center">
@@ -29,7 +29,7 @@ import TheJob from '@/components/shared/TheJob.vue'
 
     <!-- Footer section otf the sidebar -->
     <div class="grid place-content-center mb-4">
-      <button class="bg-[#d8dadd] text-black font-medium rounded-lg py-[0.3rem] px-8 ">
+      <button class="bg-[#d8dadd] dark:bg-d-body-accent-secondary text-black dark:text-d-white-accent font-medium rounded-lg py-[0.3rem] px-8 ">
         Manage jobs
       </button>
     </div>
