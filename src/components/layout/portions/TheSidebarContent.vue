@@ -1,22 +1,8 @@
 <script setup>
 import IconSearch from '@/components/icons/IconSearch.vue';
 import IconPlus from '@/components/icons/IconPlus.vue';
-import TheJob from '@/components/shared/TheJob.vue';
+import TheJobList from '@/components/shared/TheJobList.vue';
 import { RouterLink } from 'vue-router';
-import { useJobStore } from '@/stores/JobStore.js';
-import { ref, onMounted } from 'vue';
-
-
-const jobStore = useJobStore();
-const jobs = ref([]);
-
-let selectedJob = null;
-
-onMounted(async () => {
-  const fetchedJobs = await jobStore.fetchJobs();
-  jobStore.updateJobs(fetchedJobs);
-  jobs.value = jobStore.jobs;
-});
 </script>
 
 <template>
@@ -36,17 +22,7 @@ onMounted(async () => {
       </div>
 
       <!-- The jobs section -->
-      <div class="space-y-2 h-[37rem] overflow-y-auto">
-        <TheJob 
-          v-for="job in jobs" :key="job.id"
-          :jobId="job.id"
-          :jobName="job.name"
-          :jobInitSalary="job.initSalary"
-          :jobMaxSalary="job.maxSalary"
-          :isSelected="selectedJob === job.id"
-          @click="selectedJob = job.id"
-        />
-      </div>
+        <TheJobList />
 
     </div>
 
