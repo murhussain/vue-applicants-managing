@@ -76,6 +76,34 @@
       "initSalary": "23",
       "maxSalary": "245",
       "id": 11
+    },
+    {
+      "name": "www",
+      "code": "deded",
+      "initSalary": "dde",
+      "maxSalary": "eeded",
+      "id": 12
+    },
+    {
+      "name": "sss",
+      "code": "sdsdds",
+      "initSalary": "dsdsd",
+      "maxSalary": "sdsdsd",
+      "id": 13
+    },
+    {
+      "name": "ddede",
+      "code": "edede",
+      "initSalary": "eded",
+      "maxSalary": "edede",
+      "id": 14
+    },
+    {
+      "name": "deeee",
+      "code": "eeee",
+      "initSalary": "233",
+      "maxSalary": "43",
+      "id": 15
     }
   ],
   "applicants": [

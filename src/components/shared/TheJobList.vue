@@ -1,10 +1,12 @@
-
 <template>
   <div class="space-y-2 h-[37rem] overflow-y-auto">
     <div 
       v-for="job in jobs" :key="job.id" 
-      class="px-4 group hover:bg-body-accent dark:hover:bg-d-body-accent-secondary py-[0.7rem] 
-      hover:border-r-4 border-primary"
+      :class="[
+        'cursor-pointer px-4 group py-[0.7rem]',
+        activeJobId === job.id ? 'bg-body-accent dark:bg-d-body-accent-secondary border-r-4 border-primary' : ''
+      ]"
+      @click="activeJobId = job.id"
     >
       <p class="text-black dark:text-d-white capitalized group-hover:font-medium">{{ job.name }}</p>
       <div class="flex items-center space-x-2">
@@ -20,13 +22,14 @@
 import { useJobStore } from '@/stores/JobStore.js';
 import { ref, onMounted } from 'vue';
 
-
 const jobStore = useJobStore();
 const jobs = ref([]);
+const activeJobId = ref(null);
 
 onMounted(async () => {
   const fetchedJobs = await jobStore.fetchJobs();
   jobStore.updateJobs(fetchedJobs);
   jobs.value = jobStore.jobs;
 });
+
 </script>
