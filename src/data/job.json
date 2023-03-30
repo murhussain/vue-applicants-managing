@@ -1,0 +1,67 @@
+{
+  "jobs": [
+    { 
+      "id": 1, 
+      "name": "Manager", 
+      "code": "MNG",
+      "initSalary": "2000$",
+      "maxSalary": null
+    },
+    { 
+      "id": 2, 
+      "name": "UI/UX Designer",
+      "code": "UIUX",
+      "initSalary": "3500$",
+      "maxSalary": null
+    },
+    { 
+      "id": 3, 
+      "name": "Frontend Developer",
+      "code": "FRONT",
+      "initSalary": "3500$",
+      "maxSalary": "5000$"
+    },
+    { 
+      "id": 4, 
+      "name": "Backend Developer",
+      "code": "BACK",
+      "initSalary": "4000$",
+      "maxSalary": "5000$"
+    },
+    { 
+      "id": 5, 
+      "name": "Fullstack Developer",
+      "code": "FULL",
+      "initSalary": "7000$",
+      "maxSalary": "1000$"
+    },
+    { 
+      "id": 6, 
+      "name": "DevOps Engineer",
+      "code": "DEVOPS",
+      "initSalary": "4000$",
+      "maxSalary": "5000$"
+    },
+    { 
+      "id": 7, 
+      "name": "Project Manager",
+      "code": "PM",
+      "initSalary": "6000$",
+      "maxSalary": "7000$"
+    },
+    { 
+      "id": 8, 
+      "name": "Business Analyst",
+      "code": "BA",
+      "initSalary": "5000$",
+      "maxSalary": null
+    },
+    { 
+      "id": 9, 
+      "name": "Data Scientist",
+      "code": "DS",
+      "initSalary": "7000$",
+      "maxSalary": "8000$"
+    }
+  ]
+}
