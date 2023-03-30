@@ -27,6 +27,14 @@ export const useJobStore = defineStore('job', {
       const createdJob = await response.json();
       this.jobs.push(createdJob);
     },
+
+    async deleteJob(id) {
+      await fetch(`http://localhost:3000/jobs/${id}`, {
+        method: "DELETE",
+      });
+      this.jobs = this.jobs.filter((job) => job.id !== id);
+    }
+
   },
 
   getters: {

@@ -57,53 +57,11 @@
       "maxSalary": null
     },
     {
-      "id": 9,
-      "name": "Data Scientist",
-      "code": "DS",
-      "initSalary": "7000$",
-      "maxSalary": "8000$"
-    },
-    {
-      "name": "new new",
-      "code": "er4",
-      "initSalary": "234",
-      "maxSalary": "2334",
-      "id": 10
-    },
-    {
-      "name": "again",
-      "code": "hey",
-      "initSalary": "23",
-      "maxSalary": "245",
-      "id": 11
-    },
-    {
-      "name": "www",
-      "code": "deded",
-      "initSalary": "dde",
-      "maxSalary": "eeded",
-      "id": 12
-    },
-    {
-      "name": "sss",
-      "code": "sdsdds",
-      "initSalary": "dsdsd",
-      "maxSalary": "sdsdsd",
-      "id": 13
-    },
-    {
-      "name": "ddede",
-      "code": "edede",
-      "initSalary": "eded",
-      "maxSalary": "edede",
-      "id": 14
-    },
-    {
-      "name": "deeee",
+      "name": "eeee",
       "code": "eeee",
-      "initSalary": "233",
-      "maxSalary": "43",
-      "id": 15
+      "initSalary": "33",
+      "maxSalary": "3434",
+      "id": 9
     }
   ],
   "applicants": [
