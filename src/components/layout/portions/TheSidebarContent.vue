@@ -1,13 +1,26 @@
 <script setup>
-import IconSearch from '@/components/icons/IconSearch.vue'
-import IconPlus from '@/components/icons/IconPlus.vue'
-import TheJob from '@/components/shared/TheJob.vue'
+import IconSearch from '@/components/icons/IconSearch.vue';
+import IconPlus from '@/components/icons/IconPlus.vue';
+import TheJob from '@/components/shared/TheJob.vue';
 import { RouterLink } from 'vue-router';
+import { useJobStore } from '@/stores/JobStore.js';
+import { ref, onMounted } from 'vue';
+
+
+const jobStore = useJobStore();
+const jobs = ref([]);
+
+onMounted(async () => {
+  const fetchedJobs = await jobStore.fetchJobs();
+  jobStore.updateJobs(fetchedJobs);
+  jobs.value = jobStore.jobs;
+});
+
 </script>
 
 <template>
   <div class="flex-1 flex flex-col justify-between h-full">
-    <div class="space-y-2">
+    <div class="space-y-4">
       <!-- The header section of the sidebar -->
       <div class="h-[4.7rem] flex items-center justify-between p-4 border-b border-gray/25 dark:border-gray/10">
         <p class="text-black dark:text-body font-medium text-2xl">Jobs</p>
@@ -22,10 +35,13 @@ import { RouterLink } from 'vue-router';
       </div>
 
       <!-- The jobs section -->
-      <div class="space-y-2">
-        <TheJob />
-        <TheJob />
-        <TheJob />
+      <div class="space-y-2 h-[37rem] overflow-y-auto">
+        <TheJob 
+          v-for="job in jobs" :key="job.id"
+          :jobName="job.name"
+          :jobInitSalary="job.initSalary"
+          :jobMaxSalary="job.maxSalary"
+        />
       </div>
 
     </div>

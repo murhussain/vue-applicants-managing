@@ -63,5 +63,15 @@
       "initSalary": "7000$",
       "maxSalary": "8000$"
     }
+  ],
+  "applicants": [
+    { 
+      "id": 1, 
+      "name": "Mur"
+    },
+    { 
+      "id": 2, 
+      "name": "Hussein"
+    }
   ]
 }
