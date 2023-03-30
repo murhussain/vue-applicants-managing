@@ -30,6 +30,10 @@ onMounted(async () => {
   const fetchedJobs = await jobStore.fetchJobs();
   jobStore.updateJobs(fetchedJobs);
   jobs.value = jobStore.jobs;
+
+  if (!activeJobId.value && jobs.value.length > 0) {
+    activeJobId.value = jobs.value[0].id;
+  }
 });
 
 </script>
