@@ -3,6 +3,13 @@ import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
 import IconUserAdd from '../icons/IconUserAdd.vue';
 import { RouterLink } from 'vue-router';
+import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
+
+const selectedJob = useSelectedJobStore();
+// You can also update the store's state using its properties directly
+selectedJob.name = 'new name';
+selectedJob.id = 1;
+
 </script>
 
 <template>
@@ -10,7 +17,7 @@ import { RouterLink } from 'vue-router';
     border-gray/30 dark:border-gray/10"
   >
     <div class="flex items-center justify-between">
-      <p class="text-black dark:text-white font-medium text-3xl capitalize">Senior java developer</p>
+      <p class="text-black dark:text-white font-medium text-3xl capitalize">{{ selectedJob.name }}</p>
       <div class="flex space-x-4 items-center">
         <div class="rounded-icons">
           <IconDelete />

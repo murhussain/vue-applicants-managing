@@ -20,9 +20,11 @@
 
 <script setup>
 import { useJobStore } from '@/stores/JobStore.js';
-import { ref, onMounted } from 'vue';
+import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
+import { ref, onMounted, watch } from 'vue';
 
 const jobStore = useJobStore();
+const selectedJobStore = useSelectedJobStore();
 const jobs = ref([]);
 const activeJobId = ref(null);
 
@@ -31,9 +33,17 @@ onMounted(async () => {
   jobStore.updateJobs(fetchedJobs);
   jobs.value = jobStore.jobs;
 
+  // Checking if no current selected job and make the first to be selected
   if (!activeJobId.value && jobs.value.length > 0) {
     activeJobId.value = jobs.value[0].id;
   }
 });
 
+watch(activeJobId, (newVal) => {
+  const selectedJob = jobs.value.find((job) => job.id === newVal);
+  if (selectedJob) {
+    selectedJobStore.name = selectedJob.name;
+    selectedJobStore.id = selectedJob.id;
+  }
+});
 </script>

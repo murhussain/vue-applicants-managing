@@ -1,14 +1,9 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
-export const useSelectedJobStore = defineStore('selectedJob', {
+export const useSelectedJobStore = defineStore({
+  id: 'selectedJob',
   state: () => ({
-    id: null,
-    name: null,
+    name: 'default name',
+    id: 0,
   }),
-  actions: {
-    updateSelectedJob({ id, name }) {
-      this.id = id;
-      this.name = name;
-    },
-  },
-})
+});
