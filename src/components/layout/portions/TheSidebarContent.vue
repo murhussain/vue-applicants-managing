@@ -10,12 +10,13 @@ import { ref, onMounted } from 'vue';
 const jobStore = useJobStore();
 const jobs = ref([]);
 
+let selectedJob = null;
+
 onMounted(async () => {
   const fetchedJobs = await jobStore.fetchJobs();
   jobStore.updateJobs(fetchedJobs);
   jobs.value = jobStore.jobs;
 });
-
 </script>
 
 <template>
@@ -38,9 +39,12 @@ onMounted(async () => {
       <div class="space-y-2 h-[37rem] overflow-y-auto">
         <TheJob 
           v-for="job in jobs" :key="job.id"
+          :jobId="job.id"
           :jobName="job.name"
           :jobInitSalary="job.initSalary"
           :jobMaxSalary="job.maxSalary"
+          :isSelected="selectedJob === job.id"
+          @click="selectedJob = job.id"
         />
       </div>
 

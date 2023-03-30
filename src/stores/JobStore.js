@@ -14,7 +14,19 @@ export const useJobStore = defineStore('job', {
 
     updateJobs(jobs) {
       this.jobs = jobs;
-    }
+    },
+
+    async createJob(newJob) {
+      const response = await fetch("http://localhost:3000/jobs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newJob),
+      });
+      const createdJob = await response.json();
+      this.jobs.push(createdJob);
+    },
   },
 
   getters: {
