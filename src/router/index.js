@@ -14,8 +14,8 @@ const router = createRouter({
       component: () => import('@/views/AddJobView.vue')
     },
     {
-      path: '/edit-job',
-      name: 'edit-job',
+      path: '/JobForm',
+      name: 'JobForm',
       component: () => import('@/views/EditJobView.vue')
     }
   ]

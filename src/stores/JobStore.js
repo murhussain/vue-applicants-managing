@@ -16,6 +16,24 @@ export const useJobStore = defineStore('job', {
       this.jobs = jobs;
     },
 
+    async updateJob(updatedJob) {
+      const response = await fetch(`http://localhost:3000/jobs/${updatedJob.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedJob),
+      });
+      const updatedJobFromServer = await response.json();
+      this.jobs = this.jobs.map(job => {
+        if (job.id === updatedJobFromServer.id) {
+          return updatedJobFromServer;
+        } else {
+          return job;
+        }
+      });
+    },
+    
     async createJob(newJob) {
       const response = await fetch("http://localhost:3000/jobs", {
         method: "POST",
@@ -37,9 +55,4 @@ export const useJobStore = defineStore('job', {
 
   },
 
-  getters: {
-    getJobById: (state) => (id) => {
-      return state.jobs.find((job) => job.id === id);
-    }
-  }
 });

@@ -28,7 +28,7 @@ const deleteJob = async (id) => {
           <IconDelete />
         </div>
         <div class="rounded-icons">
-          <RouterLink to="/edit-job">
+          <RouterLink to="/JobForm">
             <IconPen />
           </RouterLink>
         </div>

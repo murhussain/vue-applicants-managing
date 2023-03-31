@@ -20,6 +20,11 @@
             <label for="maxSalary">Maximum Salary:</label>
             <input type="text" id="maxSalary" v-model="newJob.maxSalary" />
           </div>
+          <label class="block">
+            <span class="label">Username</span>
+            <input type="text" class="input-type
+            "/>
+          </label>
           <button type="submit">Create Job</button>
         </form>
       </div>
