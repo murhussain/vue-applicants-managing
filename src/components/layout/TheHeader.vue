@@ -24,11 +24,15 @@ const deleteJob = async (id) => {
         {{ selectedJob.name }}
       </p>
       <div class="flex space-x-4 items-center">
-        <div @click="deleteJob(selectedJob.id)" class="rounded-icons">
+        <div @click="deleteJob(selectedJob.id)" class="grid place-content-center group rounded-full h-10 w-10 border border-gray 
+        dark:border-gray/60 dark:hover:border-d-white hover:bg-primary"
+        >
           <IconDelete />
         </div>
-        <div class="rounded-icons">
-          <RouterLink to="/JobForm">
+        <div class="grid place-content-center group rounded-full h-10 w-10 border border-gray 
+        dark:border-gray/60 dark:hover:border-d-white hover:bg-primary"
+        >
+          <RouterLink to="/edit-job">
             <IconPen />
           </RouterLink>
         </div>

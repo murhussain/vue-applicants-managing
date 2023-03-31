@@ -1,35 +1,43 @@
 <template>
-  <div className="flex bg-body-accent dark:bg-d-body-accent-secondary h-full rounded-lg">
-    <div class="flex-1 grid place-content-center text-gray">
-      <div>
-        <h1>Create a New Job</h1>
-        <form @submit.prevent="onSubmit">
-          <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" v-model="newJob.name" />
+  <div className="flex bg-body-accent dark:bg-d-body-accent h-full rounded-lg">
+    <div class="flex-1 grid place-content-center">
+      <div class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+        <h3 className='capitalize text-[24px] text-black dark:text-body font-semibold'>
+          Create New Job
+        </h3>
+        <form @submit.prevent="onSubmit" class="space-y-4" noValidate>
+          <div class="space-y-2">
+            <label for="name" class="block">
+              <span class="label">Job Name:</span>
+              <input type="text" required id="name" v-model="newJob.name" class="input-type"/>
+            </label>
+            <label for="code" class="block">
+              <span class="label">Job Code:</span>
+              <input type="text" required id="code" v-model="newJob.code" class="input-type"/>
+            </label>
+            <label for="initSalary" class="block">
+              <span class="label">Job Initial Salary:</span>
+              <input type="text" required id="initSalary" v-model="newJob.initSalary" class="input-type"/>
+            </label>
+            <label for="maxSalary" class="block">
+              <span class="label">Job Maximum Salary:</span>
+              <input type="text" required id="maxSalary" v-model="newJob.maxSalary" class="input-type"/>
+            </label>
           </div>
           <div>
-            <label for="code">Code:</label>
-            <input type="text" id="code" v-model="newJob.code" />
+            <button
+              className="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-[8px]
+              text-white font-bold text-lg text-center"
+              type="submit"
+            >
+              Create
+            </button>
           </div>
-          <div>
-            <label for="initSalary">Initial Salary:</label>
-            <input type="text" id="initSalary" v-model="newJob.initSalary" />
-          </div>
-          <div>
-            <label for="maxSalary">Maximum Salary:</label>
-            <input type="text" id="maxSalary" v-model="newJob.maxSalary" />
-          </div>
-          <label class="block">
-            <span class="label">Username</span>
-            <input type="text" class="input-type
-            "/>
-          </label>
-          <button type="submit">Create Job</button>
+          
         </form>
       </div>
     </div>
-    <div class="w-96 bg-primary rounded-r-lg">Background color</div>
+    <div class="w-96 bg-primary dark:bg-primary-dark rounded-r-lg"></div>
   </div>
 </template>
 

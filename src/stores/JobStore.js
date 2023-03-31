@@ -16,22 +16,12 @@ export const useJobStore = defineStore('job', {
       this.jobs = jobs;
     },
 
-    async updateJob(updatedJob) {
-      const response = await fetch(`http://localhost:3000/jobs/${updatedJob.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedJob),
-      });
-      const updatedJobFromServer = await response.json();
-      this.jobs = this.jobs.map(job => {
-        if (job.id === updatedJobFromServer.id) {
-          return updatedJobFromServer;
-        } else {
-          return job;
-        }
-      });
+    updateJob(id, { name, code, initSalary, maxSalary }) {
+      const job = this.jobs.find((j) => j.id === id);
+      job.name = name;
+      job.code = code;
+      job.initSalary = initSalary;
+      job.maxSalary = maxSalary;
     },
     
     async createJob(newJob) {

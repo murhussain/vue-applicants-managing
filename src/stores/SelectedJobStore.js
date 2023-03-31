@@ -6,5 +6,7 @@ export const useSelectedJobStore = defineStore({
     id: Number,
     name: String,
     code: String,
+    initSalary: Number,
+    maxSalary: Number,
   }),
 });

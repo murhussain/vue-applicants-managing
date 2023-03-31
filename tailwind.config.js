@@ -17,7 +17,7 @@ module.exports = {
         'third': '#48D1D0',
         'third-accent': '#b6edec', 
         'body': '#FFFFFF',
-        'body-accent': '#f9f9fb',
+        'body-accent': '#f7f8f8',
         'body-accent-secondary': '#F0F2F5',
         'black': '#0c0d18',
         'black-accent': '#989898',

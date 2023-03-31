@@ -1,32 +1,11 @@
 {
   "jobs": [
     {
-      "id": 1,
-      "name": "Manager",
-      "code": "MNG",
-      "initSalary": "2000$",
-      "maxSalary": null
-    },
-    {
       "id": 2,
       "name": "UI/UX Designer",
       "code": "UIUX",
       "initSalary": "3500$",
       "maxSalary": null
-    },
-    {
-      "id": 3,
-      "name": "Frontend Developer",
-      "code": "FRONT",
-      "initSalary": "3500$",
-      "maxSalary": "5000$"
-    },
-    {
-      "id": 4,
-      "name": "Backend Developer",
-      "code": "BACK",
-      "initSalary": "4000$",
-      "maxSalary": "5000$"
     },
     {
       "id": 5,
@@ -62,16 +41,99 @@
       "initSalary": "33",
       "maxSalary": "3434",
       "id": 9
+    },
+    {
+      "name": "ewew",
+      "code": "wewwewe",
+      "initSalary": "33",
+      "maxSalary": "4454",
+      "id": 12
     }
   ],
   "applicants": [
     {
       "id": 1,
-      "name": "Mur"
+      "name": "Irene Sacchi",
+      "jobCode": "UIUX",
+      "position": "Software Engineer",
+      "image": "",
+      "skills": [
+        {"name": ".Net"},
+        {"name": "Vue.js"}
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
     },
     {
       "id": 2,
-      "name": "Hussein"
+      "name": "Lorenzo Sacchi",
+      "jobCode": "DEVOPS",
+      "position": "Software Engineer",
+      "image": "",
+      "skills": [
+        {"name": ".Net"},
+        {"name": "Vue.js"}
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 3,
+      "name": "Lorenzo Sacchi",
+      "jobCode": "UIUX",
+      "position": "Software Engineer",
+      "image": "",
+      "skills": [
+        {"name": ".Net"},
+        {"name": "Vue.js"}
+      ],
+      "isNew": true,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 4,
+      "name": "Lorenzo Sacchi",
+      "jobCode": "BA",
+      "position": "Software Engineer",
+      "image": "",
+      "skills": [
+        {"name": ".Net"},
+        {"name": "Vue.js"}
+      ],
+      "isNew": true,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 5,
+      "name": "Lorenzo Sacchi",
+      "jobCode": "BACK",
+      "position": "Software Engineer",
+      "image": "",
+      "skills": [
+        {"name": ".Net"},
+        {"name": "Vue.js"}
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 6,
+      "name": "Lorenzo Sacchi",
+      "jobCode": "UIUX",
+      "position": "Software Engineer",
+      "image": "",
+      "skills": [
+        {"name": ".Net"},
+        {"name": "Vue.js"}
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
     }
   ]
 }

@@ -48,6 +48,8 @@ watch(activeJobId, (newVal) => {
     selectedJobStore.id = selectedJob.id;
     selectedJobStore.name = selectedJob.name;
     selectedJobStore.code = selectedJob.code;
+    selectedJobStore.initSalary = selectedJob.initSalary;
+    selectedJobStore.maxSalary = selectedJob.maxSalary;
   }
 });
 
