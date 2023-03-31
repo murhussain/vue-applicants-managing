@@ -15,7 +15,7 @@ import TheHeader from './TheHeader.vue';
       <TheHeader />
 
       <!-- Page Content -->
-      <section className="px-12 py-8  flex-1 overflow-x-hidden overflow-y-auto scrollbar-hide">
+      <section className="px-12 py-8  flex-1 overflow-x-hidden scrollbar-hide">
         <!-- All the pages will render here....... -->
         <slot></slot>
       </section>

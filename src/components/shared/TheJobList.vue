@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-2 h-[37rem] overflow-y-auto">
+  <div class="space-y-2 h-[37rem] overflow-y-auto scrollbar-hide">
     <div 
       v-for="job in jobs" :key="job.id" 
       :class="[
