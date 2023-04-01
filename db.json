@@ -36,13 +36,6 @@
       "maxSalary": null
     },
     {
-      "name": "eeee",
-      "code": "eeee",
-      "initSalary": "33",
-      "maxSalary": "3434",
-      "id": 9
-    },
-    {
       "name": "ewew",
       "code": "wewwewe",
       "initSalary": "33",
@@ -58,8 +51,12 @@
       "position": "Software Engineer",
       "image": "",
       "skills": [
-        {"name": ".Net"},
-        {"name": "Vue.js"}
+        {
+          "name": ".Net"
+        },
+        {
+          "name": "Vue.js"
+        }
       ],
       "isNew": true,
       "isShortlisted": false,
@@ -72,8 +69,12 @@
       "position": "Software Engineer",
       "image": "",
       "skills": [
-        {"name": ".Net"},
-        {"name": "Vue.js"}
+        {
+          "name": ".Net"
+        },
+        {
+          "name": "Vue.js"
+        }
       ],
       "isNew": true,
       "isShortlisted": false,
@@ -86,8 +87,12 @@
       "position": "Software Engineer",
       "image": "",
       "skills": [
-        {"name": ".Net"},
-        {"name": "Vue.js"}
+        {
+          "name": ".Net"
+        },
+        {
+          "name": "Vue.js"
+        }
       ],
       "isNew": true,
       "isShortlisted": true,
@@ -100,8 +105,12 @@
       "position": "Software Engineer",
       "image": "",
       "skills": [
-        {"name": ".Net"},
-        {"name": "Vue.js"}
+        {
+          "name": ".Net"
+        },
+        {
+          "name": "Vue.js"
+        }
       ],
       "isNew": true,
       "isShortlisted": true,
@@ -114,8 +123,12 @@
       "position": "Software Engineer",
       "image": "",
       "skills": [
-        {"name": ".Net"},
-        {"name": "Vue.js"}
+        {
+          "name": ".Net"
+        },
+        {
+          "name": "Vue.js"
+        }
       ],
       "isNew": true,
       "isShortlisted": false,
@@ -128,8 +141,12 @@
       "position": "Software Engineer",
       "image": "",
       "skills": [
-        {"name": ".Net"},
-        {"name": "Vue.js"}
+        {
+          "name": ".Net"
+        },
+        {
+          "name": "Vue.js"
+        }
       ],
       "isNew": false,
       "isShortlisted": false,

@@ -3,12 +3,16 @@
     <div 
       v-for="job in jobs" :key="job.id" 
       :class="[
-        'cursor-pointer px-4 group py-[0.7rem]',
+        'cursor-pointer px-4 py-[0.7rem]',
         activeJobId === job.id ? 'bg-body-accent dark:bg-d-body-accent-secondary border-r-4 border-primary' : ''
       ]"
       @click="activeJobId = job.id"
     >
-      <p class="text-black dark:text-d-white capitalized group-hover:font-medium">{{ job.name }}</p>
+      <p :class="[
+        'text-black text-base dark:text-d-white capitalized',
+        activeJobId === job.id ? 'font-medium' : ''
+        ]"
+      >{{ job.name }}</p>
       <div class="flex items-center space-x-2">
         <p class="text-gray dark:text-d-white-accent">{{ job.initSalary }}</p> 
         <p class="text-gray dark:text-d-white-accent">-</p>
