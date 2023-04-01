@@ -9,7 +9,7 @@ import IconHand from '@/components/icons/IconHand.vue'
         <div class="w-10 h-10 bg-third rounded-full"></div>
         <div class="flex flex-col -space-y-1">
           <div class="text-base text-black dark:text-d-white group-hover:font-medium">Irene Sacchi</div>
-          <div class="text-sm text-gray dark:text-d-white-accent">Software Engineer</div>
+          <div class="text-sm text-black-accent dark:text-d-white-accent">Software Engineer</div>
         </div>
       </div>
       <IconHand />

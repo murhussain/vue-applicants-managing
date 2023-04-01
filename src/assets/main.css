@@ -19,7 +19,8 @@
   }
 
   .tag {
-    @apply border border-gray/40 border-gray/20 rounded-3xl px-2 py-px text-xs text-gray dark:text-d-white-accent
+    @apply border border-gray/40 group-hover:border-gray/80 dark:border-gray/20 rounded-3xl 
+    px-2 py-px text-xs text-black-accent dark:text-d-white-accent
   }
 
   .side-icons{
@@ -31,9 +32,10 @@
   }
 
   .input-type {
-    @apply outline-none mt-1 block w-full px-3 py-2 bg-[#c8cff7] dark:bg-[#454959] border-b-2 border-primary 
+    @apply outline-none mt-1 block w-full px-3 py-2 bg-body-accent-secondary dark:bg-[#454959] border-b-2 border-primary 
     rounded-md placeholder-gray  transition-all focus:border-b-4 focus:border-primary                          
   invalid:border-pink-500 invalid:text-pink-600
-  focus:invalid:border-pink-500 focus:invalid:ring-pink-500  text-[#3b4376] dark:text-d-white text-lg
+  focus:invalid:border-pink-500 focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white 
+  text-lg
   }
 }
