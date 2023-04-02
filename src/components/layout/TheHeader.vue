@@ -16,11 +16,11 @@ const deleteJob = async (id) => {
 </script>
 
 <template>
-  <header class="dark:bg-d-body-accent h-[6rem] flex flex-col justify-end space-y-2 px-12 border-b 
+  <header class="dark:bg-d-body-accent h-[6rem] flex flex-col justify-end space-y-4 px-12 border-b 
     border-gray/30 dark:border-gray/10"
   >
     <div class="flex items-center justify-between">
-      <p class="text-black dark:text-white font-medium text-2xl capitalize">
+      <p class="text-black dark:text-white font-medium text-3xl capitalize">
         {{ selectedJob.name }}
       </p>
       <div class="flex space-x-4 items-center">
@@ -44,13 +44,13 @@ const deleteJob = async (id) => {
       </div>
     </div>
     <div class="flex space-x-10">
-      <p class="relative text-black dark:text-white text-lg pb-[0.8rem]">
+      <p class="relative text-black dark:text-white text-lg">
         Kanban board
-        <span class="absolute bottom-0 left-0 bg-primary h-1/6 w-1/2"></span>
+        <span class="absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2"></span>
       </p>
-      <p class="relative text-black-accent dark:text-d-white text-lg pb-[0.8rem]">
+      <p class="relative text-black-accent dark:text-d-white text-lg">
         Job info
-        <span class="hidden hover:block absolute bottom-0 left-0 bg-primary h-1/6 w-1/2"></span>
+        <span class="hidden absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2"></span>
       </p>
     </div>
   </header>

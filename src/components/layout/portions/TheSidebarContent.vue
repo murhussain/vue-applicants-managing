@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router';
 
 <template>
   <div class="flex-1 flex flex-col justify-between h-full">
-    <div class="space-y-4">
+    <div class="space-y-[1.5rem]">
       <!-- The header section of the sidebar -->
       <div class="h-[4.4rem] flex items-center justify-between p-4 border-b border-gray/25 dark:border-gray/10">
         <p class="text-black dark:text-body font-medium text-xl">Jobs</p>
@@ -23,7 +23,6 @@ import { RouterLink } from 'vue-router';
 
       <!-- The jobs section -->
         <TheJobList />
-
     </div>
 
     <!-- Footer section otf the sidebar -->

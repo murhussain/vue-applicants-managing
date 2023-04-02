@@ -34,7 +34,7 @@ const toggleDark = useToggle(isDark);
     </div>
     <div class="mx-auto">
       <button 
-      class="flex items-center justify-center rounded-full h-[2rem] w-[2rem] bg-primary mb-4 mx-2"
+      class="flex items-center justify-center rounded-lg h-[2rem] w-[2rem] bg-primary mb-4 mx-2"
       @click="toggleDark()"
       >
         <!-- show IconLight when in light mode -->
