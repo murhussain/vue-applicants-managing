@@ -14,9 +14,9 @@
         ]"
       >{{ job.name }}</p>
       <div class="flex items-center space-x-2">
-        <p class="text-gray dark:text-d-white-accent">{{ job.initSalary }}</p> 
-        <p class="text-gray dark:text-d-white-accent">-</p>
-        <p class="text-gray dark:text-d-white-accent">{{ job.maxSalary }}</p>
+        <p class="text-black-accent dark:text-d-white-accent">{{ job.initSalary }}</p> 
+        <p class="text-black-accent dark:text-d-white-accent">-</p>
+        <p class="text-black-accent dark:text-d-white-accent">{{ job.maxSalary }}</p>
       </div>
     </div>
   </div>

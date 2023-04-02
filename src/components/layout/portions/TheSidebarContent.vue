@@ -9,12 +9,12 @@ import { RouterLink } from 'vue-router';
   <div class="flex-1 flex flex-col justify-between h-full">
     <div class="space-y-4">
       <!-- The header section of the sidebar -->
-      <div class="h-[4.7rem] flex items-center justify-between p-4 border-b border-gray/25 dark:border-gray/10">
-        <p class="text-black dark:text-body font-medium text-2xl">Jobs</p>
+      <div class="h-[4.4rem] flex items-center justify-between p-4 border-b border-gray/25 dark:border-gray/10">
+        <p class="text-black dark:text-body font-medium text-xl">Jobs</p>
         <div class="flex items-center space-x-4">
           <IconSearch />
           <RouterLink to="/add-job">
-            <div class="p-1 bg-primary flex items-center rounded-xl justify-center">
+            <div class="h-[2rem] w-[2rem] bg-primary flex items-center rounded-lg justify-center">
               <IconPlus />
             </div>
           </RouterLink>

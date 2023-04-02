@@ -6,7 +6,7 @@
 @layer components {
 
   .primary-button-rounded {
-    @apply flex items-center space-x-2 px-[1.2rem] py-2 font-medium rounded-[1.6rem] shadow-sm text-body 
+    @apply flex items-center space-x-2 px-[1.2rem] py-[0.3rem] font-medium rounded-[1.6rem] shadow-sm text-body 
     bg-primary hover:bg-primary-dark
   }
 

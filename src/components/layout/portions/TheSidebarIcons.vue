@@ -32,18 +32,20 @@ const toggleDark = useToggle(isDark);
         <IconPower />
       </div>
     </div>
-    <button 
-      class="flex items-center justify-center rounded-full h-10 w-10 bg-primary mb-4 mx-2"
+    <div class="mx-auto">
+      <button 
+      class="flex items-center justify-center rounded-full h-[2rem] w-[2rem] bg-primary mb-4 mx-2"
       @click="toggleDark()"
-    >
-      <!-- show IconLight when in light mode -->
-      <template v-if="!isDark">
-        <IconLight />
-      </template>
-      <!-- show IconDark when in dark mode -->
-      <template v-else>
-        <IconDark />
-      </template>
-    </button>
+      >
+        <!-- show IconLight when in light mode -->
+        <template v-if="!isDark">
+          <IconLight />
+        </template>
+        <!-- show IconDark when in dark mode -->
+        <template v-else>
+          <IconDark />
+        </template>
+      </button>
+    </div>
   </div>
 </template>
