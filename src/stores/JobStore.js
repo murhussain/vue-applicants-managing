@@ -6,13 +6,9 @@ export const useJobStore = defineStore('job', {
   }),
 
   actions: {
-    async fetchJobs() {
+    async fetchAndSetJobs() {
       const response = await fetch('http://localhost:3000/jobs');
       const jobs = await response.json();
-      return jobs;
-    },
-
-    updateJobs(jobs) {
       this.jobs = jobs;
     },
 

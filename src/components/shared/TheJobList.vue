@@ -36,8 +36,7 @@ const jobs = computed(() => {
 });
 
 onMounted(async () => {
-  const fetchedJobs = await jobStore.fetchJobs();
-  jobStore.updateJobs(fetchedJobs);
+  await jobStore.fetchAndSetJobs();
 
   // Checking if no current selected job and make the first to be selected
   if (!activeJobId.value && jobs.value.length > 0) {
