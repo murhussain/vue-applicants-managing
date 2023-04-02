@@ -24,6 +24,22 @@ export const useApplicantsStore = defineStore('applicant', {
 
     interviewedApplicants(state) {
       return state.applicants.filter(applicant => applicant.isInterviewed)
+    },
+
+    totalApplicants(state) {
+      return state.applicants.length
+    }, 
+
+    totalNewApplicants(state) { 
+      return state.applicants.filter(applicant => applicant.isNew).length 
+    },
+
+    totalShortlistedApplicants(state) { 
+      return state.applicants.filter(applicant => applicant.isShortlisted).length 
+    },
+
+    totalInterviewedApplicants(state) { 
+      return state.applicants.filter(applicant => applicant.isInterviewed).length 
     }
   }
 });

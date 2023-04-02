@@ -8,7 +8,7 @@
         <p class="text-white text-xl font-medium" v-if="title">{{ title }}</p>
       </div>
     </div>
-    <p :class="statColor" class="text-sm font-medium mr-4">{{ completedTasks }}/{{totalTasks}}</p>
+    <p :class="statColor" class="text-sm font-medium mr-4">{{ applicantsCategory }}/{{totalApplicants}}</p>
   </div>
 </template>
 
@@ -20,11 +20,11 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  completedTasks: {
+  applicantsCategory: {
     type: Number,
     required: true,
   },
-  totalTasks: {
+  totalApplicants: {
     type: Number,
     required: true,
   },
@@ -43,6 +43,6 @@ const props = defineProps({
 });
 
 const completedPercentage = computed(() => {
-  return `${(props.completedTasks / props.totalTasks) * 100}%`;
+  return `${(props.applicantsCategory / props.totalApplicants) * 100}%`;
 });
 </script>

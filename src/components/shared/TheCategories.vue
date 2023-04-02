@@ -3,8 +3,13 @@
 
     <div class="space-y-4">
       <!-- The category header of New Applicants -->
-      <CategoryCard title="New" :completedTasks="3" totalTasks="5" bgColor="bg-[#c8cff7] dark:bg-[#363C5D]" 
-        levelColor="bg-primary" statColor="text-primary"
+      <CategoryCard 
+        title="New" 
+        :applicantsCategory="tNew" 
+        :totalApplicants="tApplicants" 
+        bgColor="bg-[#c8cff7] dark:bg-[#363C5D]" 
+        levelColor="bg-primary" 
+        statColor="text-primary"
       >
         <template #icon>
           <IconStar />
@@ -25,8 +30,13 @@
 
     <div class="space-y-4">
       <!-- The category header of Shortlisted Applicants -->
-      <CategoryCard title="Shortlisted" :completedTasks="5" totalTasks="10" bgColor="bg-secondary-accent 
-        dark:bg-[#603920]" levelColor="bg-secondary" statColor="text-secondary"
+      <CategoryCard 
+        title="Shortlisted" 
+        :applicantsCategory="tShortlisted" 
+        :totalApplicants="tApplicants" 
+        bgColor="bg-secondary-accent dark:bg-[#603920]" 
+        levelColor="bg-secondary" 
+        statColor="text-secondary"
       >
         <template #icon>
           <IconCheck />
@@ -47,8 +57,13 @@
 
     <div class="space-y-4">
       <!-- The category header of Interviewed Applicants -->
-      <CategoryCard title="Interviewed" :completedTasks="7" totalTasks="10" bgColor="bg-third-accent 
-        dark:bg-[#295255]" levelColor="bg-third" statColor="text-third"
+      <CategoryCard 
+        title="Interviewed" 
+        :applicantsCategory="tInterviewed" 
+        :totalApplicants="tApplicants" 
+        bgColor="bg-third-accent dark:bg-[#295255]" 
+        levelColor="bg-third" 
+        statColor="text-third"
       >
         <template #icon>
           <IconUserTick />
@@ -83,6 +98,10 @@ const applicantsStore = useApplicantsStore();
 const newApplicants = computed(() => applicantsStore.newApplicants);
 const shortlistedApplicants = computed(() => applicantsStore.shortlistedApplicants);
 const interviewedApplicants = computed(() => applicantsStore.interviewedApplicants);
+const tApplicants = computed(() => applicantsStore.totalApplicants);
+const tNew = computed(() => applicantsStore.totalNewApplicants);
+const tShortlisted = computed(() => applicantsStore.totalShortlistedApplicants);
+const tInterviewed = computed(() => applicantsStore.totalInterviewedApplicants);
 
 onMounted(async () => {
   await applicantsStore.fetchAndSetApplicants();
