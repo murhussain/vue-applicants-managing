@@ -1,5 +1,11 @@
 <script setup>
 import IconHand from '@/components/icons/IconHand.vue'
+
+defineProps({
+  name: String,
+  position: String,
+  skills: Array,
+});
 </script>
 
 <template>
@@ -8,17 +14,14 @@ import IconHand from '@/components/icons/IconHand.vue'
       <div class="flex items-center space-x-2">
         <div class="w-10 h-10 bg-third rounded-full"></div>
         <div class="flex flex-col -space-y-1">
-          <div class="text-base text-black dark:text-d-white group-hover:font-medium">Irene Sacchi</div>
-          <div class="text-sm text-black-accent dark:text-d-white-accent">Software Engineer</div>
+          <div class="text-base text-black dark:text-d-white group-hover:font-medium">{{name}}</div>
+          <div class="text-sm text-black-accent dark:text-d-white-accent">{{position}}</div>
         </div>
       </div>
       <IconHand />
     </div>
     <div class="flex gap-2 flex-wrap">
-      <div class="tag">Java</div>
-      <div class="tag">.Net</div>
-      <div class="tag">CSS</div>
-      <div class="tag">Cross platform</div>
+      <div v-for="(skill, index) in skills" :key="index" class="tag">{{ skill.name }}</div>
     </div>
   </div>
 </template>

@@ -11,5 +11,19 @@ export const useApplicantsStore = defineStore('applicant', {
       const applicants = await response.json();
       this.applicants = applicants;
     }
+  },
+
+  getters: {
+    newApplicants(state) {
+      return state.applicants.filter(applicant => applicant.isNew)
+    },
+
+    shortlistedApplicants(state) {
+      return state.applicants.filter(applicant => applicant.isShortlisted)
+    },
+
+    interviewedApplicants(state) {
+      return state.applicants.filter(applicant => applicant.isInterviewed)
+    }
   }
 });
