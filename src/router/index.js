@@ -9,13 +9,13 @@ const router = createRouter({
       component: () => import('@/views/HomeView.vue')
     },
     {
-      path: '/add-job',
-      name: 'add-job',
+      path: '/jobs/add-new',
+      name: '/jobs/add-new',
       component: () => import('@/views/AddJobView.vue')
     },
     {
-      path: '/edit-job',
-      name: 'edit-job',
+      path: '/jobs/update',
+      name: '/jobs/update',
       component: () => import('@/views/EditJobView.vue')
     }
   ]
