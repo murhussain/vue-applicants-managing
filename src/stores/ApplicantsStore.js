@@ -12,7 +12,7 @@ export const useApplicantsStore = defineStore('applicant', {
       this.applicants = applicants;
     }, 
 
-    async fetchAndSetApplicantsCategory(jobCode = "FRONT") {
+    async fetchAndSetApplicantsCategory(jobCode) {
       const response = await fetch(`http://localhost:3000/applicants?jobCode=${jobCode}`);
       const applicants = await response.json();
       this.applicants = applicants;

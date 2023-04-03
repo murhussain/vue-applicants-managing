@@ -80,6 +80,7 @@
           :skills="applicant.skills"
         />
       </div>
+      <p>Hussein: {{selectedJobCode}}</p>
     </div>
   </div>
 </template>
@@ -103,7 +104,9 @@ const tNew = computed(() => applicantsStore.totalNewApplicants);
 const tShortlisted = computed(() => applicantsStore.totalShortlistedApplicants);
 const tInterviewed = computed(() => applicantsStore.totalInterviewedApplicants);
 
+
 onMounted(async () => {
-  await applicantsStore.fetchAndSetApplicantsCategory();
+  await applicantsStore.fetchAndSetApplicantsCategory(this.selectedJobCode);
 });
+
 </script>
