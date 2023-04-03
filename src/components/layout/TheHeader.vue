@@ -33,7 +33,7 @@ const deleteJob = async (id) => {
         <div class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border border-gray 
         dark:border-gray/60 dark:hover:border-d-white hover:bg-primary"
         >
-          <RouterLink to="/edit-job">
+          <RouterLink to="/jobs/update">
             <IconPen />
           </RouterLink>
         </div>

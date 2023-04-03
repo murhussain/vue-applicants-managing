@@ -6,13 +6,13 @@ export const useApplicantsStore = defineStore('applicant', {
   }),
 
   actions: {
-    async fetchAndSetApplicants() {
-      const response = await fetch('http://localhost:3000/applicants');
+    async fetchAndSetApplicants(jobCode = "FRONT") {
+      const response = await fetch(`http://localhost:3000/applicants?jobCode=${jobCode}`);
       const applicants = await response.json();
       this.applicants = applicants;
     }
   },
-
+  
   getters: {
     newApplicants(state) {
       return state.applicants.filter(applicant => applicant.isNew)

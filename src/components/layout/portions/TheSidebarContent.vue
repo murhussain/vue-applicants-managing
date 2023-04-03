@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router';
         <p class="text-black dark:text-body font-medium text-xl">Jobs</p>
         <div class="flex items-center space-x-4">
           <IconSearch />
-          <RouterLink to="/add-job">
+          <RouterLink to="/jobs/add-new">
             <div class="h-[2rem] w-[2rem] bg-primary flex items-center rounded-lg justify-center">
               <IconPlus />
             </div>

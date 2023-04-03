@@ -24,7 +24,7 @@
   }
 
   .side-icons{
-    @apply h-[2rem] w-[2rem] text-gray dark:text-gray/60 dark:hover:text-d-white
+    @apply h-[2rem] w-[2rem] text-gray hover:text-primary dark:text-gray/60 dark:hover:text-d-white
   }
 
   .label {
