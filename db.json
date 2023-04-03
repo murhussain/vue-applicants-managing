@@ -158,6 +158,156 @@
       "isNew": false,
       "isShortlisted": false,
       "isInterviewed": true
+    },
+    {
+      "id": 7,
+      "name": "CYUBAHIRO Theotime",
+      "jobCode": "UIUX",
+      "position": "Backend Develope",
+      "image": "",
+      "skills": [
+        {
+          "name": "Laravel"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "Python Django"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 8,
+      "name": "HIRWA NDOLI Elivin",
+      "jobCode": "UIUX",
+      "position": "Backend Developer",
+      "image": "",
+      "skills": [
+        {
+          "name": "Laravel"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "Python Flask"
+        }
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
+    },
+    {
+      "id": 9,
+      "name": "SHEMA Gislain Jolivet",
+      "jobCode": "UIUX",
+      "position": "Mobile Developer",
+      "image": "",
+      "skills": [
+        {
+          "name": "Flutter"
+        },
+        {
+          "name": "React Native"
+        },
+        {
+          "name": "Kotlin"
+        }
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
+    },
+    {
+      "id": 10,
+      "name": "NDIZIHIWE Simon Pierre",
+      "jobCode": "UIUX",
+      "position": "Fullstack Developer",
+      "image": "",
+      "skills": [
+        {
+          "name": "Flutter"
+        },
+        {
+          "name": "Python Django"
+        },
+        {
+          "name": "UI/UX Designer"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 11,
+      "name": "RUKNDO Janvier",
+      "jobCode": "BACK",
+      "position": "Backend Developer",
+      "image": "",
+      "skills": [
+        {
+          "name": "Flutter"
+        },
+        {
+          "name": "Python Django"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 12,
+      "name": "MUHORAKEYE Alice",
+      "jobCode": "FRONT",
+      "position": "Fontend Developer",
+      "image": "",
+      "skills": [
+        {
+          "name": "Tailwindcss"
+        },
+        {
+          "name": "SASS"
+        },
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "Angular.js"
+        }
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
+    },
+    {
+      "id": 13,
+      "name": "KAMALIZA Sandra",
+      "jobCode": "FRONT",
+      "position": "Fontend Developer",
+      "image": "",
+      "skills": [
+        {
+          "name": "Tailwindcss"
+        },
+        {
+          "name": "SASS"
+        },
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "UI/UX"
+        }
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
     }
   ]
 }

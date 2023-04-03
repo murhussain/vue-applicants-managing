@@ -20,7 +20,7 @@ const toggleDark = useToggle(isDark);
   <div class="border-r border-gray/25 dark:border-gray/10 flex flex-col w-[4rem] justify-between h-full">
     <div class="p-4">
       <IconMenu />
-      <div class="mt-[2.5rem] flex flex-col space-y-6">
+      <div class="mt-[3.3rem] flex flex-col space-y-6">
         <RouterLink to='/'>
           <IconHome />
         </RouterLink>
