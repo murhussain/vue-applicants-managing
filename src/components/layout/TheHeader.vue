@@ -1,26 +1,3 @@
-<script setup>
-import IconPen from '../icons/IconPen.vue';
-import IconDelete from '../icons/IconDelete.vue';
-import IconUserAdd from '../icons/IconUserAdd.vue';
-import { RouterLink, useRoute } from 'vue-router';
-import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
-import { useJobStore } from "@/stores/JobStore.js";
-
-const selectedJob = useSelectedJobStore();
-const jobStore = useJobStore();
-
-const deleteJob = async (id) => {
-  await jobStore.deleteJob(id);
-};
-
-const route = useRoute();
-
-function isCurrentRoute(path) {
-  return route.path === path;
-}
-
-</script>
-
 <template>
   <header class="dark:bg-d-body-accent h-[6rem] flex flex-col justify-end space-y-4 px-12 border-b 
     border-gray/30 dark:border-gray/10"
@@ -63,3 +40,27 @@ function isCurrentRoute(path) {
     </div>
   </header>
 </template>
+
+
+<script setup>
+import IconPen from '../icons/IconPen.vue';
+import IconDelete from '../icons/IconDelete.vue';
+import IconUserAdd from '../icons/IconUserAdd.vue';
+import { RouterLink, useRoute } from 'vue-router';
+import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
+import { useJobStore } from "@/stores/JobStore.js";
+
+const selectedJob = useSelectedJobStore();
+const jobStore = useJobStore();
+
+const deleteJob = async (id) => {
+  await jobStore.deleteJob(id);
+};
+
+const route = useRoute();
+
+function isCurrentRoute(path) {
+  return route.path === path;
+}
+
+</script>
