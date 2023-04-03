@@ -2,7 +2,7 @@
 import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
 import IconUserAdd from '../icons/IconUserAdd.vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { useJobStore } from "@/stores/JobStore.js";
 
@@ -12,6 +12,12 @@ const jobStore = useJobStore();
 const deleteJob = async (id) => {
   await jobStore.deleteJob(id);
 };
+
+const route = useRoute();
+
+function isCurrentRoute(path) {
+  return route.path === path;
+}
 
 </script>
 
@@ -30,11 +36,13 @@ const deleteJob = async (id) => {
         >
           <IconDelete />
         </div>
-        <div class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border border-gray 
+        <div 
+          class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border border-gray 
         dark:border-gray/60 dark:hover:border-d-white hover:bg-primary"
+          :class="{'bg-primary border-none': isCurrentRoute('/jobs/update') }"
         >
           <RouterLink to="/jobs/update">
-            <IconPen />
+            <IconPen :class="{'text-body dark:text-white': isCurrentRoute('/jobs/update') }"/>
           </RouterLink>
         </div>
         <div class="primary-button-rounded">

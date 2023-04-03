@@ -1,10 +1,3 @@
-<script setup>
-import IconSearch from '@/components/icons/IconSearch.vue';
-import IconPlus from '@/components/icons/IconPlus.vue';
-import TheJobList from '@/components/shared/TheJobList.vue';
-import { RouterLink } from 'vue-router';
-</script>
-
 <template>
   <div class="flex-1 flex flex-col justify-between h-full">
     <div class="space-y-[1.5rem]">
@@ -14,8 +7,12 @@ import { RouterLink } from 'vue-router';
         <div class="flex items-center space-x-4">
           <IconSearch />
           <RouterLink to="/jobs/add-new">
-            <div class="h-[2rem] w-[2rem] bg-primary flex items-center rounded-lg justify-center">
-              <IconPlus />
+            <div 
+              class="grid place-content-center group rounded-lg h-[2rem] w-[2rem] border border-gray 
+              dark:border-gray/60 dark:hover:border-d-white"
+              :class="{ 'bg-primary border-none': isCurrentRoute('/jobs/add-new') }"
+            >
+              <IconPlus :class="{ 'text-body': isCurrentRoute('/jobs/add-new') }" />
             </div>
           </RouterLink>
         </div>
@@ -33,3 +30,16 @@ import { RouterLink } from 'vue-router';
     </div>
   </div>
 </template>
+
+<script setup>
+import IconSearch from '@/components/icons/IconSearch.vue';
+import IconPlus from '@/components/icons/IconPlus.vue';
+import TheJobList from '@/components/shared/TheJobList.vue';
+import { RouterLink, useRoute } from 'vue-router';
+
+const route = useRoute();
+
+function isCurrentRoute(path) {
+  return route.path === path;
+}
+</script>
