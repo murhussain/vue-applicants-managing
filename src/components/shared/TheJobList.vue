@@ -3,7 +3,7 @@
     <div 
       v-for="job in jobs" :key="job.id" 
       class="cursor-pointer group px-4 py-[0.7rem]"
-      :class="{'bg-body-accent dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
+      :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
       @click="activeJobId = job.id"
     >
       <RouterLink :to="'/jobs/applicants/' + job.code">  

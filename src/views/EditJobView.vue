@@ -25,11 +25,11 @@
 
 
 <template>
-  <div class="flex bg-body-accent dark:bg-d-body-accent h-full rounded-lg">
+  <div class="flex bg-body dark:bg-d-body-accent h-full rounded-lg">
     <div class="flex-1 grid place-content-center">
-      <div class="w-[27rem] px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg flex flex-col items-center space-y-4">
-        <h3 class="capitalize text-24px text-black dark:text-body font-semibold">
-          Update This Job
+      <div class="w-96 px-4 py-8 bg-[#f1f3fd] dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+        <h3 className='capitalize text-[24px] text-black dark:text-body font-semibold'>
+          Update The Job
         </h3>
         <form @submit.prevent="onSubmit" class="space-y-4">
           <div class="space-y-2">
@@ -52,14 +52,13 @@
           </div>
           <div>
             <button
-              class="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-8px text-white font-bold text-lg text-center"
+              class="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-lg text-white font-bold text-lg text-center"
               type="submit"
             >
               Update
             </button>
           </div>
         </form>
-        <RouterLink to="/" class="mt-4 underline text-primary hover:text-primary-dark">Go back to home page</RouterLink>
       </div>
     </div>
     <div class="w-96 bg-primary dark:bg-primary-dark rounded-r-lg"></div>

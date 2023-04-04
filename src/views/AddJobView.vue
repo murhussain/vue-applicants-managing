@@ -1,7 +1,7 @@
 <template>
-  <div className="flex bg-body-accent dark:bg-d-body-accent h-full rounded-lg">
+  <div className="flex bg-body dark:bg-d-body-accent h-full rounded-lg">
     <div class="flex-1 grid place-content-center">
-      <div class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+      <div class="w-96 px-4 py-8 bg-[#f1f3fd] dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
         <h3 className='capitalize text-[24px] text-black dark:text-body font-semibold'>
           Create New Job
         </h3>

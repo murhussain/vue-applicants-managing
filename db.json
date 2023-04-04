@@ -41,6 +41,13 @@
       "initSalary": "232",
       "maxSalary": "2334",
       "id": 9
+    },
+    {
+      "name": "Mobile Developer",
+      "code": "MAD",
+      "initSalary": "2300",
+      "maxSalary": "4555",
+      "id": 10
     }
   ],
   "applicants": [
