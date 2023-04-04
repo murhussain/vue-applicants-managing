@@ -25,6 +25,11 @@
           :position="applicant.position"
           :skills="applicant.skills"
         />
+        <p class="text-center text-black dark:text-d-white-accent" 
+          v-show="!hasNewApplicants"
+        >
+          No new applicants for this job
+        </p>
       </div>
     </div>
 
@@ -52,6 +57,11 @@
           :position="applicant.position"
           :skills="applicant.skills"
         />
+        <p class="text-center text-black dark:text-d-white-accent" 
+          v-show="!hasShortlistedApplicants"
+        >
+          No shortlisted applicants for this job
+        </p>
       </div>
     </div>
 
@@ -79,7 +89,11 @@
           :position="applicant.position"
           :skills="applicant.skills"
         />
-        <p class="text-center" v-show="!hasInterviewedApplicants">Nothing tho show here</p>
+        <p class="text-center text-black dark:text-d-white-accent" 
+          v-show="!hasInterviewedApplicants"
+        >
+          No interviewed applicants for this job
+        </p>
       </div>
     </div>
   </div>
@@ -96,30 +110,22 @@ import { computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router'
 
 const applicantsStore = useApplicantsStore();
-const newApplicants = computed(() => applicantsStore.newApplicants);
-const shortlistedApplicants = computed(() => applicantsStore.shortlistedApplicants);
-const interviewedApplicants = computed(() => applicantsStore.interviewedApplicants);
 const tApplicants = computed(() => applicantsStore.totalApplicants);
+const newApplicants = computed(() => applicantsStore.newApplicants);
 const tNew = computed(() => applicantsStore.totalNewApplicants);
+const shortlistedApplicants = computed(() => applicantsStore.shortlistedApplicants);
 const tShortlisted = computed(() => applicantsStore.totalShortlistedApplicants);
+const interviewedApplicants = computed(() => applicantsStore.interviewedApplicants);
 const tInterviewed = computed(() => applicantsStore.totalInterviewedApplicants);
 const route = useRoute();
 
 // Checking the presence of applicants in each category
-const hasNewApplicants = computed(() => {
-  return newApplicants.value.length > 0;
-});
-const hasInterviewedApplicants = computed(() => {
-  return interviewedApplicants.value.length > 0;
-});
-const hasShortlistedApplicants = computed(() => {
-  return shortlistedApplicants.value.length > 0;
-});
+const hasNewApplicants = computed(() => { return newApplicants.value.length > 0; });
+const hasInterviewedApplicants = computed(() => { return interviewedApplicants.value.length > 0; });
+const hasShortlistedApplicants = computed(() => { return shortlistedApplicants.value.length > 0; });
 
 // Getting the selected job code and save it in variable
-const selectedJobCode = computed(() => {
-  return route.params.code;
-});
+const selectedJobCode = computed(() => {return route.params.code;});
 
 onMounted(async () => {
   // Fetch the applicants based on the selected job code
@@ -130,5 +136,4 @@ onMounted(async () => {
 watch(selectedJobCode, async (newCode) => {
   await applicantsStore.fetchAndSetApplicantsCategory(newCode);
 });
-
 </script>
