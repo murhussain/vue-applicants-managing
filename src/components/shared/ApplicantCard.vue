@@ -1,5 +1,5 @@
 <template>
-  <div class="applicant-card group">
+  <div class="applicant-card hover:translate-x-6 hover:translate-y-4 hover:shadow-2xl hover:z-90 group">
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
         <img :src="`https://i.pravatar.cc/50?u=${email}`" alt="" 
