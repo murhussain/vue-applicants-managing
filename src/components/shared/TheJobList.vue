@@ -2,22 +2,20 @@
   <div class="space-y-2 h-[37rem] overflow-y-auto scrollbar-hide">
     <div 
       v-for="job in jobs" :key="job.id" 
-      :class="[
-        'cursor-pointer group px-4 py-[0.7rem]',
-        activeJobId === job.id ? 'bg-body-accent dark:bg-d-body-accent-secondary border-r-4 border-primary' : ''
-      ]"
+      class="cursor-pointer group px-4 py-[0.7rem]"
+      :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
       @click="activeJobId = job.id"
     >
-      <p :class="[
-        'text-black group-hover:font-medium text-base dark:text-d-white capitalized',
-        activeJobId === job.id ? 'font-medium' : ''
-        ]"
-      >{{ job.name }}</p>
-      <div class="flex items-center space-x-2">
-        <p class="text-black-accent dark:text-d-white-accent">{{ job.initSalary }}</p> 
-        <p class="text-black-accent dark:text-d-white-accent">-</p>
-        <p class="text-black-accent dark:text-d-white-accent">{{ job.maxSalary }}</p>
-      </div>
+      <RouterLink :to="'/jobs/applicants/' + job.code">  
+        <p class="text-black group-hover:font-medium text-base dark:text-d-white capitalized"
+          :class="{'font-medium': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
+        >{{ job.name }}</p>
+        <div class="flex items-center space-x-2">
+          <p class="text-black-accent dark:text-d-white-accent">{{ job.initSalary }}$</p> 
+          <p v-show="job.maxSalary" class="text-black-accent dark:text-d-white-accent">-</p>
+          <p v-show="job.maxSalary" class="text-black-accent dark:text-d-white-accent">{{ job.maxSalary }}$</p>
+        </div>
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -26,6 +24,7 @@
 import { useJobStore } from '@/stores/JobStore.js';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { ref, onMounted, watch, computed } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
 
 const jobStore = useJobStore();
 const selectedJobStore = useSelectedJobStore();
@@ -37,11 +36,6 @@ const jobs = computed(() => {
 
 onMounted(async () => {
   await jobStore.fetchAndSetJobs();
-
-  // Checking if no current selected job and make the first to be selected
-  if (!activeJobId.value && jobs.value.length > 0) {
-    activeJobId.value = jobs.value[0].id;
-  }
 });
 
 // Changing the selectedJobStore on selected job
@@ -56,4 +50,10 @@ watch(activeJobId, (newVal) => {
   }
 });
 
+// The job of the current path
+const route = useRoute();
+
+function isCurrentRoute(path) {
+  return route.path === path;
+}
 </script>

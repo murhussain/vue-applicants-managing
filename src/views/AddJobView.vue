@@ -1,8 +1,8 @@
 <template>
-  <div className="flex bg-body-accent dark:bg-d-body-accent h-full rounded-lg">
+  <div className="flex bg-body dark:bg-d-body-accent h-full rounded-lg">
     <div class="flex-1 grid place-content-center">
-      <div class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
-        <h3 className='capitalize text-[24px] text-black dark:text-body font-semibold'>
+      <div class="w-96 px-4 py-8 bg-[#f1f3fd] dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+        <h3 className='capitalize text-[24px] text-black dark:text-body font-medium'>
           Create New Job
         </h3>
         <form @submit.prevent="onSubmit" class="space-y-4" noValidate>
@@ -26,7 +26,7 @@
           </div>
           <div>
             <button
-              className="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-[8px]
+              className="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-md
               text-white font-bold text-lg text-center"
               type="submit"
             >

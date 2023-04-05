@@ -4,7 +4,7 @@ export const useSelectedJobStore = defineStore({
   id: 'selectedJob',
   state: () => ({
     id: Number,
-    name: String,
+    name: 'E-employment',
     code: String,
     initSalary: Number,
     maxSalary: Number,

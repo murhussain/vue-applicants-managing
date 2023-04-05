@@ -1,13 +1,3 @@
-<script setup>
-import IconHand from '@/components/icons/IconHand.vue'
-
-defineProps({
-  name: String,
-  position: String,
-  skills: Array,
-});
-</script>
-
 <template>
   <div class="applicant-card group">
     <div class="flex items-center justify-between">
@@ -25,3 +15,13 @@ defineProps({
     </div>
   </div>
 </template>
+
+<script setup>
+import IconHand from '@/components/icons/IconHand.vue'
+
+defineProps({
+  name: String,
+  position: String,
+  skills: Array,
+});
+</script>

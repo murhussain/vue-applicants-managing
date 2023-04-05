@@ -4,43 +4,50 @@
       "id": 2,
       "name": "UI/UX Designer",
       "code": "UIUX",
-      "initSalary": "3500$",
+      "initSalary": "3500",
       "maxSalary": null
     },
     {
       "id": 5,
       "name": "Fullstack Developer",
       "code": "FULL",
-      "initSalary": "7000$",
-      "maxSalary": "1000$"
+      "initSalary": "7000",
+      "maxSalary": "1000"
     },
     {
       "id": 6,
       "name": "DevOps Engineer",
       "code": "DEVOPS",
-      "initSalary": "4000$",
-      "maxSalary": "5000$"
+      "initSalary": "4000",
+      "maxSalary": "5000"
     },
     {
       "id": 7,
       "name": "Project Manager",
       "code": "PM",
-      "initSalary": "6000$",
-      "maxSalary": "7000$"
+      "initSalary": "6000",
+      "maxSalary": "7000"
     },
     {
       "id": 8,
       "name": "Business Analyst",
       "code": "BA",
-      "initSalary": "5000$",
+      "initSalary": "5000",
       "maxSalary": null
     },
     {
-      "name": "ewew",
-      "code": "wewwewe",
-      "initSalary": "33",
-      "maxSalary": "4454",
-      "id": 12
+      "name": "Project Manager Senior",
+      "code": "FULL",
+      "initSalary": "232",
+      "maxSalary": "2334",
+      "id": 9
+    },
+    {
+      "name": "Mobile Developer",
+      "code": "MAD",
+      "initSalary": "2300",
+      "maxSalary": "4555",
+      "id": 10
     }
   ],
   "applicants": [
