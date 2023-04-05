@@ -22,6 +22,7 @@
           v-for="(applicant, index) in newApplicants"
           :key="index"
           :name="applicant.name"
+          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
@@ -49,6 +50,7 @@
           v-for="(applicant, index) in shortlistedApplicants"
           :key="index"
           :name="applicant.name"
+          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
@@ -76,6 +78,7 @@
           v-for="(applicant, index) in interviewedApplicants"
           :key="index"
           :name="applicant.name"
+          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
