@@ -11,9 +11,9 @@
           :class="{'font-medium': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
         >{{ job.name }}</p>
         <div class="flex items-center space-x-2">
-          <p class="text-black-accent dark:text-d-white-accent">{{ job.initSalary }}</p> 
-          <p class="text-black-accent dark:text-d-white-accent">-</p>
-          <p class="text-black-accent dark:text-d-white-accent">{{ job.maxSalary }}</p>
+          <p class="text-black-accent dark:text-d-white-accent">{{ job.initSalary }}$</p> 
+          <p v-show="job.maxSalary" class="text-black-accent dark:text-d-white-accent">-</p>
+          <p v-show="job.maxSalary" class="text-black-accent dark:text-d-white-accent">{{ job.maxSalary }}$</p>
         </div>
       </RouterLink>
     </div>

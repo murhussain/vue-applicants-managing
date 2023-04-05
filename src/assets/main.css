@@ -6,7 +6,7 @@
 @layer components {
 
   .primary-button-rounded {
-    @apply flex items-center space-x-2 px-[1.2rem] py-[0.3rem] font-medium rounded-[1.6rem] shadow-sm text-body 
+    @apply flex items-center space-x-2 px-[1.2rem] py-[0.4rem] font-medium rounded-[1.6rem] shadow-sm text-body 
     bg-primary hover:bg-primary-dark
   }
 
@@ -32,10 +32,10 @@
   }
 
   .input-type {
-    @apply outline-none mt-1 block w-full px-3 py-2 bg-body-accent dark:bg-[#454959] border-b-2 border-primary 
+    @apply outline-none mt-1 block w-full px-3 py-2 bg-body dark:bg-[#454959] border-b-2 border-primary 
     rounded-md placeholder-gray  transition-all focus:border-b-4 focus:border-primary                          
-  invalid:border-pink-500 invalid:text-pink-600
-  focus:invalid:border-pink-500 focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white 
-  text-lg
+    invalid:border-pink-500 invalid:text-pink-600
+    focus:invalid:border-pink-500 focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white 
+    text-lg
   }
 }

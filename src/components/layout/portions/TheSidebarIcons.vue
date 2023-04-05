@@ -3,8 +3,8 @@
     <div class="p-4">
       <IconMenu />
       <div class="mt-[3.3rem] flex flex-col space-y-6">
-        <RouterLink to='/'>
-          <IconHome :class="{ 'text-primary-dark dark:text-primary': isCurrentRoute('/') }" />
+        <RouterLink to='/' :class="{ 'h-[2rem] w-[2rem] grid place-content-center rounded-lg bg-primary': isCurrentRoute('/') }">
+          <IconHome :class="{ 'text-body hover:text-white dark-hover:text-d-white dark:text-body h-[1.6rem] w-[1.6rem]': isCurrentRoute('/') }" />
         </RouterLink>
         <IconWallet />
         <IconUserGroup />
@@ -15,9 +15,10 @@
       </div>
     </div>
     <div class="mx-auto">
-      <button 
-      class="flex items-center justify-center rounded-lg h-[2rem] w-[2rem] bg-primary mb-4 mx-2"
-      @click="toggleDark()"
+      <div 
+      class="flex items-center justify-center rounded-lg h-[2.1rem] w-[2.1rem] bg-[#d8dadd] 
+        dark:bg-d-body-accent-secondary mb-4 mx-auto"
+        @click="toggleDark()"
       >
         <!-- show IconLight when in light mode -->
         <template v-if="!isDark">
@@ -27,7 +28,7 @@
         <template v-else>
           <IconDark />
         </template>
-      </button>
+      </div>
     </div>
   </div>
 </template>

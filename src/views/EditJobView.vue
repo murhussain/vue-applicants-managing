@@ -1,34 +1,8 @@
-<script setup>
-  import { ref } from 'vue';
-  import { RouterLink } from 'vue-router';
-  import { useJobStore } from '@/stores/JobStore.js';
-  import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
-
-  const selectedJob = useSelectedJobStore();
-  const jobStore = useJobStore();
-
-  const nameInputRef = ref(null);
-  const codeInputRef = ref(null);
-  const initSalaryInputRef = ref(null);
-  const maxSalaryInputRef = ref(null);
-
-  function onSubmit() {
-    const updatedJob = {
-      name: nameInputRef.value.value,
-      code: codeInputRef.value.value,
-      initSalary: initSalaryInputRef.value.value,
-      maxSalary: maxSalaryInputRef.value.value,
-    };
-    jobStore.updateJob(selectedJob.id, updatedJob);
-  }
-</script>
-
-
 <template>
   <div class="flex bg-body dark:bg-d-body-accent h-full rounded-lg">
     <div class="flex-1 grid place-content-center">
       <div class="w-96 px-4 py-8 bg-[#f1f3fd] dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
-        <h3 className='capitalize text-[24px] text-black dark:text-body font-semibold'>
+        <h3 className='capitalize text-[24px] text-black dark:text-body font-medium'>
           Update The Job
         </h3>
         <form @submit.prevent="onSubmit" class="space-y-4">
@@ -52,7 +26,7 @@
           </div>
           <div>
             <button
-              class="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-lg text-white font-bold text-lg text-center"
+              class="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-md text-white font-bold text-lg text-center"
               type="submit"
             >
               Update
@@ -64,3 +38,27 @@
     <div class="w-96 bg-primary dark:bg-primary-dark rounded-r-lg"></div>
   </div>
 </template>
+
+<script setup>
+  import { ref } from 'vue';
+  import { useJobStore } from '@/stores/JobStore.js';
+  import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
+
+  const selectedJob = useSelectedJobStore();
+  const jobStore = useJobStore();
+
+  const nameInputRef = ref(null);
+  const codeInputRef = ref(null);
+  const initSalaryInputRef = ref(null);
+  const maxSalaryInputRef = ref(null);
+
+  function onSubmit() {
+    const updatedJob = {
+      name: nameInputRef.value.value,
+      code: codeInputRef.value.value,
+      initSalary: initSalaryInputRef.value.value,
+      maxSalary: maxSalaryInputRef.value.value,
+    };
+    jobStore.updateJob(selectedJob.id, updatedJob);
+  }
+</script>
