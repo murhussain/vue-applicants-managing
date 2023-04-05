@@ -11,7 +11,7 @@
   }
 
   .applicant-card-list {
-    @apply p-4 bg-body-accent-secondary dark:bg-d-body-accent rounded-xl space-y-2
+    @apply p-4 bg-body-accent-secondary dark:bg-d-body-accent rounded-xl space-y-4
   }
 
   .applicant-card {
