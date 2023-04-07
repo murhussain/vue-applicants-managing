@@ -48,6 +48,13 @@
       "initSalary": "2300",
       "maxSalary": "4555",
       "id": 10
+    },
+    {
+      "name": "Testing",
+      "code": "TS",
+      "initSalary": "234",
+      "maxSalary": "300",
+      "id": 11
     }
   ],
   "applicants": [
