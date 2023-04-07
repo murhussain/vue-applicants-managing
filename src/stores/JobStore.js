@@ -2,14 +2,24 @@ import { defineStore } from 'pinia';
 
 export const useJobStore = defineStore('job', {
   state: () => ({
-    jobs: []
+    jobs: [],
+    job: null,
+    loading: false,
+    error: null
   }),
 
   actions: {
     async fetchAndSetJobs() {
-      const response = await fetch('http://localhost:3000/jobs');
-      const jobs = await response.json();
-      this.jobs = jobs;
+      this.jobs = []
+      this.loading = true
+      try {
+        this.jobs = await fetch('http://localhost:3000/jobs')
+        .then((response) => response.json())
+      } catch (error) {
+        this.error = error
+      } finally {
+        this.loading = false
+      }
     },
 
     updateJob(id, { name, code, initSalary, maxSalary }) {
