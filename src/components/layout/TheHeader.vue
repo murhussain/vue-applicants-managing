@@ -72,7 +72,7 @@
         </p>
       </RouterLink>
       <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
-        <p v-if="selectedJob" class="relative text-lg" 
+        <p v-if="selectedJob || hasUpdateInPath" class="relative text-lg" 
           :class="{'text-black font-medium dark:text-white': hasUpdateInPath }"
         >
           Update Job
