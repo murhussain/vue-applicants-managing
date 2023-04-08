@@ -23,6 +23,7 @@
             'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
             'border-danger dark:border-danger': selectedJob 
           }"
+          @click="deleteSelectedJob(selectedJob.id)"
         >
           <IconDelete 
             :class="{'text-danger dark:text-red-500': selectedJob }"
@@ -98,14 +99,14 @@ import { useJobStore } from "@/stores/JobStore.js";
 import { computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 
-const jobStore = useJobStore();
 const { selectedJob, loading, error } = storeToRefs(useSelectedJobStore());
+const { deleteJob } = useJobStore();
 
 
 const route = useRoute();
 
-const deleteJob = async (id) => {
-  await jobStore.deleteJob(id);
+async function deleteSelectedJob(id) {
+  await deleteJob(id);
 };
 
 function isCurrentRoute(path) {

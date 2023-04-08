@@ -1,6 +1,6 @@
 <template>
   <div class="grid place-content-center h-full">
-    <div class="w-96 px-4 py-12 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+    <div class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
       <h3 class="capitalize text-[24px] text-black dark:text-body font-medium">
         Update The Job
       </h3>
