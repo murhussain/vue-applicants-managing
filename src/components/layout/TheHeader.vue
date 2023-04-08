@@ -9,26 +9,40 @@
         {{selectedJob.name}}
       </p>
       <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl capitalize">
-        All Applicants
+        Admin Dashboard
       </p>
       <div class="flex space-x-4 items-center">
         <div
-          class="grid place-content-center group 
-          rounded-full h-[2rem] w-[2rem] border border-gray dark:border-gray/60 dark:hover:border-d-white 
-          hover:bg-primary"
+          class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border cursor-pointer 
+          hover:bg-danger hover:border-none"
+          :class="{ 
+            'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
+            'border-danger dark:border-danger': selectedJob 
+          }"
         >
-          <IconDelete />
+          <IconDelete 
+            :class="{'text-danger dark:text-red-500': selectedJob }"
+          />
         </div>
         <div
-          class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border border-gray 
-        dark:border-gray/60 dark:hover:border-d-white hover:bg-primary"
-          :class="{'bg-primary border-none': isCurrentRoute('/jobs/update') }"
+          class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border cursor-pointer 
+          hover:bg-primary hover:border-none"
+          :class="{
+            'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
+            'border-primary dark:border-primary': selectedJob,
+            'bg-primary border-none': isCurrentRoute('/jobs/update')
+          }"
         >
           <RouterLink to="/jobs/update">
-            <IconPen :class="{'text-body dark:text-white': isCurrentRoute('/jobs/update') }"/>
+            <IconPen 
+              :class="{
+                'text-body dark:text-white': isCurrentRoute('/jobs/update'),
+                'text-primary dark:text-primary': selectedJob 
+              }"
+            />
           </RouterLink>
         </div>
-        <div class="primary-button-rounded">
+        <div class="primary-button-rounded cursor-pointer">
           <IconUserAdd />
           <span>Invite candidate</span>
         </div>

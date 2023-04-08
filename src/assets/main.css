@@ -7,7 +7,7 @@
 
   .primary-button-rounded {
     @apply flex items-center space-x-2 px-[1.2rem] py-[0.4rem] font-medium rounded-[1.6rem] shadow-sm text-body 
-    bg-primary hover:bg-primary-dark
+    bg-primary hover:bg-primary-dark cursor-pointer
   }
 
   .applicant-card-list {
@@ -15,7 +15,7 @@
   }
 
   .applicant-card {
-    @apply p-4 bg-body dark:bg-d-body-accent-secondary space-y-4 rounded-lg
+    @apply p-4 bg-body dark:bg-d-body-accent-secondary space-y-4 rounded-lg cursor-pointer
   }
 
   .tag {
@@ -24,7 +24,8 @@
   }
 
   .side-icons{
-    @apply h-[2rem] w-[2rem] text-gray hover:text-primary dark:text-gray/60 dark:hover:text-d-white
+    @apply h-[2rem] w-[2rem] text-gray hover:text-primary dark:text-gray/60 cursor-pointer 
+    dark:hover:text-d-white
   }
 
   .label {

@@ -15,7 +15,12 @@ export const useJobStore = defineStore('job', {
       this.loading = true
       try {
         this.jobs = await fetch('http://localhost:3000/jobs')
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
       } catch (error) {
         this.error = error
       } finally {
@@ -29,7 +34,12 @@ export const useJobStore = defineStore('job', {
       this.loading = true
       try {
         this.job = await fetch(`http://localhost:3000/jobs/${id}`)
-        .then((response) => response.json())
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
       } catch (error) {
         this.error = error
       } finally {
