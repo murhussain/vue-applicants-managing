@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
         <img :src="`https://i.pravatar.cc/50?u=${email}`" alt="" 
-          class="w-[2.8rem] h-[2.8rem] rounded-full ring-2 ring-primary dark:ring-primary-dark"
+          class="w-[2.8rem] h-[2.8rem] rounded-full ring-2 border-[2px] dark:border-d-body-accent-secondary border-body ring-primary dark:ring-primary-dark"
         >
         <div class="flex flex-col -space-y-1">
           <div class="text-base text-black dark:text-d-white group-hover:font-medium">{{name}}</div>
