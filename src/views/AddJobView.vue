@@ -1,10 +1,10 @@
 <template>
   <div className="grid place-content-center  h-full">
-    <div class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+    <div class="w-96 px-4 py-12 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
       <h3 className='capitalize text-[24px] text-black dark:text-body font-medium'>
         Create New Job
       </h3>
-      <form @submit.prevent="onSubmit" class="space-y-4" noValidate>
+      <form @submit.prevent="onSubmit" class="space-y-5" noValidate>
         <div class="space-y-2">
           <label for="name" class="block">
             <span class="label">Job Name:</span>
@@ -32,7 +32,6 @@
             Create
           </button>
         </div>
-        
       </form>
     </div>
   </div>

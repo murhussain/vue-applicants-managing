@@ -5,10 +5,14 @@
     <div class="flex items-center justify-between">
       <p v-if="loading" class="dark:text-body">Loading job...</p>
       <p v-if="error" class="dark:text-body">{{ error.message }}</p>
-      <p v-if="selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl capitalize">
+      <p v-if="selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl 
+        capitalize"
+      >
         {{selectedJob.name}}
       </p>
-      <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl capitalize">
+      <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl 
+        capitalize"
+      >
         Admin Dashboard
       </p>
       <div class="flex space-x-4 items-center">
