@@ -82,34 +82,25 @@ export const useJobStore = defineStore('job', {
       }
     },
 
-    updateJob(id, { name, code, initSalary, maxSalary }) {
-      const job = this.jobs.find((j) => j.id === id);
-      job.name = name;
-      job.code = code;
-      job.initSalary = initSalary;
-      job.maxSalary = maxSalary;
-    },
-
     // Updating an existing job
-    // async updateJob(updatedJob) {
-    //   this.loading = true
-    //   try {
-    //     const response = await fetch(`http://localhost:3000/jobs/${updatedJob.id}`, {
-    //       method: 'PUT',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(updatedJob)
-    //     })
-    //     const updatedJob = await response.json()
-    //     this.jobs = this.jobs.map((job) => job.id === updatedJob.id ? updatedJob : job)
-    //   } catch (error) {
-    //     this.error = error
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // },
-
+    async updateJob(updatedJob) {
+      this.loading = true
+      try {
+        const response = await fetch(`http://localhost:3000/jobs/${updatedJob.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(updatedJob)
+        })
+        const updatedJob = await response.json()
+        this.jobs = this.jobs.map((job) => job.id === updatedJob.id ? updatedJob : job)
+      } catch (error) {
+        this.error = error
+      } finally {
+        this.loading = false
+      }
+    },
   },
 
 });

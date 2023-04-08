@@ -24,24 +24,24 @@
             :class="{'text-danger dark:text-red-500': selectedJob }"
           />
         </div>
-        <div
-          class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border cursor-pointer 
-          hover:bg-primary hover:border-none"
-          :class="{
-            'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
-            'border-primary dark:border-primary': selectedJob,
-            'bg-primary border-none': isCurrentRoute('/jobs/update')
-          }"
-        >
-          <RouterLink to="/jobs/update">
+        <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
+          <div
+            class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border cursor-pointer 
+            hover:bg-primary hover:border-none"
+            :class="{
+              'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
+              'border-primary dark:border-primary': selectedJob,
+              'bg-primary border-none': hasUpdateInPath
+            }"
+          >
             <IconPen 
               :class="{
-                'text-body dark:text-white': isCurrentRoute('/jobs/update'),
+                'text-body dark:text-white': hasUpdateInPath,
                 'text-primary dark:text-primary': selectedJob 
               }"
             />
-          </RouterLink>
-        </div>
+          </div>
+        </RouterLink>
         <div class="primary-button-rounded cursor-pointer">
           <IconUserAdd />
           <span>Invite candidate</span>
@@ -71,12 +71,12 @@
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
         </p>
       </RouterLink>
-      <RouterLink to="/jobs/update">
+      <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
         <p v-if="selectedJob" class="relative text-lg" 
-          :class="{'text-black font-medium dark:text-white': isCurrentRoute('/jobs/update') }"
+          :class="{'text-black font-medium dark:text-white': hasUpdateInPath }"
         >
           Update Job
-          <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/jobs/update') }"></span>
+          <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasUpdateInPath }"></span>
         </p>
       </RouterLink>
     </div>
@@ -112,11 +112,9 @@ const hasApplicantsInPath = computed(() => {
   return /^\/jobs\/applicants\/.+/.test(route.path);
 });
 
-// const classes = computed(() => {
-//   return {
-//     'text-black font-medium dark:text-white': hasApplicantsInPath.value,
-//   };
-// });
+const hasUpdateInPath = computed(() => {
+  return /^\/jobs\/update\/.+/.test(route.path);
+});
 
 // Clear selected job when navigating away from the job applicants page
 watch(hasApplicantsInPath, (hasApplicants) => {
