@@ -95,6 +95,9 @@ export const useJobStore = defineStore('job', {
         });
         const job = await response.json();
         this.job = job;
+
+        // Fetch all jobs to update the local store
+        await this.fetchAndSetJobs();
       } catch (error) {
         this.error = error;
       } finally {

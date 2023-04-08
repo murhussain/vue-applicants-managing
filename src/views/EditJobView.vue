@@ -41,15 +41,21 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useJobStore } from '@/stores/JobStore.js';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { computed, onMounted } from 'vue';
 
 const { job, loading } = storeToRefs(useJobStore());
-const { fetchAndSetJob, updateJob } = useJobStore();
+const { fetchAndSetJob, updateJobById } = useJobStore();
 const route = useRoute();
+const router = useRouter();
 const jobId = computed(() => route.params.jobId);
 
 onMounted(async () => {
   await fetchAndSetJob(jobId.value);
 });
+
+async function onSubmit() {
+  await updateJobById(jobId.value, job.value);
+  router.push('/');
+}
 </script>
