@@ -24,18 +24,18 @@ export const useJobStore = defineStore('job', {
     },
 
     // Fetching an individual job based on provided id
-    // async fetchAndSetJob(id) {
-    //   this.job = null
-    //   this.loading = true
-    //   try {
-    //     this.job = await fetch(`http://localhost:3000/jobs/${id}`)
-    //     .then((response) => response.json())
-    //   } catch (error) {
-    //     this.error = error
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // },
+    async fetchAndSetJob(id) {
+      this.job = null
+      this.loading = true
+      try {
+        this.job = await fetch(`http://localhost:3000/jobs/${id}`)
+        .then((response) => response.json())
+      } catch (error) {
+        this.error = error
+      } finally {
+        this.loading = false
+      }
+    },
 
     // Creating a new job in the list
     async createJob(newJob) { 

@@ -43,7 +43,9 @@
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/') }"></span>
         </p>
       </RouterLink>
-      <p class="relative text-lg" :class="classes">
+      <p class="relative text-lg" 
+        :class="{'text-black font-medium dark:text-white': hasApplicantsInPath}"
+      >
         Job Applicants
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
@@ -56,7 +58,7 @@
         </p>
       </RouterLink>
       <RouterLink to="/jobs/update">
-        <p class="relative text-lg" 
+        <p v-if="selectedJob" class="relative text-lg" 
           :class="{'text-black font-medium dark:text-white': isCurrentRoute('/jobs/update') }"
         >
           Update Job
@@ -75,7 +77,7 @@ import IconUserAdd from '../icons/IconUserAdd.vue';
 import { RouterLink, useRoute } from 'vue-router';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { useJobStore } from "@/stores/JobStore.js";
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 
 const jobStore = useJobStore();
@@ -96,9 +98,18 @@ const hasApplicantsInPath = computed(() => {
   return /^\/jobs\/applicants\/.+/.test(route.path);
 });
 
-const classes = computed(() => {
-  return {
-    'text-black font-medium dark:text-white': hasApplicantsInPath.value,
-  };
+// const classes = computed(() => {
+//   return {
+//     'text-black font-medium dark:text-white': hasApplicantsInPath.value,
+//   };
+// });
+
+// Clear selected job when navigating away from the job applicants page
+watch(hasApplicantsInPath, (hasApplicants) => {
+  if (!hasApplicants) {
+    useSelectedJobStore().job = null;
+  }
 });
+
+
 </script>
