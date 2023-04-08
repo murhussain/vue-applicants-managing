@@ -2,20 +2,37 @@ import { defineStore } from 'pinia';
 
 export const useApplicantsStore = defineStore('applicant', {
   state: () => ({
-    applicants: []
+    applicants: [],
+    loading: false,
+    error: null
   }),
 
   actions: {
+    // Fetching applicants from the list
     async fetchAndSetApplicants() {
-      const response = await fetch('http://localhost:3000/applicants');
-      const applicants = await response.json();
-      this.applicants = applicants;
+      this.applicants = []
+      this.loading = true
+      try {
+        this.applicants = await fetch('http://localhost:3000/applicants')
+        .then((response) => response.json())
+      } catch (error) {
+        this.error = error
+      } finally {
+        this.loading = false
+      }
     }, 
 
     async fetchAndSetApplicantsCategory(jobCode) {
-      const response = await fetch(`http://localhost:3000/applicants?jobCode=${jobCode}`);
-      const applicants = await response.json();
-      this.applicants = applicants;
+      this.applicants = []
+      this.loading = true
+      try {
+        this.applicants = await fetch(`http://localhost:3000/applicants?jobCode=${jobCode}`)
+        .then((response) => response.json())
+      } catch (error) {
+        this.error = error
+      } finally {
+        this.loading = false
+      }
     }
   },
 
