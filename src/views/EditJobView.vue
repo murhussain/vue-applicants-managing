@@ -5,8 +5,6 @@
         Update The Job
       </h3>
       <p v-if="loading" class="dark:text-body">Loading job...</p>
-      <p v-if="error" class="dark:text-body">{{ error.message }}</p>
-      <!-- <p v-if="job">{{ job.name }}</p> -->
       <form v-if="job" @submit.prevent="onSubmit" class="space-y-5" noValidate>
         <div class="space-y-2">
           <label for="name" class="block">
@@ -23,7 +21,7 @@
           </label>
           <label for="maxSalary" class="block">
             <span class="label">Job Maximum Salary:</span>
-            <input type="text" required id="maxSalary" v-model="job.maxSalary" class="input-type"/>
+            <input type="text" id="maxSalary" v-model="job.maxSalary" class="input-type"/>
           </label>
         </div>
         <div>
@@ -46,7 +44,7 @@ import { useJobStore } from '@/stores/JobStore.js';
 import { useRoute } from 'vue-router';
 import { computed, onMounted } from 'vue';
 
-const { job, loading, error } = storeToRefs(useJobStore());
+const { job, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJob, updateJob } = useJobStore();
 const route = useRoute();
 const jobId = computed(() => route.params.jobId);

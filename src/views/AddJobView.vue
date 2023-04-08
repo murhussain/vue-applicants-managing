@@ -20,7 +20,7 @@
           </label>
           <label for="maxSalary" class="block">
             <span class="label">Job Maximum Salary:</span>
-            <input type="text" required id="maxSalary" v-model="newJob.maxSalary" class="input-type"/>
+            <input type="text" id="maxSalary" v-model="newJob.maxSalary" class="input-type"/>
           </label>
         </div>
         <div>

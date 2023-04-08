@@ -83,24 +83,24 @@ export const useJobStore = defineStore('job', {
     },
 
     // Updating an existing job
-    async updateJob(updatedJob) {
-      this.loading = true
+    async updateJobById(jobId, updatedJob) {
+      this.loading = true;
       try {
-        const response = await fetch(`http://localhost:3000/jobs/${updatedJob.id}`, {
+        const response = await fetch(`http://localhost:3000/jobs/${jobId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(updatedJob)
-        })
-        const updatedJob = await response.json()
-        this.jobs = this.jobs.map((job) => job.id === updatedJob.id ? updatedJob : job)
+        });
+        const job = await response.json();
+        this.job = job;
       } catch (error) {
-        this.error = error
+        this.error = error;
       } finally {
-        this.loading = false
+        this.loading = false;
       }
-    },
+    }
   },
 
 });
