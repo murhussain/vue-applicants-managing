@@ -1,13 +1,6 @@
 {
   "jobs": [
     {
-      "id": 2,
-      "name": "UI/UX Designer",
-      "code": "UIUX",
-      "initSalary": "3500",
-      "maxSalary": null
-    },
-    {
       "id": 5,
       "name": "Fullstack Developer",
       "code": "FULL",
@@ -55,6 +48,20 @@
       "initSalary": "234",
       "maxSalary": "300",
       "id": 11
+    },
+    {
+      "name": "Test2",
+      "code": "TS2",
+      "initSalary": "234",
+      "maxSalary": "543",
+      "id": 12
+    },
+    {
+      "name": "UI/UX Designers",
+      "code": "UIUX",
+      "initSalary": "345",
+      "maxSalary": "400",
+      "id": 14
     }
   ],
   "applicants": [

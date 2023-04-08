@@ -24,18 +24,18 @@ export const useJobStore = defineStore('job', {
     },
 
     // Fetching an individual job based on provided id
-    async fetchAndSetJob(id) {
-      this.job = null
-      this.loading = true
-      try {
-        this.job = await fetch(`http://localhost:3000/jobs/${id}`)
-        .then((response) => response.json())
-      } catch (error) {
-        this.error = error
-      } finally {
-        this.loading = false
-      }
-    },
+    // async fetchAndSetJob(id) {
+    //   this.job = null
+    //   this.loading = true
+    //   try {
+    //     this.job = await fetch(`http://localhost:3000/jobs/${id}`)
+    //     .then((response) => response.json())
+    //   } catch (error) {
+    //     this.error = error
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
 
     // Creating a new job in the list
     async createJob(newJob) { 
@@ -56,26 +56,6 @@ export const useJobStore = defineStore('job', {
         this.loading = false
       }
     },
-    
-    // Updating an existing job
-    // async updateJob(updatedJob) {
-    //   this.loading = true
-    //   try {
-    //     const response = await fetch(`http://localhost:3000/jobs/${updatedJob.id}`, {
-    //       method: 'PUT',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(updatedJob)
-    //     })
-    //     const updatedJob = await response.json()
-    //     this.jobs = this.jobs.map((job) => job.id === updatedJob.id ? updatedJob : job)
-    //   } catch (error) {
-    //     this.error = error
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // },
 
     // Deleting an existing job
     async deleteJob(id) { 
@@ -100,12 +80,25 @@ export const useJobStore = defineStore('job', {
       job.maxSalary = maxSalary;
     },
 
-    // async deleteJob(id) {
-    //   await fetch(`http://localhost:3000/jobs/${id}`, {
-    //     method: "DELETE",
-    //   });
-    //   this.jobs = this.jobs.filter((job) => job.id !== id);
-    // }
+    // Updating an existing job
+    // async updateJob(updatedJob) {
+    //   this.loading = true
+    //   try {
+    //     const response = await fetch(`http://localhost:3000/jobs/${updatedJob.id}`, {
+    //       method: 'PUT',
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify(updatedJob)
+    //     })
+    //     const updatedJob = await response.json()
+    //     this.jobs = this.jobs.map((job) => job.id === updatedJob.id ? updatedJob : job)
+    //   } catch (error) {
+    //     this.error = error
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
 
   },
 

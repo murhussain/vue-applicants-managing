@@ -3,11 +3,16 @@
     border-gray/30 dark:border-gray/10"
   >
     <div class="flex items-center justify-between">
-      <p class="text-black dark:text-white font-medium text-3xl capitalize">
-        {{ selectedJob.name }}
+      <p v-if="loading" class="dark:text-body">Loading job...</p>
+      <p v-if="error" class="dark:text-body">{{ error.message }}</p>
+      <p v-if="selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl capitalize">
+        {{selectedJob.name}}
+      </p>
+      <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl capitalize">
+        All Applicants
       </p>
       <div class="flex space-x-4 items-center">
-        <div @click="deleteJob(selectedJob.id)"
+        <div
           class="grid place-content-center group 
           rounded-full h-[2rem] w-[2rem] border border-gray dark:border-gray/60 dark:hover:border-d-white 
           hover:bg-primary"
@@ -71,9 +76,10 @@ import { RouterLink, useRoute } from 'vue-router';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { useJobStore } from "@/stores/JobStore.js";
 import { computed } from 'vue';
+import { storeToRefs } from 'pinia';
 
-const selectedJob = useSelectedJobStore();
 const jobStore = useJobStore();
+const { selectedJob, loading, error } = storeToRefs(useSelectedJobStore());
 
 
 const route = useRoute();
