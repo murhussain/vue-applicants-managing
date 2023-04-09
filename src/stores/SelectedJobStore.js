@@ -16,29 +16,22 @@ export const useSelectedJobStore = defineStore({
   },
 
   actions: {
-    selectJob(id) {
+    async selectJob(id) {
       // Update the loading state
-      this.loading = true;
-      this.error = null;
+    this.loading = true;
+    this.error = null;
 
-      // Make the HTTP request to fetch the job
-      fetch(`http://localhost:3000/jobs/${id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((job) => {
-          this.job = job;
-        })
-        .catch((error) => {
-          this.error = error;
-        })
-        .finally(() => {
-          // Update the loading state
-          this.loading = false;
-        });
+    // Make the HTTP request to fetch the job
+    const response = await fetch(`http://localhost:3000/jobs/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const job = await response.json();
+    this.job = job;
+
+    // Update the loading state
+    this.loading = false;
+  },
     },
   },
-});
+);

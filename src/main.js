@@ -7,8 +7,11 @@ import router from './router'
 import './assets/main.css'
 
 const app = createApp(App)
+// create a new Pinia instance
+const pinia = createPinia()
 
-app.use(createPinia())
+// install Pinia in your app
+app.use(pinia)
 app.use(router)
 
 app.mount('#app')
