@@ -68,7 +68,6 @@ export const useApplicantsStore = defineStore('applicant', {
       return ((getters.totalShortlistedApplicants / getters.totalApplicants) * 100)
     },
 
-
     // Related interviewed applicants getter functions    
     interviewedApplicants(state) {
       return state.applicants.filter(applicant => applicant.isInterviewed)

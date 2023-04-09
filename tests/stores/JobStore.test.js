@@ -29,4 +29,19 @@ describe('JobStore', () => {
     const store = useJobStore(pinia);
     expect(store.error).toBeNull();
   });
+
+  it('should fetch and set the individual job', async () => {
+    const store = useJobStore(pinia);
+    await store.fetchAndSetJob(8);
+
+    expect(store.job).toEqual({
+      id: 8,
+      name: "Business Analyst",
+      code: "BA",
+      initSalary: "5000",
+      maxSalary: null,
+    });
+    expect(store.loading).toBeFalsy();
+    expect(store.error).toBeNull();
+  });
 });
