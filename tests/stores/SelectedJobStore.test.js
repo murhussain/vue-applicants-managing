@@ -1,6 +1,6 @@
 import { useSelectedJobStore } from '@/stores/SelectedJobStore'
 import { PiniaVuePlugin, createPinia } from 'pinia';
-import { beforeEach, describe, expect, test } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 
 describe('SelectedJobStore', () => {
@@ -9,9 +9,24 @@ describe('SelectedJobStore', () => {
   beforeEach(() => {
     pinia = createPinia()
     pinia.use(PiniaVuePlugin)
-  })
+  });
 
-  test('selectJob sets the selected job and clears error and loading', async () => {
+  it('should initialize with null job', () => {
+    const store = useSelectedJobStore(pinia);
+    expect(store.job).toBeNull();
+  });
+
+  it('should initialize with loading set to false', () => {
+    const store = useSelectedJobStore(pinia);
+    expect(store.loading).toBeFalsy();
+  });
+
+  it('should initialize with error set to null', () => {
+    const store = useSelectedJobStore(pinia);
+    expect(store.error).toBeNull();
+  });
+
+  it('should selectJob sets the selected job and clears error and loading', async () => {
     const store = useSelectedJobStore(pinia);
   
     await store.selectJob(8);
@@ -27,7 +42,7 @@ describe('SelectedJobStore', () => {
     expect(store.error).toBeNull();
   });
 
-  test('selectJob handles error when HTTP request fails', async () => {
+  it('should selectJob handles error when HTTP request fails', async () => {
     
     const store = useSelectedJobStore(pinia);
     await expect(store.selectJob(400)).rejects.toThrowError();

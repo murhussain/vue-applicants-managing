@@ -105,5 +105,4 @@ export const useJobStore = defineStore('job', {
       }
     }
   },
-
 });
