@@ -18,8 +18,8 @@
       "id": 7,
       "name": "Project Manager",
       "code": "PM",
-      "initSalary": "6000",
-      "maxSalary": "6500"
+      "initSalary": 6000,
+      "maxSalary": 6500
     },
     {
       "id": 8,

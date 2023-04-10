@@ -17,11 +17,11 @@
           </label>
           <label for="initSalary" class="block">
             <span class="label">Job Initial Salary:</span>
-            <input type="text" required id="initSalary" v-model="job.initSalary" class="input-type"/>
+            <input type="number" required id="initSalary" v-model="job.initSalary" class="input-type"/>
           </label>
           <label for="maxSalary" class="block">
             <span class="label">Job Maximum Salary:</span>
-            <input type="text" id="maxSalary" v-model="job.maxSalary" class="input-type"/>
+            <input type="number" id="maxSalary" v-model="job.maxSalary" class="input-type"/>
           </label>
         </div>
         <div>
@@ -55,6 +55,12 @@ onMounted(async () => {
 });
 
 async function onSubmit() {
+  // Check if any of the required fields is empty
+  if (!job.value.name || !job.value.code || !job.value.initSalary) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
   await updateJobById(jobId.value, job.value);
   router.push('/');
 }

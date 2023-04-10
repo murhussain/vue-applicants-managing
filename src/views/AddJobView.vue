@@ -16,11 +16,11 @@
           </label>
           <label for="initSalary" class="block">
             <span class="label">Job Initial Salary:</span>
-            <input type="text" required id="initSalary" v-model="newJob.initSalary" class="input-type"/>
+            <input type="number" required id="initSalary" v-model="newJob.initSalary" class="input-type"/>
           </label>
           <label for="maxSalary" class="block">
             <span class="label">Job Maximum Salary:</span>
-            <input type="text" id="maxSalary" v-model="newJob.maxSalary" class="input-type"/>
+            <input type="number" id="maxSalary" v-model="newJob.maxSalary" class="input-type"/>
           </label>
         </div>
         <div>
@@ -51,12 +51,16 @@ const newJob = ref({
 });
 
 function onSubmit() {
-  jobStore.createJob(newJob.value);
-  newJob.value = {
-    name: '',
-    code: '',
-    initSalary: '',
-    maxSalary: ''
-  };
+  if (newJob.value.name && newJob.value.code && newJob.value.initSalary) {
+    jobStore.createJob(newJob.value);
+    newJob.value = {
+      name: '',
+      code: '',
+      initSalary: '',
+      maxSalary: ''
+    };
+  } else {
+    alert("Please fill in all required fields.");
+  }
 }
 </script>

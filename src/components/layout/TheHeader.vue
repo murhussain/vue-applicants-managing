@@ -101,7 +101,6 @@ import { storeToRefs } from 'pinia';
 
 const { selectedJob, loading, error } = storeToRefs(useSelectedJobStore());
 const { deleteJob } = useJobStore();
-
 const route = useRoute();
 const router = useRouter();
 
@@ -128,6 +127,4 @@ watch(hasApplicantsInPath, (hasApplicants) => {
     useSelectedJobStore().job = null;
   }
 });
-
-
 </script>
