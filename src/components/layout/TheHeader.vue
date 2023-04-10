@@ -93,7 +93,7 @@
 import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
 import IconUserAdd from '../icons/IconUserAdd.vue';
-import { RouterLink, useRoute } from 'vue-router';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { useJobStore } from "@/stores/JobStore.js";
 import { computed, watch } from 'vue';
@@ -102,11 +102,12 @@ import { storeToRefs } from 'pinia';
 const { selectedJob, loading, error } = storeToRefs(useSelectedJobStore());
 const { deleteJob } = useJobStore();
 
-
 const route = useRoute();
+const router = useRouter();
 
 async function deleteSelectedJob(id) {
   await deleteJob(id);
+  router.push('/');
 };
 
 function isCurrentRoute(path) {
