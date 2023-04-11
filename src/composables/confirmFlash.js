@@ -6,11 +6,19 @@ export function useConfirmFlash() {
       title: title,
       text: message,
       icon: level,
-      confirmButtonColor: '#7586ec',
       showCancelButton: true,
+      focusConfirm: false,
+      showCloseButton: true,
+      confirmButtonColor: '#f44336',
       confirmButtonText: 'Delete',
       cancelButtonText: 'Cancel',
-      cancelButtonColor: '#6b7280'
+      cancelButtonColor: '#9eaaf2',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
     });
   }
   return { confirmFlash };

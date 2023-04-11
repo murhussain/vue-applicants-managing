@@ -7,7 +7,9 @@ export function useFlash() {
       text: message,
       icon: level,
       confirmButtonColor: '#7586ec',
-      confirmButtonText: 'Okay'
+      confirmButtonText: 'Okay',
+      focusConfirm: false,
+      showCloseButton: true
     });
   }
   return { flash };
