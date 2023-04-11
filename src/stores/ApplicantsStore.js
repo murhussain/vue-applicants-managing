@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { defineStore } from 'pinia';
 
 export const useApplicantsStore = defineStore('applicant', {
@@ -9,29 +10,41 @@ export const useApplicantsStore = defineStore('applicant', {
 
   actions: {
     // Fetching applicants from the list
+    // async fetchAndSetApplicants() {
+    //   this.applicants = []
+    //   this.loading = true
+    //   try {
+    //     this.applicants = await fetch('http://localhost:3000/applicants')
+    //     .then((response) => response.json())
+    //   } catch (error) {
+    //     this.error = error
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // }, 
+
     async fetchAndSetApplicants() {
-      this.applicants = []
-      this.loading = true
       try {
-        this.applicants = await fetch('http://localhost:3000/applicants')
-        .then((response) => response.json())
+        const response = await axios.get('http://localhost:3000/applicants');
+        this.applicants = response.data;
+        this.loading = false;
       } catch (error) {
-        this.error = error
-      } finally {
-        this.loading = false
+        this.loading = false;
+        this.error = 'Failed to fetch applicants';
+        throw new Error('Failed to fetch applicants');
       }
-    }, 
+    },
+
 
     async fetchAndSetApplicantsCategory(jobCode) {
-      this.applicants = []
-      this.loading = true
       try {
-        this.applicants = await fetch(`http://localhost:3000/applicants?jobCode=${jobCode}`)
-        .then((response) => response.json())
+        const response = await axios.get(`http://localhost:3000/applicants?jobCode=${jobCode}`)
+        this.applicants = response.data;
+        this.loading = false;
       } catch (error) {
-        this.error = error
-      } finally {
-        this.loading = false
+        this.loading = false;
+        this.error = 'Failed to fetch applicants';
+        throw new Error('Failed to fetch applicants');
       }
     }
   },
