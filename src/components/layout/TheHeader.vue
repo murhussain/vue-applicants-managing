@@ -98,16 +98,24 @@ import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { useJobStore } from "@/stores/JobStore.js";
 import { computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useFlash } from '@/composables/useFlash';
+import { useConfirmFlash } from '@/composables/confirmFlash';
 
 const { selectedJob, loading, error } = storeToRefs(useSelectedJobStore());
 const { deleteJob } = useJobStore();
 const route = useRoute();
 const router = useRouter();
+const { flash } = useFlash();
+const { confirmFlash } = useConfirmFlash();
 
 async function deleteSelectedJob(id) {
-  await deleteJob(id);
-  router.push('/');
-};
+  const result = await confirmFlash('Delete Job', 'Are you sure you want to delete this job?', 'warning');
+  if (result.isConfirmed) {
+    await deleteJob(id);
+    router.push('/');
+    flash('Success', `The job has been successfully deleted.`, 'success');
+  }
+}
 
 function isCurrentRoute(path) {
   return route.path === path;
