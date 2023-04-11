@@ -9,20 +9,6 @@ export const useApplicantsStore = defineStore('applicant', {
   }),
 
   actions: {
-    // Fetching applicants from the list
-    // async fetchAndSetApplicants() {
-    //   this.applicants = []
-    //   this.loading = true
-    //   try {
-    //     this.applicants = await fetch('http://localhost:3000/applicants')
-    //     .then((response) => response.json())
-    //   } catch (error) {
-    //     this.error = error
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // }, 
-
     async fetchAndSetApplicants() {
       try {
         const response = await axios.get('http://localhost:3000/applicants');

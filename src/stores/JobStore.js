@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { defineStore } from 'pinia';
 
 export const useJobStore = defineStore('job', {
@@ -11,20 +12,15 @@ export const useJobStore = defineStore('job', {
   actions: {
     // Fetching all jobs in the list of jobs
     async fetchAndSetJobs() {
-      this.jobs = []
-      this.loading = true
       try {
-        this.jobs = await fetch('http://localhost:3000/jobs')
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
+        const response = await axios.get('http://localhost:3000/jobs');
+        this.jobs = response.data;
+        this.loading = false;
+        this.error = null;
       } catch (error) {
-        this.error = error
-      } finally {
-        this.loading = false
+        this.loading = false;
+        this.error = 'Failed to fetch jobs';
+        throw new Error('Failed to fetch jobs');
       }
     },
 
