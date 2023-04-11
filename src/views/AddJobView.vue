@@ -39,9 +39,13 @@
 
 <script setup>
 import { useJobStore } from '@/stores/JobStore';
+import { useFlash } from '@/composables/useFlash';
+import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 
 const jobStore = useJobStore();
+const { flash } = useFlash();
+const router = useRouter();
 
 const newJob = ref({
   name: '',
@@ -53,14 +57,16 @@ const newJob = ref({
 function onSubmit() {
   if (newJob.value.name && newJob.value.code && newJob.value.initSalary) {
     jobStore.createJob(newJob.value);
+    flash('Success', 'The job has successfully added', 'success')
     newJob.value = {
       name: '',
       code: '',
       initSalary: '',
       maxSalary: ''
     };
+    router.push('/');
   } else {
-    alert("Please fill in all required fields.");
+    flash('Invalid Data','Some of the required input fields are left blank', 'error')
   }
 }
 </script>

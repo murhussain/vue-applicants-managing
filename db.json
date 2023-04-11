@@ -48,6 +48,34 @@
       "initSalary": "300",
       "maxSalary": "400",
       "id": 14
+    },
+    {
+      "name": "Mur",
+      "code": "hey",
+      "initSalary": 232,
+      "maxSalary": 232,
+      "id": 15
+    },
+    {
+      "name": "wwewe",
+      "code": "wew",
+      "initSalary": 23,
+      "maxSalary": 2232,
+      "id": 16
+    },
+    {
+      "name": "eee",
+      "code": "weuiih",
+      "initSalary": 332,
+      "maxSalary": 232323,
+      "id": 17
+    },
+    {
+      "name": "sdsgsdhs",
+      "code": "djhdfd",
+      "initSalary": 122,
+      "maxSalary": 2232,
+      "id": 18
     }
   ],
   "applicants": [

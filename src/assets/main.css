@@ -40,3 +40,7 @@
     text-lg
   }
 }
+
+.swal2-popup {
+  background-color: #ecf5f6 !important;
+}

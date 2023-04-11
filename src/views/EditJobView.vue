@@ -43,7 +43,9 @@ import { storeToRefs } from 'pinia';
 import { useJobStore } from '@/stores/JobStore.js';
 import { useRoute, useRouter } from 'vue-router';
 import { computed, onMounted } from 'vue';
+import { useFlash } from '@/composables/useFlash';
 
+const { flash } = useFlash();
 const { job, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJob, updateJobById } = useJobStore();
 const route = useRoute();
@@ -57,11 +59,11 @@ onMounted(async () => {
 async function onSubmit() {
   // Check if any of the required fields is empty
   if (!job.value.name || !job.value.code || !job.value.initSalary) {
-    alert('Please fill in all required fields.');
+    flash('Invalid Data','Some of the required input fields are left blank', 'error')
     return;
   }
-
   await updateJobById(jobId.value, job.value);
   router.push('/');
+  flash('Success', `The job has successfully updated`, 'success')
 }
 </script>
