@@ -70,7 +70,7 @@ export const useJobStore = defineStore('job', {
         this.error = 'Failed to delete job';
         throw new Error('Failed to delete job');
       }
-    },
+    }  , 
     
     async updateJobById(jobId, updatedJob) {
       this.loading = true;

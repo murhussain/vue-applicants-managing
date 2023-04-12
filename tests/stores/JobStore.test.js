@@ -231,4 +231,38 @@ describe('JobStore', () => {
       expect(store.error).toBeNull();
     });
   });
+
+  describe('when deleting a job by ID', () => {
+    let store;
+
+    const jobId = 5;
+    const expectedJobs = mockJobs.slice(1);
+
+    beforeEach(() => {
+      store = useJobStore(pinia);
+    });
+
+    it('should delete a job and update the jobs property', async () => {
+      
+      store.jobs = mockJobs;
+      mock.onDelete(`http://localhost:3000/jobs/${jobId}`).reply(200);
+      mock.onGet('http://localhost:3000/jobs').reply(200, expectedJobs);
+    
+      await store.deleteJob(jobId);
+    
+      expect(store.jobs).toEqual(expectedJobs);
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toBeNull();
+    })
+
+    it('should reset loading and error properties after deleting a job', async () => {
+      const jobId = 1;
+      mock.onDelete(`http://localhost:3000/jobs/${jobId}`).reply(200);
+      mock.onGet('http://localhost:3000/jobs').reply(200, mockJobs.slice(1));
+
+      await store.deleteJob(jobId);
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toBeNull();
+    });
+  });
 });
