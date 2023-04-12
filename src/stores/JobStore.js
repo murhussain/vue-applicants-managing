@@ -59,20 +59,32 @@ export const useJobStore = defineStore('job', {
     },
 
     // Deleting an existing job
-    async deleteJob(id) { 
-      this.loading = true
+    // async deleteJob(id) { 
+    //   this.loading = true
+    //   try {
+    //     await fetch(`http://localhost:3000/jobs/${id}`, {
+    //       method: 'DELETE'
+    //     })
+    //     this.jobs = this.jobs.filter((job) => job.id !== id)
+    //   } catch (error) {
+    //     this.error = error
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
+
+    async deleteJob(id) {
+      this.loading = true;
       try {
-        await fetch(`http://localhost:3000/jobs/${id}`, {
-          method: 'DELETE'
-        })
-        this.jobs = this.jobs.filter((job) => job.id !== id)
+        await axios.delete(`http://localhost:3000/jobs/${id}`);
+        this.jobs = this.jobs.filter((job) => job.id !== id);
       } catch (error) {
-        this.error = error
-      } finally {
-        this.loading = false
+        this.loading = false;
+        this.error = 'Failed to delete job';
+        throw new Error('Failed to delete job');
       }
     },
-
+    
     async updateJobById(jobId, updatedJob) {
       this.loading = true;
       try {

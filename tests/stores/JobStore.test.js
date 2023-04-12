@@ -144,33 +144,92 @@ describe('JobStore', () => {
     });
   });
 
-  it('should update the job with the given ID and fetch all jobs', async () => {
-    const store = useJobStore(pinia);
+  
+  describe('when updating a job by ID', () => {
+    let store;
+
     const jobId = 5;
-    const updatedJob = { name: 'Updated Job', code: 'UJ', initSalary: '3000' };
-    const mockUpdatedJob = { ...updatedJob, id: jobId };
+    const updatedJob = { id: 5, name: "Mobile Developer",code: "MAD", initSalary: "3000" };
+    const errorMessage = 'Failed to update job';
+    const updatedJobResponse = { ...updatedJob, id: jobId };
+    const expectedJobs = [updatedJobResponse, ...mockJobs.slice(1)];
+  
+    beforeEach(() => {
+      store = useJobStore(pinia);
+    });
+  
+    it('should update the job and fetch all jobs after receiving a successful response', async () => {
+      mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(200, updatedJob);
+      mock.onGet('http://localhost:3000/jobs').reply(200, mockJobs);
+  
+      await store.updateJobById(jobId, updatedJob);
+  
+      expect(store.job).toEqual(updatedJob);
+      expect(store.jobs).toEqual(mockJobs);
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toBeNull();
+    });
+  
+    it('should throw an error when attempting to update a job and the request fails', async () => {
+      mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(500);
+  
+      await expect(store.updateJobById(jobId, updatedJob)).rejects.toThrow('Failed to update job');
+  
+      expect(store.job).toBeNull();
+      expect(store.jobs).toEqual([]);
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to update job');
+    });
 
-    mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(200, mockUpdatedJob);
-    mock.onGet('http://localhost:3000/jobs').reply(200, [mockUpdatedJob]);
+    it('should not update the job property when the server returns an error', async () => {
+      mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(500, { message: errorMessage });
+  
+      await expect(store.updateJobById(jobId, updatedJob)).rejects.toThrow(errorMessage);
+      expect(store.job).toBeNull();
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual(errorMessage);
+    });
 
-    await store.updateJobById(jobId, updatedJob);
+    it('should update the jobs property and fetch all jobs after successfully updating a job', async () => {
+      
+      mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(200, updatedJobResponse);
+      mock.onGet('http://localhost:3000/jobs').reply(200, expectedJobs);
+  
+      await store.updateJobById(jobId, updatedJob);
+      expect(store.job).toEqual(updatedJobResponse);
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toBeNull();
+      expect(store.jobs).toEqual(expectedJobs);
+    });
+  
+    it('should set loading and error properties accordingly when updating a job fails', async () => {
+      
+      mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(500);
+  
+      await expect(store.updateJobById(jobId, updatedJob)).rejects.toThrow('Failed to update job');
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to update job');
+    });
 
-    expect(store.job).toEqual(mockUpdatedJob);
-    expect(store.jobs).toEqual([mockUpdatedJob]);
-    expect(store.loading).toBeFalsy();
-    expect(store.error).toBeNull();
-  });
-
-  it('should handle errors when updating a job', async () => {
-    const store = useJobStore(pinia);
-    const jobId = 5;
-    const updatedJob = { name: 'Updated Job', code: 'UJ', initSalary: '3000' };
+    it('should throw an error when attempting to update a job and the request returns a 404 status code', async () => {
+      mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(404);
     
-    mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(500);
-    await expect(store.updateJobById(jobId, updatedJob)).rejects.toThrow('Failed to update job');
-
-    expect(store.job).toBeNull();
-    expect(store.loading).toBeFalsy();
-    expect(store.error).toEqual('Failed to update job');
+      await expect(store.updateJobById(jobId, updatedJob)).rejects.toThrow('Failed to update job');
+    
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to update job');
+      expect(store.job).toBeNull();
+    });
+    
+  
+    it('should reset loading and error properties after updating a job', async () => {
+      
+      mock.onPut(`http://localhost:3000/jobs/${jobId}`).reply(200);
+      mock.onGet('http://localhost:3000/jobs').reply(200, mockJobs);
+  
+      await store.updateJobById(jobId, updatedJob);
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toBeNull();
+    });
   });
 });
