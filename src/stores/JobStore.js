@@ -49,6 +49,7 @@ export const useJobStore = defineStore('job', {
         });
         const createdJob = response.data;
         this.jobs.push(createdJob);
+        this.loading = false;
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to create job';

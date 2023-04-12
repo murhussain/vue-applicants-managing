@@ -265,4 +265,69 @@ describe('JobStore', () => {
       expect(store.error).toBeNull();
     });
   });
+
+  describe('when creating a job', () => {
+    let store;
+    const newJob = { name: 'Backend Developer', code: 'BE', initSalary: '4000' };
+    const expectedJob = { ...newJob, id: 1 };
+  
+    beforeAll(() => {
+      store = useJobStore(pinia);
+    });
+  
+    it('should add the job to the jobs array and set job to null on success', async () => {
+      mock.onPost('http://localhost:3000/jobs').reply(201, expectedJob);
+      await store.createJob(newJob);
+      expect(store.jobs).toContainEqual(expectedJob);
+      expect(store.job).toBeNull();
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toBeNull();
+    });
+  
+    it('should throw an error when attempting to create a job and the request fails', async () => {
+      mock.onPost('http://localhost:3000/jobs').reply(500);
+      await expect(store.createJob(newJob)).rejects.toThrow('Failed to create job');
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to create job');
+    });
+  
+    it('should throw an error when attempting to create a job and the request returns a 400 status code', async () => {
+      mock.onPost('http://localhost:3000/jobs').reply(400);
+      await expect(store.createJob(newJob)).rejects.toThrow('Failed to create job');
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to create job');
+    });
+
+    it('should create a job with the expected fields', async () => {
+      mock.onPost('http://localhost:3000/jobs').reply(201, expectedJob);
+      await store.createJob(newJob);
+      const createdJob = store.jobs[0];
+      expect(createdJob.name).toEqual(newJob.name);
+      expect(createdJob.code).toEqual(newJob.code);
+      expect(createdJob.initSalary).toEqual(newJob.initSalary);
+      expect(createdJob.id).toBeDefined();
+    });
+
+    it('should send the appropriate headers with the request', async () => {
+      mock.onPost('http://localhost:3000/jobs').reply((config) => {
+        expect(config.headers['Content-Type']).toEqual('application/json');
+        return [201, {}];
+      });
+      await store.createJob(newJob);
+    });
+    
+    it('should display an error message if the user submits an incomplete job form', async () => {
+      mock.onPost('http://localhost:3000/jobs').reply(400);
+      await expect(store.createJob(newJob)).rejects.toThrow('Failed to create job');
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to create job');
+    });
+    
+    it('should throw an error when attempting to create a job and the request returns a 404 status code', async () => {
+      mock.onPost('http://localhost:3000/jobs').reply(404);
+      await expect(store.createJob(newJob)).rejects.toThrow('Failed to create job');
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to create job');
+    });   
+  });
 });
