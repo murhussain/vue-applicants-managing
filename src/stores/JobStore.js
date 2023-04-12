@@ -26,20 +26,15 @@ export const useJobStore = defineStore('job', {
 
     // Fetching an individual job based on provided id
     async fetchAndSetJob(id) {
-      this.job = null
-      this.loading = true
       try {
-        this.job = await fetch(`http://localhost:3000/jobs/${id}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
+        const response = await axios.get(`http://localhost:3000/jobs/${id}`);
+        this.job = response.data;
+        this.loading = false;
+        this.error = null;
       } catch (error) {
-        this.error = error
-      } finally {
-        this.loading = false
+        this.loading = false;
+        this.error = 'Failed to fetch job';
+        throw new Error('Failed to fetch job');
       }
     },
 
@@ -78,26 +73,23 @@ export const useJobStore = defineStore('job', {
       }
     },
 
-    // Updating an existing job
     async updateJobById(jobId, updatedJob) {
       this.loading = true;
       try {
-        const response = await fetch(`http://localhost:3000/jobs/${jobId}`, {
-          method: 'PUT',
+        const response = await axios.put(`http://localhost:3000/jobs/${jobId}`, updatedJob, {
           headers: {
             'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(updatedJob)
+          }
         });
-        const job = await response.json();
+        const job = response.data;
         this.job = job;
-
+    
         // Fetch all jobs to update the local store
         await this.fetchAndSetJobs();
       } catch (error) {
-        this.error = error;
-      } finally {
         this.loading = false;
+        this.error = 'Failed to update job';
+        throw new Error('Failed to update job');
       }
     }
   },

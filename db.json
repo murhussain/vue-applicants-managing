@@ -2,10 +2,9 @@
   "jobs": [
     {
       "id": 5,
-      "name": "Fullstack Developer",
-      "code": "FULL",
-      "initSalary": "7000",
-      "maxSalary": "1000"
+      "name": "Mobile Developer",
+      "code": "MAD",
+      "initSalary": "3000"
     },
     {
       "id": 6,
@@ -13,13 +12,6 @@
       "code": "DEVOPS",
       "initSalary": "4000",
       "maxSalary": "5000"
-    },
-    {
-      "id": 7,
-      "name": "Project Manager",
-      "code": "PM",
-      "initSalary": 6000,
-      "maxSalary": 6500
     },
     {
       "id": 8,
@@ -48,6 +40,13 @@
       "initSalary": "300",
       "maxSalary": "400",
       "id": 14
+    },
+    {
+      "name": "ffdfdf updated",
+      "code": "er",
+      "initSalary": 234,
+      "maxSalary": 3434,
+      "id": 15
     }
   ],
   "applicants": [
