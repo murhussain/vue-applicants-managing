@@ -39,24 +39,22 @@ export const useJobStore = defineStore('job', {
     },
 
     // Creating a new job in the list
-    async createJob(newJob) { 
-      this.loading = true
+    async createJob(newJob) {
+      this.loading = true;
       try {
-        const response = await fetch('http://localhost:3000/jobs', {
-          method: 'POST',
+        const response = await axios.post('http://localhost:3000/jobs', newJob, {
           headers: {
             'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(newJob)
-        })
-        const createdJob = await response.json()
-        this.jobs.push(createdJob)
+          }
+        });
+        const createdJob = response.data;
+        this.jobs.push(createdJob);
       } catch (error) {
-        this.error = error
-      } finally {
-        this.loading = false
+        this.loading = false;
+        this.error = 'Failed to create job';
+        throw new Error('Failed to create job');
       }
-    },
+    },    
 
     async deleteJob(id) {
       this.loading = true;
