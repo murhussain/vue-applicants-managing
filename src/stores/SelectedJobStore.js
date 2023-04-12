@@ -18,20 +18,20 @@ export const useSelectedJobStore = defineStore({
   actions: {
     async selectJob(id) {
       // Update the loading state
-    this.loading = true;
-    this.error = null;
+      this.loading = true;
+      this.error = null;
 
-    // Make the HTTP request to fetch the job
-    const response = await fetch(`http://localhost:3000/jobs/${id}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const job = await response.json();
-    this.job = job;
+      // Make the HTTP request to fetch the job
+      const response = await fetch(`http://localhost:3000/jobs/${id}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const job = await response.json();
+      this.job = job;
 
-    // Update the loading state
-    this.loading = false;
-  },
+      // Update the loading state
+      this.loading = false;
+    },
     },
   },
 );
