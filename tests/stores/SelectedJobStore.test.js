@@ -81,5 +81,19 @@ describe('SelectedJobStore', () => {
       expect(store.error).toEqual('Failed to fetch job');
     });
   });
+
+  it('should return null when no job has been selected', () => {
+    const store = useSelectedJobStore(pinia);
+    const selectedJob = store.selectedJob;
+    expect(selectedJob).toBeNull();
+  });
+
+  it('should return the selected job when a job has been selected', () => {
+    const store = useSelectedJobStore(pinia);
+    const expectedJob = mockJobs[0];
+    store.job = expectedJob;
+    const selectedJob = store.selectedJob;
+    expect(selectedJob).toEqual(expectedJob);
+  });
   
 });
