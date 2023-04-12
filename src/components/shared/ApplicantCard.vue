@@ -1,8 +1,10 @@
 <template>
-  <div class="applicant-card group">
+  <div class="applicant-card hover:translate-x-6 hover:translate-y-4 hover:shadow-2xl hover:z-90 group">
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-third rounded-full"></div>
+        <img :src="`https://i.pravatar.cc/50?u=${email}`" alt="" 
+          class="w-[2.8rem] h-[2.8rem] rounded-full ring-2 border-[2px] dark:border-d-body-accent-secondary border-body ring-primary dark:ring-primary-dark"
+        >
         <div class="flex flex-col -space-y-1">
           <div class="text-base text-black dark:text-d-white group-hover:font-medium">{{name}}</div>
           <div class="text-sm text-black-accent dark:text-d-white-accent">{{position}}</div>
@@ -21,6 +23,7 @@ import IconHand from '@/components/icons/IconHand.vue'
 
 defineProps({
   name: String,
+  email: String,
   position: String,
   skills: Array,
 });

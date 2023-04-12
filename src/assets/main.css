@@ -7,15 +7,15 @@
 
   .primary-button-rounded {
     @apply flex items-center space-x-2 px-[1.2rem] py-[0.4rem] font-medium rounded-[1.6rem] shadow-sm text-body 
-    bg-primary hover:bg-primary-dark
+    bg-primary hover:bg-primary-dark cursor-pointer
   }
 
   .applicant-card-list {
-    @apply p-4 bg-body-accent-secondary dark:bg-d-body-accent rounded-xl space-y-2
+    @apply p-4 bg-body-accent-secondary dark:bg-d-body-accent rounded-xl space-y-4
   }
 
   .applicant-card {
-    @apply p-4 bg-body dark:bg-d-body-accent-secondary space-y-4 rounded-lg
+    @apply p-4 bg-body dark:bg-d-body-accent-secondary space-y-4 rounded-lg cursor-pointer
   }
 
   .tag {
@@ -24,7 +24,8 @@
   }
 
   .side-icons{
-    @apply h-[2rem] w-[2rem] text-gray hover:text-primary dark:text-gray/60 dark:hover:text-d-white
+    @apply h-[2rem] w-[2rem] text-gray hover:text-primary dark:text-gray/60 cursor-pointer 
+    dark:hover:text-d-white
   }
 
   .label {
@@ -32,10 +33,14 @@
   }
 
   .input-type {
-    @apply outline-none mt-1 block w-full px-3 py-2 bg-body dark:bg-[#454959] border-b-2 border-primary 
+    @apply outline-none mt-1 block w-full px-3 py-2 bg-[#f1f3fd] dark:bg-[#454959] border-b-2 border-primary 
     rounded-md placeholder-gray  transition-all focus:border-b-4 focus:border-primary                          
     invalid:border-pink-500 invalid:text-pink-600
     focus:invalid:border-pink-500 focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white 
     text-lg
   }
+}
+
+.swal2-popup {
+  background-color: #ecf5f6 !important;
 }

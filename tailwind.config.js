@@ -22,6 +22,7 @@ module.exports = {
         'black': '#0c0d18',
         'black-accent': '#989898',
         'gray': '#b8b9c1',
+        'danger': '#f44336',
 
         // Dark color pallette
         'd-body': '#0c0d18',

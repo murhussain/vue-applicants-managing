@@ -1,21 +1,37 @@
+import axios from 'axios';
 import { defineStore } from 'pinia';
 
 export const useApplicantsStore = defineStore('applicant', {
   state: () => ({
-    applicants: []
+    applicants: [],
+    loading: false,
+    error: null
   }),
 
   actions: {
     async fetchAndSetApplicants() {
-      const response = await fetch('http://localhost:3000/applicants');
-      const applicants = await response.json();
-      this.applicants = applicants;
-    }, 
+      try {
+        const response = await axios.get('http://localhost:3000/applicants');
+        this.applicants = response.data;
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        this.error = 'Failed to fetch applicants';
+        throw new Error('Failed to fetch applicants');
+      }
+    },
+
 
     async fetchAndSetApplicantsCategory(jobCode) {
-      const response = await fetch(`http://localhost:3000/applicants?jobCode=${jobCode}`);
-      const applicants = await response.json();
-      this.applicants = applicants;
+      try {
+        const response = await axios.get(`http://localhost:3000/applicants?jobCode=${jobCode}`)
+        this.applicants = response.data;
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        this.error = 'Failed to fetch applicants';
+        throw new Error('Failed to fetch applicants');
+      }
     }
   },
 
@@ -50,7 +66,6 @@ export const useApplicantsStore = defineStore('applicant', {
     shortlistedApplicantsPercentage(state, getters) {
       return ((getters.totalShortlistedApplicants / getters.totalApplicants) * 100)
     },
-
 
     // Related interviewed applicants getter functions    
     interviewedApplicants(state) {

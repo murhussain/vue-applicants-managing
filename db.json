@@ -1,18 +1,10 @@
 {
   "jobs": [
     {
-      "id": 2,
-      "name": "UI/UX Designer",
-      "code": "UIUX",
-      "initSalary": "3500",
-      "maxSalary": null
-    },
-    {
       "id": 5,
-      "name": "Fullstack Developer",
-      "code": "FULL",
-      "initSalary": "7000",
-      "maxSalary": "1000"
+      "name": "Mobile Developer",
+      "code": "MAD",
+      "initSalary": "3000"
     },
     {
       "id": 6,
@@ -20,13 +12,6 @@
       "code": "DEVOPS",
       "initSalary": "4000",
       "maxSalary": "5000"
-    },
-    {
-      "id": 7,
-      "name": "Project Manager",
-      "code": "PM",
-      "initSalary": "6000",
-      "maxSalary": "7000"
     },
     {
       "id": 8,
@@ -37,9 +22,9 @@
     },
     {
       "name": "Project Manager Senior",
-      "code": "FULL",
-      "initSalary": "232",
-      "maxSalary": "2334",
+      "code": "PMS",
+      "initSalary": "3600",
+      "maxSalary": "4500",
       "id": 9
     },
     {
@@ -48,15 +33,22 @@
       "initSalary": "2300",
       "maxSalary": "4555",
       "id": 10
+    },
+    {
+      "name": "UI/UX Designers",
+      "code": "UIUX",
+      "initSalary": "300",
+      "maxSalary": "400",
+      "id": 14
     }
   ],
   "applicants": [
     {
       "id": 1,
-      "name": "Irene Sacchi",
+      "name": "HABAGUHIRWA John",
       "jobCode": "UIUX",
-      "position": "Software Engineer",
-      "image": "",
+      "position": "Software Developer",
+      "email": "john@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -71,10 +63,10 @@
     },
     {
       "id": 2,
-      "name": "Lorenzo Sacchi",
+      "name": "HIMBAZA Joshua",
       "jobCode": "DEVOPS",
-      "position": "Software Engineer",
-      "image": "",
+      "position": "Network Engineer",
+      "email": "jen@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -89,10 +81,10 @@
     },
     {
       "id": 3,
-      "name": "Lorenzo Sacchi",
+      "name": "Lorenzo John",
       "jobCode": "UIUX",
       "position": "Software Engineer",
-      "image": "",
+      "email": "john@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -107,10 +99,10 @@
     },
     {
       "id": 4,
-      "name": "Lorenzo Sacchi",
+      "name": "HABIYAREMYE Emmanuel",
       "jobCode": "BA",
       "position": "Software Engineer",
-      "image": "",
+      "email": "steve@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -128,7 +120,7 @@
       "name": "Lorenzo Sacchi",
       "jobCode": "BACK",
       "position": "Software Engineer",
-      "image": "",
+      "email": "john@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -143,10 +135,10 @@
     },
     {
       "id": 6,
-      "name": "Lorenzo Sacchi",
+      "name": "IHIMWE Josiane",
       "jobCode": "UIUX",
       "position": "Software Engineer",
-      "image": "",
+      "email": "sarah@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -164,7 +156,7 @@
       "name": "CYUBAHIRO Theotime",
       "jobCode": "UIUX",
       "position": "Backend Develope",
-      "image": "",
+      "email": "jen@doe.com",
       "skills": [
         {
           "name": "Laravel"
@@ -185,7 +177,7 @@
       "name": "HIRWA NDOLI Elivin",
       "jobCode": "UIUX",
       "position": "Backend Developer",
-      "image": "",
+      "email": "steve@doe.com",
       "skills": [
         {
           "name": "Laravel"
@@ -206,7 +198,7 @@
       "name": "SHEMA Gislain Jolivet",
       "jobCode": "UIUX",
       "position": "Mobile Developer",
-      "image": "",
+      "email": "john@doe.com",
       "skills": [
         {
           "name": "Flutter"
@@ -227,7 +219,7 @@
       "name": "NDIZIHIWE Simon Pierre",
       "jobCode": "UIUX",
       "position": "Fullstack Developer",
-      "image": "",
+      "email": "joseph@doe.com",
       "skills": [
         {
           "name": "Flutter"
@@ -248,7 +240,7 @@
       "name": "RUKNDO Janvier",
       "jobCode": "BACK",
       "position": "Backend Developer",
-      "image": "",
+      "email": "steve@doe.com",
       "skills": [
         {
           "name": "Flutter"
@@ -266,7 +258,7 @@
       "name": "MUHORAKEYE Alice",
       "jobCode": "FRONT",
       "position": "Fontend Developer",
-      "image": "",
+      "email": "sarah@doe.com",
       "skills": [
         {
           "name": "Tailwindcss"
@@ -290,7 +282,7 @@
       "name": "KAMALIZA Sandra",
       "jobCode": "FRONT",
       "position": "Fontend Developer",
-      "image": "",
+      "email": "jen@doe.com",
       "skills": [
         {
           "name": "Tailwindcss"

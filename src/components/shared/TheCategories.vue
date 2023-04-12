@@ -22,6 +22,7 @@
           v-for="(applicant, index) in newApplicants"
           :key="index"
           :name="applicant.name"
+          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
