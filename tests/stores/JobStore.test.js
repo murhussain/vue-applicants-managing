@@ -220,7 +220,6 @@ describe('JobStore', () => {
       expect(store.error).toEqual('Failed to update job');
       expect(store.job).toBeNull();
     });
-    
   
     it('should reset loading and error properties after updating a job', async () => {
       

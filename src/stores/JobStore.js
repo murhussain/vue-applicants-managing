@@ -63,6 +63,8 @@ export const useJobStore = defineStore('job', {
       try {
         await axios.delete(`http://localhost:3000/jobs/${id}`);
         this.jobs = this.jobs.filter((job) => job.id !== id);
+        this.loading = false;
+        this.error = null;
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to delete job';
