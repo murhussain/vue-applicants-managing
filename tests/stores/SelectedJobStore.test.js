@@ -2,7 +2,7 @@ import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore'
 import { PiniaVuePlugin, createPinia } from 'pinia';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
 describe('SelectedJobStore', () => {
   let pinia
@@ -41,4 +41,45 @@ describe('SelectedJobStore', () => {
       expect(store.error).toBeNull();
     });
   });
+
+  describe('when selecting a job', () => {
+    let store;
+  
+    beforeAll(() => {
+      store = useSelectedJobStore(pinia);
+    });
+  
+    it('should set the selected job in the store on success', async () => {
+      const jobId = 1;
+      const expectedJob = { id: jobId, name: 'Backend Developer', code: 'BE', initSalary: '4000' };
+      mock.onGet(`http://localhost:3000/jobs/${jobId}`).reply(200, expectedJob);
+  
+      await store.selectJob(jobId);
+  
+      expect(store.job).toEqual(expectedJob);
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toBeNull();
+    });
+  
+    it('should throw an error when attempting to select a job and the request fails', async () => {
+      const jobId = 1;
+      mock.onGet(`http://localhost:3000/jobs/${jobId}`).reply(500);
+  
+      await expect(store.selectJob(jobId)).rejects.toThrow('Failed to fetch job');
+  
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to fetch job');
+    });
+  
+    it('should throw an error when attempting to select a job and the request returns a 404 status code', async () => {
+      const jobId = 1;
+      mock.onGet(`http://localhost:3000/jobs/${jobId}`).reply(404);
+  
+      await expect(store.selectJob(jobId)).rejects.toThrow('Failed to fetch job');
+  
+      expect(store.loading).toBeFalsy();
+      expect(store.error).toEqual('Failed to fetch job');
+    });
+  });
+  
 });
