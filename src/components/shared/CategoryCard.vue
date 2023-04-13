@@ -1,10 +1,10 @@
 <template>
   <div :class="bgColor" class="relative h-12 rounded-xl flex justify-end items-center">
-    <div :class="levelColor" class="absolute h-12 top-0 left-0 rounded-xl flex items-center" 
-      :style="{ width: percentage }"
+    <div :class="[levelColor, 'progress-bar']" class="absolute h-12 top-0 left-0 rounded-xl flex items-center"
+      :style="{ width: progressBarWidth, background: levelColor }"
     >
       <div class="ml-4 flex items-center space-x-2">
-        <slot name="icon"/>
+        <slot name="icon" />
         <p class="text-white text-xl font-medium" v-if="title">{{ title }}</p>
       </div>
     </div>
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, defineProps, watch, ref } from 'vue';
 
 const props = defineProps({
   title: {
@@ -39,13 +39,30 @@ const props = defineProps({
   statColor: {
     type: String,
     required: true,
-  }
+  },
+  maxValue: {
+    type: Number,
+    default: 100,
+  },
 });
+
+const progressBarWidth = ref('0%');
 
 const percentage = computed(() => {
   if (props.applicantsCategory === 0 && props.totalApplicants === 0) {
-    return '0';
+    return '0%';
   }
   return `${(props.applicantsCategory / props.totalApplicants) * 100}%`;
 });
+
+watch(percentage, (newValue) => {
+  progressBarWidth.value = newValue;
+});
+
 </script>
+
+<style scoped>
+.progress-bar {
+  transition: width 0.8s ease-out;
+}
+</style>
