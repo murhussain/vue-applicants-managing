@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "test": "vitest",
+    "test": "vitest --run --reporter verbose",
     "test-jest": "jest",
     "build": "vite build",
     "preview": "vite preview",

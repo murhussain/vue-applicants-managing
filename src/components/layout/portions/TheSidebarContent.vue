@@ -19,7 +19,7 @@
           </RouterLink>
         </div>
       </div>
-
+      
       <!-- The jobs section -->
         <TheJobList />
     </div>

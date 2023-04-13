@@ -1,9 +1,16 @@
 {
   "jobs": [
     {
+      "id": 4,
+      "name": "UI/UX Designers",
+      "code": "UIUX",
+      "initSalary": "300",
+      "maxSalary": "400"
+    },
+    {
       "id": 5,
-      "name": "Mobile Developer",
-      "code": "MAD",
+      "name": "Fullstack Developer",
+      "code": "FULL",
       "initSalary": "3000"
     },
     {
@@ -21,25 +28,25 @@
       "maxSalary": null
     },
     {
-      "name": "Project Manager Senior",
-      "code": "PMS",
+      "name": "Project Manager",
+      "code": "PM",
       "initSalary": "3600",
       "maxSalary": "4500",
       "id": 9
     },
     {
-      "name": "Mobile Developer",
-      "code": "MAD",
-      "initSalary": "2300",
-      "maxSalary": "4555",
+      "name": "Frontend Developer",
+      "code": "FRONT",
+      "initSalary": "3600",
+      "maxSalary": "4500",
       "id": 10
     },
     {
-      "name": "UI/UX Designers",
-      "code": "UIUX",
-      "initSalary": "300",
-      "maxSalary": "400",
-      "id": 14
+      "name": "Mobile Developer",
+      "code": "MAD",
+      "initSalary": 5000,
+      "maxSalary": "",
+      "id": 11
     }
   ],
   "applicants": [
@@ -55,6 +62,9 @@
         },
         {
           "name": "Vue.js"
+        },
+        {
+          "name": "Django Restful"
         }
       ],
       "isNew": true,
@@ -69,10 +79,10 @@
       "email": "jen@doe.com",
       "skills": [
         {
-          "name": ".Net"
+          "name": "MS Azure"
         },
         {
-          "name": "Vue.js"
+          "name": "GitHub Pages"
         }
       ],
       "isNew": true,
@@ -105,10 +115,10 @@
       "email": "steve@doe.com",
       "skills": [
         {
-          "name": ".Net"
+          "name": "ASP DotNet"
         },
         {
-          "name": "Vue.js"
+          "name": "Flutter"
         }
       ],
       "isNew": false,
@@ -118,15 +128,15 @@
     {
       "id": 5,
       "name": "Lorenzo Sacchi",
-      "jobCode": "BACK",
+      "jobCode": "BA",
       "position": "Software Engineer",
       "email": "john@doe.com",
       "skills": [
         {
-          "name": ".Net"
+          "name": "PHP Laravel"
         },
         {
-          "name": "Vue.js"
+          "name": "Node.js"
         }
       ],
       "isNew": false,
@@ -136,15 +146,15 @@
     {
       "id": 6,
       "name": "IHIMWE Josiane",
-      "jobCode": "UIUX",
-      "position": "Software Engineer",
+      "jobCode": "PM",
+      "position": "Project Management",
       "email": "sarah@doe.com",
       "skills": [
         {
-          "name": ".Net"
+          "name": "MS Project"
         },
         {
-          "name": "Vue.js"
+          "name": "Arrow Network"
         }
       ],
       "isNew": false,
@@ -154,7 +164,7 @@
     {
       "id": 7,
       "name": "CYUBAHIRO Theotime",
-      "jobCode": "UIUX",
+      "jobCode": "FULL",
       "position": "Backend Develope",
       "email": "jen@doe.com",
       "skills": [
@@ -174,8 +184,8 @@
     },
     {
       "id": 8,
-      "name": "HIRWA NDOLI Elivin",
-      "jobCode": "UIUX",
+      "name": "HIRWA NDOLI Elvin",
+      "jobCode": "FULL",
       "position": "Backend Developer",
       "email": "steve@doe.com",
       "skills": [
@@ -183,7 +193,7 @@
           "name": "Laravel"
         },
         {
-          "name": "Node.js"
+          "name": "vue.js"
         },
         {
           "name": "Python Flask"
@@ -196,7 +206,7 @@
     {
       "id": 9,
       "name": "SHEMA Gislain Jolivet",
-      "jobCode": "UIUX",
+      "jobCode": "FULL",
       "position": "Mobile Developer",
       "email": "john@doe.com",
       "skills": [
@@ -238,7 +248,7 @@
     {
       "id": 11,
       "name": "RUKNDO Janvier",
-      "jobCode": "BACK",
+      "jobCode": "BA",
       "position": "Backend Developer",
       "email": "steve@doe.com",
       "skills": [
@@ -281,6 +291,300 @@
       "id": 13,
       "name": "KAMALIZA Sandra",
       "jobCode": "FRONT",
+      "position": "Fontend Developer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Tailwindcss"
+        },
+        {
+          "name": "SASS"
+        },
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "UI/UX"
+        }
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
+    },
+    {
+      "id": 14,
+      "name": "NDIZIHIWE Simon Pierre",
+      "jobCode": "FULL",
+      "position": "Fullstack Developer",
+      "email": "joseph@doe.com",
+      "skills": [
+        {
+          "name": "Flutter"
+        },
+        {
+          "name": "Python Django"
+        },
+        {
+          "name": "UI/UX Designer"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 15,
+      "name": "NDIZIHIWE Simon",
+      "jobCode": "UIUX",
+      "position": "Fullstack Developer",
+      "email": "joseph@doe.com",
+      "skills": [
+        {
+          "name": "Flutter"
+        },
+        {
+          "name": "Python Django"
+        },
+        {
+          "name": "UI/UX Designer"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 16,
+      "name": "KAMALIZA Sandra",
+      "jobCode": "FRONT",
+      "position": "Fontend Developer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Tailwindcss"
+        },
+        {
+          "name": "SASS"
+        },
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "UI/UX"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 17,
+      "name": "IHIMWE Josiane",
+      "jobCode": "PM",
+      "position": "Project Management",
+      "email": "sarah@doe.com",
+      "skills": [
+        {
+          "name": "Precedence Analysis"
+        },
+        {
+          "name": "Arrow Network"
+        }
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
+    },
+    {
+      "id": 18,
+      "name": "HIMBAZA Joshua",
+      "jobCode": "DEVOPS",
+      "position": "Network Engineer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Certified AWS"
+        },
+        {
+          "name": "Docker"
+        },
+        {
+          "name": "Huawei Cloud"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 19,
+      "name": "HIMBAZA Joshua",
+      "jobCode": "DEVOPS",
+      "position": "Network Engineer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Certified AWS"
+        },
+        {
+          "name": "Docker"
+        },
+        {
+          "name": "Huawei Cloud"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 20,
+      "name": "HIMBAZA Joshua",
+      "jobCode": "DEVOPS",
+      "position": "Network Engineer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Certified AWS"
+        },
+        {
+          "name": "Docker"
+        },
+        {
+          "name": "Huawei Cloud"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 21,
+      "name": "HIMBAZA Joshua",
+      "jobCode": "DEVOPS",
+      "position": "Network Engineer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Certified AWS"
+        },
+        {
+          "name": "Docker"
+        },
+        {
+          "name": "Huawei Cloud"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 22,
+      "name": "Lorenzo Sacchi",
+      "jobCode": "BA",
+      "position": "Software Engineer",
+      "email": "john@doe.com",
+      "skills": [
+        {
+          "name": "PHP Laravel"
+        },
+        {
+          "name": "Node.js"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 22,
+      "name": "Lorenzo Sacchi",
+      "jobCode": "BA",
+      "position": "Software Engineer",
+      "email": "john@doe.com",
+      "skills": [
+        {
+          "name": "PHP Laravel"
+        },
+        {
+          "name": "Node.js"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": false,
+      "isInterviewed": true
+    },
+    {
+      "id": 22,
+      "name": "Lorenzo Sacchi",
+      "jobCode": "BA",
+      "position": "Software Engineer",
+      "email": "john@doe.com",
+      "skills": [
+        {
+          "name": "Data Science"
+        },
+        {
+          "name": "Big Data"
+        }
+      ],
+      "isNew": true,
+      "isShortlisted": false,
+      "isInterviewed": false
+    },
+    {
+      "id": 23,
+      "name": "KAMALIZA Sandra",
+      "jobCode": "UIUX",
+      "position": "Fontend Developer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Tailwindcss"
+        },
+        {
+          "name": "SASS"
+        },
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "UI/UX"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 24,
+      "name": "KAMALIZA Sandra",
+      "jobCode": "UIUX",
+      "position": "Fontend Developer",
+      "email": "jen@doe.com",
+      "skills": [
+        {
+          "name": "Tailwindcss"
+        },
+        {
+          "name": "SASS"
+        },
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "UI/UX"
+        }
+      ],
+      "isNew": false,
+      "isShortlisted": true,
+      "isInterviewed": false
+    },
+    {
+      "id": 25,
+      "name": "KAMALIZA Sandra",
+      "jobCode": "UIUX",
       "position": "Fontend Developer",
       "email": "jen@doe.com",
       "skills": [
