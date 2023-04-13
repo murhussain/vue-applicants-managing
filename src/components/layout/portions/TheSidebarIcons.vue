@@ -6,8 +6,11 @@
         <RouterLink to='/' :class="{ 'h-[2rem] w-[2rem] grid place-content-center rounded-lg bg-primary': isCurrentRoute('/') }">
           <IconHome :class="{ 'text-body hover:text-white dark-hover:text-d-white dark:text-body h-[1.6rem] w-[1.6rem]': isCurrentRoute('/') }" />
         </RouterLink>
+        <div :class="{ 'h-[2rem] w-[2rem] grid place-content-center rounded-lg bg-primary': hasApplicantsInPath }">
+          <IconUserGroup  :class="{ 'text-body hover:text-white dark-hover:text-d-white dark:text-body h-[1.6rem] w-[1.6rem]': hasApplicantsInPath }" />
+        </div>
+        <!-- <IconUserGroup /> -->
         <IconWallet />
-        <IconUserGroup />
         <IconMap />
         <IconNotification />
         <IconSetting />
@@ -46,6 +49,7 @@ import IconLight from '@/components/icons/IconLight.vue'
 import IconDark from '@/components/icons/IconDark.vue'
 import { useDark, useToggle } from '@vueuse/core';
 import { RouterLink, useRoute } from 'vue-router';
+import { computed } from 'vue';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -54,4 +58,8 @@ const route = useRoute();
 function isCurrentRoute(path) {
   return route.path === path;
 }
+
+const hasApplicantsInPath = computed(() => {
+  return /^\/jobs\/applicants\/.+/.test(route.path);
+});
 </script>
