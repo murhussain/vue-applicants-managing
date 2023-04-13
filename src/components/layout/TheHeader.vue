@@ -26,7 +26,7 @@
           @click="deleteSelectedJob(selectedJob.id)"
         >
           <IconDelete 
-            :class="{'text-danger dark:text-red-500': selectedJob }"
+            :class="{'text-danger dark:text-red-500 animate-pulse': selectedJob }"
           />
         </div>
         <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
@@ -41,8 +41,8 @@
           >
             <IconPen 
               :class="{
-                'text-body dark:text-white': hasUpdateInPath,
-                'text-primary dark:text-primary': selectedJob 
+                'text-body dark:text-whit': hasUpdateInPath,
+                'text-primary dark:text-primary animate-pulse': selectedJob 
               }"
             />
           </div>

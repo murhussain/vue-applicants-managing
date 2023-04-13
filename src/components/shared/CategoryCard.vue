@@ -8,7 +8,9 @@
         <p class="text-white text-xl font-medium" v-if="title">{{ title }}</p>
       </div>
     </div>
-    <p :class="statColor" class="text-sm font-medium mr-4">{{ applicantsCategory }}/{{totalApplicants}}</p>
+    <p :class="statColor" class="text-sm font-medium mr-4 animate-bounce ">
+      {{ applicantsCategory }}/{{totalApplicants}}
+    </p>
   </div>
 </template>
 
