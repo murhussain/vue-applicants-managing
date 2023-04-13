@@ -1,92 +1,51 @@
-import { describe, expect, test } from 'vitest';
+import { describe, test, expect } from 'vitest';
 import { computed } from 'vue';
 
-// Define some mock data for the computed properties
-const newApplicantsMock = [  { name: 'John Doe', status: 'new' },  { name: 'Jane Doe', status: 'new' },];
-
-const shortlistedApplicantsMock = [  { name: 'James Smith', status: 'shortlisted' },  { name: 'Janet Smith', status: 'shortlisted' },];
-
-const interviewedApplicantsMock = [  { name: 'Bob Johnson', status: 'interviewed' },  { name: 'Betty Johnson', status: 'interviewed' },];
-
-// Define some mock stores for the tests
-const applicantsStoreMock = {
-  totalApplicants: 6,
-  newApplicants: newApplicantsMock,
-  shortlistedApplicants: shortlistedApplicantsMock,
-  interviewedApplicants: interviewedApplicantsMock,
-  fetchAndSetApplicantsCategory: () => Promise.resolve(),
-};
-
-// Define some mock route data for the tests
-const routeMock = {
-  params: { code: '1234' },
-};
 
 describe('Computed properties', () => {
-  // Test for hasNewApplicants computed property
-  test('should correctly determine if there are new applicants', () => {
-    const hasNewApplicants = computed(() => {
-      return newApplicantsMock.length > 0;
-    });
+  const applicantsStoreMock = {
+    totalApplicants: 10,
+    newApplicants: [{}, {}, {}],
+    shortlistedApplicants: [{}, {}],
+    interviewedApplicants: [{}, {}, {}, {}],
+  };
 
+  const tApplicants = computed(() => applicantsStoreMock.totalApplicants);
+  const newApplicants = computed(() => applicantsStoreMock.newApplicants);
+  const tNew = computed(() => newApplicants.value.length);
+  const shortlistedApplicants = computed(() => applicantsStoreMock.shortlistedApplicants);
+  const tShortlisted = computed(() => shortlistedApplicants.value.length);
+  const interviewedApplicants = computed(() => applicantsStoreMock.interviewedApplicants);
+  const tInterviewed = computed(() => interviewedApplicants.value.length);
+  const hasNewApplicants = computed(() => newApplicants.value.length > 0);
+  const hasInterviewedApplicants = computed(() => interviewedApplicants.value.length > 0);
+  const hasShortlistedApplicants = computed(() => shortlistedApplicants.value.length > 0);
+  
+  test('tApplicants should correctly return the total number of applicants', () => {
+    expect(tApplicants.value).toBe(10);
+  });
+
+  test('tNew should correctly return the total number of new applicants', () => {
+    expect(tNew.value).toBe(3);
+  });
+
+  test('tShortlisted should correctly return the total number of shortlisted applicants', () => {
+    expect(tShortlisted.value).toBe(2);
+  });
+
+  test('tInterviewed should correctly return the total number of interviewed applicants', () => {
+    expect(tInterviewed.value).toBe(4);
+  });
+
+  test('hasNewApplicants should return true if there are new applicants', () => {
     expect(hasNewApplicants.value).toBe(true);
   });
 
-  // Test for hasShortlistedApplicants computed property
-  test('should correctly determine if there are shortlisted applicants', () => {
-    const hasShortlistedApplicants = computed(() => {
-      return shortlistedApplicantsMock.length > 0;
-    });
-
-    expect(hasShortlistedApplicants.value).toBe(true);
-  });
-
-  // Test for hasInterviewedApplicants computed property
-  test('should correctly determine if there are interviewed applicants', () => {
-    const hasInterviewedApplicants = computed(() => {
-      return interviewedApplicantsMock.length > 0;
-    });
-
+  test('hasInterviewedApplicants should return true if there are interviewed applicants', () => {
     expect(hasInterviewedApplicants.value).toBe(true);
   });
 
-  // Test for tApplicants computed property
-  test('should correctly aggregate the total number of applicants', () => {
-    const tApplicants = computed(() => {
-      return (
-        newApplicantsMock.length +
-        shortlistedApplicantsMock.length +
-        interviewedApplicantsMock.length
-      );
-    });
-
-    expect(tApplicants.value).toBe(applicantsStoreMock.totalApplicants);
-  });
-
-  // Test for tNew computed property
-  test('should correctly aggregate the total number of new applicants', () => {
-    const tNew = computed(() => {
-      return newApplicantsMock.length;
-    });
-
-    expect(tNew.value).toBe(applicantsStoreMock.newApplicants.length);
-  });
-
-  // Test for tShortlisted computed property
-  test('should correctly aggregate the total number of shortlisted applicants', () => {
-    const tShortlisted = computed(() => {
-      return shortlistedApplicantsMock.length;
-    });
-
-    expect(tShortlisted.value).toBe(applicantsStoreMock.shortlistedApplicants.length);
-  });
-
-  // Test for tInterviewed computed property
-  test('should correctly aggregate the total number of interviewed applicants', () => {
-    const tInterviewed = computed(() => {
-      return interviewedApplicantsMock.length;
-    });
-
-    expect(tInterviewed.value).toBe(applicantsStoreMock.interviewedApplicants.length);
+  test('hasShortlistedApplicants should return true if there are shortlisted applicants', () => {
+    expect(hasShortlistedApplicants.value).toBe(true);
   });
 });
