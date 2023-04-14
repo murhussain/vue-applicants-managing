@@ -41,8 +41,9 @@
   }
 
   .search-input-type {
-    @apply hidden md:inline-flex items-center justify-center ml-2 bg-transparent outline-none 
-    placeholder-black-accent flex-shrink text-black dark:text-d-white 
+    @apply hidden md:inline-flex items-center justify-center outline-none placeholder-black-accent
+    flex-shrink text-black/80 dark:text-d-white rounded-lg h-[2rem] w-[12rem] bg-gray/20 
+    dark:bg-[#454959] py-1 px-2
   }
 }
 

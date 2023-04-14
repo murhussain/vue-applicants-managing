@@ -5,27 +5,23 @@
       <div class="h-[4.4rem] flex items-center justify-between px-3 py-4 border-b border-gray/25 
         dark:border-gray/10"
       >
-        <div class="flex items-center space-x-2">
-          <div className='flex items-center rounded-lg h-[2rem] w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2'>
-            <input v-model="searchQuery" className='search-input-type' type="text" placeholder='Search Jobs....' />
-            <IconSearch />
+        <!-- <div className='flex items-center rounded-lg h-[2rem] w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2'>
+        </div> -->
+        <input v-model="searchQuery" className='search-input-type' type="text" placeholder='Search Jobs....' />
+        <RouterLink to="/jobs/add-new">
+          <div 
+            class="grid place-content-center group rounded-lg h-[2rem] w-[2rem] border border-primary 
+            dark:border-primary hover:bg-primary hover:border-none"
+            :class="{ 'bg-primary border-none': isCurrentRoute('/jobs/add-new') }"
+          >
+            <IconPlus :class="{ 'text-white dark:text-body': isCurrentRoute('/jobs/add-new') }" />
           </div>
-          <RouterLink to="/jobs/add-new">
-            <div 
-              class="grid place-content-center group rounded-lg h-[2rem] w-[2rem] border border-primary 
-              dark:border-primary hover:bg-primary hover:border-none"
-              :class="{ 'bg-primary border-none': isCurrentRoute('/jobs/add-new') }"
-            >
-              <IconPlus :class="{ 'text-white dark:text-body': isCurrentRoute('/jobs/add-new') }" />
-            </div>
-          </RouterLink>
-        </div>
+        </RouterLink>
       </div>
       
       <!-- The jobs section -->
       <div class="space-y-2 h-[37rem] overflow-y-auto scrollbar-hide">
         <p v-if="loading">Loading posts...</p>
-        <p v-if="error">{{ error.message }}</p>
         <div 
           v-for="job in filteredJobs" :key="job.id" 
           class="cursor-pointer group px-4 py-[0.7rem]"
