@@ -39,6 +39,11 @@
     focus:invalid:border-pink-500 focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white 
     text-lg
   }
+
+  .search-input-type {
+    @apply hidden md:inline-flex items-center justify-center ml-2 bg-transparent outline-none 
+    placeholder-black-accent flex-shrink text-black dark:text-d-white 
+  }
 }
 
 .swal2-popup {

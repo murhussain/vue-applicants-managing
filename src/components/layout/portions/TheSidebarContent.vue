@@ -2,20 +2,17 @@
   <div class="flex-1 flex flex-col justify-between h-full">
     <div class="space-y-[1.5rem]">
       <!-- The header section of the sidebar -->
-      <div class="h-[4.4rem] flex items-center justify-between p-4 border-b border-gray/25 
+      <div class="h-[4.4rem] flex items-center justify-between px-3 py-4 border-b border-gray/25 
         dark:border-gray/10"
       >
-        <!-- <p class="text-black dark:text-body font-medium text-xl">Jobs</p> -->
-        <div class="flex items-center space-x-4">
-          <div class="relative">
-            <input v-model="searchQuery" type="text" placeholder="Search jobs..." class="px-4 py-1 w-[11rem] border rounded-md">
-            <button class="absolute inset-y-0 right-0 px-3 bg-gray-100 hover:bg-gray-200 rounded-r-md">
-              <IconSearch />
-            </button>
+        <div class="flex items-center space-x-2">
+          <div className='flex items-center rounded-lg h-[2rem] w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2'>
+            <input v-model="searchQuery" className='search-input-type' type="text" placeholder='Search Jobs....' />
+            <IconSearch />
           </div>
           <RouterLink to="/jobs/add-new">
             <div 
-              class="grid place-content-center group rounded-lg h-[1.8rem] w-[1.8rem] border border-primary 
+              class="grid place-content-center group rounded-lg h-[2rem] w-[2rem] border border-primary 
               dark:border-primary hover:bg-primary hover:border-none"
               :class="{ 'bg-primary border-none': isCurrentRoute('/jobs/add-new') }"
             >
