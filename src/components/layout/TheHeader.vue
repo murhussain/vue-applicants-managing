@@ -1,21 +1,19 @@
 <template>
-  <header class="dark:bg-d-body-accent lg:h-[6rem] flex flex-col justify-end space-y-2 lg:space-y-4 
-    lg:px-12 px-4 pt-2 lg:pt-0 border-b border-gray/30 dark:border-gray/10"
+  <header class="dark:bg-d-body-accent lg:h-[5.5rem] xl:h-[6rem] flex flex-col justify-end space-y-2 lg:space-y-4 
+    lg:px-8 xl:px-12 px-4 pt-2 lg:pt-0 border-b border-gray/30 dark:border-gray/10"
   >
     <div class="flex items-center justify-between">
-      <div @click="showDrawer = true">
-        <IconMenuSm class="lg:hidden text-black dark:text-white"/>
-      </div>
+      <IconMenuSm class="lg:hidden text-black dark:text-white"/>
       <div>
         <p v-if="loading" class="dark:text-body">Loading job...</p>
         <p v-if="error" class="dark:text-body">Something is wrong</p>
         <p v-if="selectedJob && !loading" class="text-black dark:text-white font-medium 
-          text-xl lg:text-3xl capitalize"
+          lg:text-2xl xl:text-3xl capitalize"
         >
           {{selectedJob.name}}
         </p>
         <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-xl 
-          lg:text-3xl capitalize"
+          lg:text-2xl xl:text-3xl capitalize"
         >
           Admin Dashboard
         </p>
@@ -45,8 +43,8 @@
       </div>
       <div class="hidden lg:inline-flex space-x-4 items-center">
         <div
-          class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border cursor-pointer 
-          hover:bg-danger hover:border-none"
+          class="grid place-content-center group rounded-full lg:h-[1.8rem] lg:w-[1.8rem] xl:h-[2rem] 
+          xl:w-[2rem] border cursor-pointer hover:bg-danger hover:border-none"
           :class="{ 
             'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
             'border-danger dark:border-danger': selectedJob 
@@ -59,8 +57,8 @@
         </div>
         <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
           <div
-            class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border cursor-pointer 
-            hover:bg-primary hover:border-none"
+            class="grid place-content-center group rounded-full lg:h-[1.8rem] lg:w-[1.8rem] xl:h-[2rem] 
+            xl:w-[2rem] border cursor-pointer hover:bg-primary hover:border-none"
             :class="{
               'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
               'border-primary dark:border-primary': selectedJob,
@@ -83,21 +81,21 @@
     </div>
     <div class="hidden lg:inline-flex space-x-10 text-black-accent dark:text-d-white">
       <RouterLink to="/">
-        <p class="relative text-lg hover:text-black dark:hover:text-white" 
+        <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium dark:text-white': isCurrentRoute('/') }"
         >
           All Applicants
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/') }"></span>
         </p>
       </RouterLink>
-      <p class="relative text-lg" 
+      <p class="relative xl:text-lg" 
         :class="{'text-black font-medium dark:text-white': hasApplicantsInPath}"
       >
         Job Applicants
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
       <RouterLink to="/jobs/add-new">
-        <p class="relative text-lg hover:text-black dark:hover:text-white" 
+        <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
           Add Job
@@ -106,7 +104,7 @@
       </RouterLink>
       <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
         <p v-if="selectedJob || hasUpdateInPath" 
-          class="relative text-lg hover:text-black dark:hover:text-white" 
+          class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium dark:text-white': hasUpdateInPath }"
         >
           Update Job
@@ -148,28 +146,6 @@
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': hasUpdateInPath }"></span>
         </p>
       </RouterLink> -->
-    </div>
-
-    <!-- Drawer -->
-    <!-- <div class="lg:hidden fixed top-16 bottom-0 right-0 z-20 w-4/5 lg:w-3/4 px-4 py-6 bg-white dark:bg-d-body"> -->
-      
-    <div v-if="showDrawer" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-      <div class="bg-white dark:bg-d-bg-accent h-screen overflow-y-auto scrollbar-hide w-64 md:w-80 flex flex-col space-y-6">
-        <div class="flex justify-end pr-4 pt-4">
-          <div class="h-14 w-14 bg-[#d8dadd] dark:bg-d-body-accent-secondary" 
-          
-          >X</div>
-        </div>
-        <div class='grid place-content-center'>
-          <div class="flex flex-col items-center space-y-6 py-8">
-            <p class='text-gray-accent text-xl'>About</p>
-            <p class='text-gray-accent text-xl'>Service</p>
-            <p class='text-gray-accent text-xl'>Source</p>
-            <p class='text-gray-accent text-xl'>Study Case</p>
-            <p class='text-primary text-xl font-semibold'>Log In</p>
-          </div>
-        </div>
-      </div>
     </div>
   </header>
 </template>

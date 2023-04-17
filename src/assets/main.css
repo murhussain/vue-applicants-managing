@@ -6,21 +6,22 @@
 @layer components {
 
   .primary-button-rounded {
-    @apply flex items-center space-x-2 px-[1.2rem] py-[0.4rem] font-medium rounded-[1.6rem] shadow-sm text-body 
-    bg-primary hover:bg-primary-dark cursor-pointer
+    @apply flex items-center space-x-2 px-[1.2rem] lg:py-[0.2rem] xl:py-[0.4rem] font-medium rounded-[1.6rem] shadow-sm 
+    text-body bg-primary hover:bg-primary-dark cursor-pointer
   }
 
   .applicant-card-list {
-    @apply p-4 bg-body-accent-secondary dark:bg-d-body-accent rounded-xl space-y-4
+    @apply sm:p-4 sm:bg-body-accent-secondary sm:dark:bg-d-body-accent rounded-xl space-y-4
   }
 
   .applicant-card {
-    @apply p-4 bg-body dark:bg-d-body-accent-secondary space-y-4 rounded-lg cursor-pointer
+    @apply p-4 bg-body dark:bg-d-body-accent sm:dark:bg-d-body-accent-secondary space-y-4 
+    rounded-lg cursor-pointer shadow-sm
   }
 
   .tag {
     @apply border border-gray/40 group-hover:border-gray/80 dark:border-gray/20 rounded-3xl 
-    px-2 py-px text-xs text-black-accent dark:text-d-white-accent
+    px-2 py-px text-[10px] sm:text-xs text-black-accent dark:text-d-white-accent
   }
 
   .side-icons{
