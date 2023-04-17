@@ -21,7 +21,7 @@
 
   .tag {
     @apply border border-gray/40 group-hover:border-gray/80 dark:border-gray/20 rounded-3xl 
-    px-2 py-px text-[10px] sm:text-xs text-black-accent dark:text-d-white-accent
+    px-2 py-px text-[10px] sm:text-xs lg:text-[11px] text-black-accent dark:text-d-white-accent
   }
 
   .side-icons{
@@ -43,8 +43,8 @@
 
   .search-input-type {
     @apply hidden md:inline-flex items-center justify-center outline-none placeholder-black-accent
-    flex-shrink text-black/80 dark:text-d-white rounded-lg h-[2rem] w-[12rem] bg-gray/20 
-    dark:bg-[#454959] py-1 px-2
+    flex-shrink text-black/80 dark:text-d-white rounded-lg lg:h-[1.77rem] xl:h-[2rem] lg:w-[10rem] 
+    xl:w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="border-r border-gray/25 dark:border-gray/10 flex flex-col w-[4rem] justify-between h-full">
     <div class="p-4">
       <IconMenu />
-      <div class="mt-[3.3rem] flex flex-col space-y-6">
+      <div class="lg:mt-[4rem] xl:mt-[3.3rem] flex flex-col space-y-6">
         <RouterLink to='/' :class="{ 'lg:h-[1.7rem] xl:h-[2rem] lg:w-[1.7rem] xl:w-[2rem] grid place-content-center rounded-lg bg-primary': isCurrentRoute('/') }">
           <IconHome :class="{ 'text-body hover:text-white dark-hover:text-d-white dark:text-body h-[1.6rem] w-[1.6rem]': isCurrentRoute('/') }" />
         </RouterLink>

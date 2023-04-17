@@ -1,11 +1,11 @@
 <template>
-  <div :class="bgColor" class="relative h-12 rounded-xl flex justify-end items-center">
-    <div :class="[levelColor, 'progress-bar']" class="absolute h-12 top-0 left-0 rounded-xl flex items-center"
+  <div :class="bgColor" class="relative lg:h-[2.7rem] xl:h-12 rounded-xl flex justify-end items-center">
+    <div :class="[levelColor, 'progress-bar']" class="absolute lg:h-[2.7rem] xl:h-12 top-0 left-0 rounded-xl flex items-center"
       :style="{ width: progressBarWidth, background: levelColor }"
     >
       <div class="ml-4 flex items-center space-x-2">
         <slot name="icon" />
-        <p class="text-white text-xl font-medium" v-if="title">{{ title }}</p>
+        <p class="text-white xl:text-xl font-medium" v-if="title">{{ title }}</p>
       </div>
     </div>
     <p :class="statColor" class="text-sm font-medium mr-4 animate-bounce ">

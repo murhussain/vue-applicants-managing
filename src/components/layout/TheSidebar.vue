@@ -4,8 +4,8 @@ import TheSidebarContent from './portions/TheSidebarContent.vue';
 </script>
 
 <template>
-  <div class="hidden lg:inline-flex gb-body dark:bg-d-body-accent w-80 flex-shrink-0 h-screen flex border-r border-gray/30 
-  dark:border-gray/10"
+  <div class="hidden lg:inline-flex gb-body dark:bg-d-body-accent lg:w-[18rem] xl:w-80 flex-shrink-0 h-screen 
+    border-r border-gray/30 dark:border-gray/10"
   >
   
     <!-- Sidebar icons section -->
