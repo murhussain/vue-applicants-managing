@@ -3,10 +3,10 @@
     <div class="p-4">
       <IconMenu />
       <div class="mt-[3.3rem] flex flex-col space-y-6">
-        <RouterLink to='/' :class="{ 'h-[2rem] w-[2rem] grid place-content-center rounded-lg bg-primary': isCurrentRoute('/') }">
+        <RouterLink to='/' :class="{ 'lg:h-[1.7rem] xl:h-[2rem] lg:w-[1.7rem] xl:w-[2rem] grid place-content-center rounded-lg bg-primary': isCurrentRoute('/') }">
           <IconHome :class="{ 'text-body hover:text-white dark-hover:text-d-white dark:text-body h-[1.6rem] w-[1.6rem]': isCurrentRoute('/') }" />
         </RouterLink>
-        <div :class="{ 'h-[2rem] w-[2rem] grid place-content-center rounded-lg bg-primary': hasApplicantsInPath }">
+        <div :class="{ 'lg:h-[1.7rem] xl:h-[2rem] lg:w-[1.7rem] xl:w-[2rem] grid place-content-center rounded-lg bg-primary': hasApplicantsInPath }">
           <IconUserGroup  :class="{ 'text-body hover:text-white dark-hover:text-d-white dark:text-body h-[1.6rem] w-[1.6rem]': hasApplicantsInPath }" />
         </div>
         <!-- <IconUserGroup /> -->
@@ -19,8 +19,8 @@
     </div>
     <div class="mx-auto">
       <div 
-      class="flex items-center justify-center rounded-lg h-[2.1rem] w-[2.1rem] bg-[#d8dadd] 
-        dark:bg-d-body-accent-secondary mb-4 mx-auto"
+      class="flex items-center justify-center rounded-lg lg:h-[2rem] xl:h-[2.1rem] lg:w-[2rem] 
+          xl:w-[2.1rem] bg-[#d8dadd] dark:bg-d-body-accent-secondary mb-4 mx-auto"
         @click="toggleDark()"
       >
         <!-- show IconLight when in light mode -->
