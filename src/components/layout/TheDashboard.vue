@@ -15,7 +15,7 @@ import TheHeader from './TheHeader.vue';
       <TheHeader />
 
       <!-- Page Content -->
-      <section className="px-12 bg-body-accent dark:bg-d-body py-8  flex-1 overflow-x-hidden scrollbar-hide">
+      <section className="hidden lg:block px-12 bg-body-accent dark:bg-d-body py-8  flex-1 overflow-x-hidden scrollbar-hide">
         <!-- All the pages will render here....... -->
         <slot></slot>
       </section>

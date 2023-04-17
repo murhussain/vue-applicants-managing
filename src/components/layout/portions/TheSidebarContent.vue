@@ -5,8 +5,6 @@
       <div class="h-[4.4rem] flex items-center justify-between px-3 py-4 border-b border-gray/25 
         dark:border-gray/10"
       >
-        <!-- <div className='flex items-center rounded-lg h-[2rem] w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2'>
-        </div> -->
         <input v-model="searchQuery" className='search-input-type' type="text" placeholder='Search Jobs....' />
         <RouterLink to="/jobs/add-new">
           <div 
@@ -52,7 +50,6 @@
 </template>
 
 <script setup>
-import IconSearch from '@/components/icons/IconSearch.vue';
 import IconPlus from '@/components/icons/IconPlus.vue';
 import { computed, ref } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -60,7 +57,7 @@ import { useJobStore } from '@/stores/JobStore.js';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { RouterLink, useRoute } from 'vue-router';
 
-const { jobs, loading, error } = storeToRefs(useJobStore());
+const { jobs, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJobs } = useJobStore();
 const { selectJob } = useSelectedJobStore();
 

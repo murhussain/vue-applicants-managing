@@ -55,7 +55,7 @@
     </div>
     <div class="flex space-x-10 text-black-accent dark:text-d-white">
       <RouterLink to="/">
-        <p class="relative text-lg" 
+        <p class="relative text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium dark:text-white': isCurrentRoute('/') }"
         >
           All Applicants
@@ -69,7 +69,7 @@
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
       <RouterLink to="/jobs/add-new">
-        <p class="relative text-lg" 
+        <p class="relative text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
           Add Job
@@ -77,7 +77,8 @@
         </p>
       </RouterLink>
       <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
-        <p v-if="selectedJob || hasUpdateInPath" class="relative text-lg" 
+        <p v-if="selectedJob || hasUpdateInPath" 
+          class="relative text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium dark:text-white': hasUpdateInPath }"
         >
           Update Job

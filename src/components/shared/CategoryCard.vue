@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps, watch, ref } from 'vue';
+import { computed, watch, ref } from 'vue';
 
 const props = defineProps({
   title: {
