@@ -10,12 +10,13 @@
       >
         {{selectedJob.name}}
       </p>
-      <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-3xl 
-        capitalize"
+      <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-xl 
+        lg:text-3xl capitalize"
       >
         Admin Dashboard
       </p>
-      <div class="flex space-x-4 items-center">
+      <IconMenuSm class="lg:hidden text-black dark:text-white"/>
+      <div class="hidden lg:inline-flex space-x-4 items-center">
         <div
           class="grid place-content-center group rounded-full h-[2rem] w-[2rem] border cursor-pointer 
           hover:bg-danger hover:border-none"
@@ -53,37 +54,45 @@
         </div>
       </div>
     </div>
-    <div class="flex space-x-10 text-black-accent dark:text-d-white">
+    <div class="flex space-x-4 lg:space-x-10 text-black-accent dark:text-d-white">
       <RouterLink to="/">
-        <p class="relative text-lg hover:text-black dark:hover:text-white" 
-          :class="{'text-black font-medium dark:text-white': isCurrentRoute('/') }"
-        >
-          All Applicants
-          <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/') }"></span>
-        </p>
+        <div class="hidden lg:block">
+          <p class="relative text-lg hover:text-black dark:hover:text-white" 
+            :class="{'text-black font-medium dark:text-white': isCurrentRoute('/') }"
+          >
+            All Applicants
+            <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/') }"></span>
+          </p>
+        </div>
       </RouterLink>
-      <p class="relative text-lg" 
-        :class="{'text-black font-medium dark:text-white': hasApplicantsInPath}"
-      >
-        Job Applicants
-        <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
-      </p>
-      <RouterLink to="/jobs/add-new">
-        <p class="relative text-lg hover:text-black dark:hover:text-white" 
-          :class="{'text-black font-medium dark:text-white': isCurrentRoute('/jobs/add-new') }"
+      <div class="hidden lg:block">
+        <p class="relative text-lg" 
+          :class="{'text-black font-medium dark:text-white': hasApplicantsInPath}"
         >
-          Add Job
-          <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
+          Job Applicants
+          <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
         </p>
+      </div>
+      <RouterLink to="/jobs/add-new">
+        <div class="hidden lg:block">
+          <p class="relative text-lg hover:text-black dark:hover:text-white" 
+            :class="{'text-black font-medium dark:text-white': isCurrentRoute('/jobs/add-new') }"
+          >
+            Add Job
+            <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
+          </p>
+        </div>
       </RouterLink>
       <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
-        <p v-if="selectedJob || hasUpdateInPath" 
-          class="relative text-lg hover:text-black dark:hover:text-white" 
-          :class="{'text-black font-medium dark:text-white': hasUpdateInPath }"
-        >
-          Update Job
-          <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasUpdateInPath }"></span>
-        </p>
+        <div class="hidden lg:block">
+          <p v-if="selectedJob || hasUpdateInPath" 
+            class="relative text-lg hover:text-black dark:hover:text-white" 
+            :class="{'text-black font-medium dark:text-white': hasUpdateInPath }"
+          >
+            Update Job
+            <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasUpdateInPath }"></span>
+          </p>
+        </div>
       </RouterLink>
     </div>
   </header>
@@ -94,6 +103,7 @@
 import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
 import IconUserAdd from '../icons/IconUserAdd.vue';
+import IconMenuSm from '../icons/IconMenuSm.vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { useJobStore } from "@/stores/JobStore.js";
