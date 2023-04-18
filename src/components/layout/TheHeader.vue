@@ -1,5 +1,5 @@
 <template>
-  <header class="dark:bg-d-body-accent lg:h-[5.5rem] xl:h-[6rem] flex flex-col justify-end space-y-2 lg:space-y-4 
+  <header class="dark:bg-d-body-accent lg:h-[5.5rem] xl:h-[6rem] flex flex-col justify-end space-y-4 
     lg:px-8 xl:px-12 px-4 pt-2 lg:pt-0 border-b border-gray/30 dark:border-gray/10"
   >
     <div class="flex items-center justify-between">
@@ -18,9 +18,9 @@
           Admin Dashboard
         </p>
       </div>
-      <div class="lg:hidden flex items-center space-x-4">
+      <div class="lg:hidden flex items-center space-x-2">
         <div class="flex items-center justify-center rounded-lg h-[1.5rem] w-[1.5rem] bg-[#d8dadd] 
-          dark:bg-d-body-accent-secondary"
+          dark:bg-[#454959]"
           @click="toggleDark()"
         >
           <!-- show IconLight when in light mode -->
@@ -32,14 +32,9 @@
             <IconDark />
           </template>
         </div>
-        <div class="flex items-center space-x-1"> 
-          <IconSearch class="text-black dark:text-white h-10 w-10"/>
-          <RouterLink to="/jobs/add-new">
-            <IconPlus class="text-black dark:text-white hover:text-primary h-10 w-10"
-              :class="{ '': isCurrentRoute('/jobs/add-new') }"
-            />
-          </RouterLink>
-        </div>
+        <RouterLink to="/jobs/add-new">
+          <IconPlus/>
+        </RouterLink>
       </div>
       <div class="hidden lg:inline-flex space-x-4 items-center">
         <div
