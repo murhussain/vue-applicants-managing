@@ -3,7 +3,7 @@
     lg:px-8 xl:px-12 px-4 pt-2 lg:pt-0 border-b border-gray/30 dark:border-gray/10"
   >
     <div class="flex items-center justify-between">
-      <IconMenuSm class="lg:hidden text-black dark:text-white"/>
+      <IconMenuSm class="lg:hidden text-black dark:text-white" @click="showDrawer = true" />
       <div>
         <p v-if="loading" class="dark:text-body">Loading job...</p>
         <p v-if="error" class="dark:text-body">Something is wrong</p>
@@ -142,6 +142,30 @@
         </p>
       </RouterLink> -->
     </div>
+
+    <!-- Drawer -->
+    <div class="fixed inset-0 h-screen bg-black bg-opacity-50 z-50 p-4" 
+      :class="{ 'hidden': !showDrawer }"
+    >
+      <div class="h-full w-full bg-green-200 dark:bg-d-body-accent overflow-hidden">
+        <div class="flex justify-between px-4 py-2 border-b border-gray-200">
+          <h2 class="text-lg font-medium">Drawer Title</h2>
+          <button class="text-gray-500 hover:text-gray-700 focus:outline-none" @click="showDrawer = false">
+            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 5.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        <div class="h-auto max-h-[90%] px-4 py-2 overflow-y-auto scrollbar-hide">
+          <!-- Add your list items here -->
+          <ul class="space-y-2">
+            <li class="text-gray-600 dark:text-gray-400">Item 1</li>
+            <li class="text-gray-600 dark:text-gray-400">Item 2</li>
+            <li class="text-gray-600 dark:text-gray-400">Item 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -151,12 +175,11 @@ import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
 import IconUserAdd from '../icons/IconUserAdd.vue';
 import IconMenuSm from '../icons/IconMenuSm.vue';
-import IconSearch from '../icons/IconSearch.vue';
 import IconPlus from '../icons/IconPlus.vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { useJobStore } from "@/stores/JobStore.js";
-import { computed, watch } from 'vue';
+import { computed, watch, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useFlash } from '@/composables/useFlash';
 import { useConfirmFlash } from '@/composables/confirmFlash';
@@ -173,7 +196,7 @@ const route = useRoute();
 const router = useRouter();
 const { flash } = useFlash();
 const { confirmFlash } = useConfirmFlash();
-const showDrawer = false;
+const showDrawer = ref(false);
 
 async function deleteSelectedJob(id) {
   const result = await confirmFlash('Delete Job', 'Are you sure you want to delete this job?', 'warning');
