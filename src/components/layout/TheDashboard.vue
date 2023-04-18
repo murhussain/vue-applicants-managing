@@ -15,7 +15,7 @@ import TheHeader from './TheHeader.vue';
       <TheHeader />
 
       <!-- Page Content -->
-      <section className="px-4 pt-6 lg:px-8 xl:px-12 bg-body-accent dark:bg-d-body py-8 
+      <section className="px-4 sm:px-10 py-6 lg:px-8 xl:px-12 bg-body-accent dark:bg-d-body 
         flex-1 overflow-x-hidden scrollbar-hide"
       >
         <!-- All the pages will render here....... -->
