@@ -15,8 +15,8 @@
   }
 
   .applicant-card {
-    @apply p-4 bg-body dark:bg-d-body-accent sm:dark:bg-d-body-accent-secondary space-y-4 
-    rounded-lg cursor-pointer shadow-sm
+    @apply p-[0.8rem] xl:p-4 bg-body dark:bg-d-body-accent sm:dark:bg-d-body-accent-secondary xl:space-y-4 
+    space-y-2 rounded-lg cursor-pointer shadow-sm
   }
 
   .tag {
@@ -44,7 +44,7 @@
   .search-input-type {
     @apply hidden md:inline-flex items-center justify-center outline-none placeholder-black-accent
     flex-shrink text-black/80 dark:text-d-white rounded-lg lg:h-[1.77rem] xl:h-[2rem] lg:w-[10rem] 
-    xl:w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2
+    xl:w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2 text-sm xl:text-lg
   }
 }
 

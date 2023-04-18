@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-3 gap-6">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
 
     <div class="space-y-4">
       <!-- The category header of New Applicants -->

@@ -25,11 +25,11 @@
         >
           <!-- show IconLight when in light mode -->
           <template v-if="!isDark">
-            <IconLight class="h-[1.1rem] w-[1.1rem]"/>
+            <IconLight />
           </template>
           <!-- show IconDark when in dark mode -->
           <template v-else>
-            <IconDark class="h-4 w-4"/>
+            <IconDark />
           </template>
         </div>
         <div class="flex items-center space-x-1"> 
