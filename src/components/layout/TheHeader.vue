@@ -6,13 +6,13 @@
       <IconMenuSm class="lg:hidden text-black dark:text-d-white" @click="showDrawer = true" />
       <div>
         <p v-if="loading" class="dark:text-body">Loading job...</p>
-        <p v-if="error" class="dark:text-body">Something is wrong</p>
+        <p v-if="error" class="dark:text-body">{{error}}</p>
         <p v-if="selectedJob && !loading" class="text-black dark:text-white font-medium 
           sm:text-2xl xl:text-3xl capitalize"
         >
           {{selectedJob.name}}
         </p>
-        <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-xl 
+        <p v-else class="text-black dark:text-white font-medium text-xl 
           sm:text-2xl xl:text-3xl capitalize"
         >
           Admin Dashboard
@@ -202,12 +202,13 @@ import IconLight from '@/components/icons/IconLight.vue'
 import IconDark from '@/components/icons/IconDark.vue'
 import { useDark, useToggle } from '@vueuse/core';
 
+
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const { jobs } = storeToRefs(useJobStore());
-const { fetchAndSetJobs } = useJobStore();
+const { fetchAndSetJobs, deleteJob } = useJobStore();
 const { selectJob } = useSelectedJobStore();
-const { selectedJob, loading, error } = storeToRefs(useSelectedJobStore());
+const { selectedJob, error, loading } = storeToRefs(useSelectedJobStore());
 const route = useRoute();
 const router = useRouter();
 const { flash } = useFlash();
