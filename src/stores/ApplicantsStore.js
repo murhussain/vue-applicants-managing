@@ -43,29 +43,29 @@ export const useApplicantsStore = defineStore('applicant', {
 
     // Related new applicants getter functions
     newApplicants(state) {
-      return state.applicants.filter(applicant => applicant.isNew)
+      return state.applicants.filter(applicant => applicant.category === 'new')
     },
 
     totalNewApplicants(state) { 
-      return state.applicants.filter(applicant => applicant.isNew).length 
+      return state.applicants.filter(applicant => applicant.category === 'new').length 
     },
 
     // Related shortlisted applicants getter functions
     shortlistedApplicants(state) {
-      return state.applicants.filter(applicant => applicant.isShortlisted)
+      return state.applicants.filter(applicant => applicant.category === 'shortlisted')
     },
 
     totalShortlistedApplicants(state) { 
-      return state.applicants.filter(applicant => applicant.isShortlisted).length 
+      return state.applicants.filter(applicant => applicant.category === 'shortlisted').length 
     },
 
     // Related interviewed applicants getter functions    
     interviewedApplicants(state) {
-      return state.applicants.filter(applicant => applicant.isInterviewed)
+      return state.applicants.filter(applicant => applicant.category === 'interviewed')
     },
 
     totalInterviewedApplicants(state) { 
-      return state.applicants.filter(applicant => applicant.isInterviewed).length 
+      return state.applicants.filter(applicant => applicant.category === 'interviewed').length 
     },
   }
 });
