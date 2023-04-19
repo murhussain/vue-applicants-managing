@@ -60,9 +60,7 @@
           "name": "Django Restful"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 2,
@@ -78,9 +76,7 @@
           "name": "GitHub Pages"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 3,
@@ -96,9 +92,7 @@
           "name": "Vue.js"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 4,
@@ -114,9 +108,7 @@
           "name": "Flutter"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 5,
@@ -132,9 +124,7 @@
           "name": "Node.js"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 6,
@@ -150,9 +140,7 @@
           "name": "Arrow Network"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 7,
@@ -171,9 +159,7 @@
           "name": "Python Django"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 8,
@@ -192,9 +178,7 @@
           "name": "Python Flask"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 9,
@@ -213,9 +197,7 @@
           "name": "Kotlin"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 10,
@@ -234,9 +216,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 11,
@@ -252,9 +232,7 @@
           "name": "Python Django"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 12,
@@ -276,9 +254,7 @@
           "name": "Angular.js"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 13,
@@ -300,9 +276,7 @@
           "name": "UI/UX"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 14,
@@ -321,9 +295,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 15,
@@ -342,9 +314,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 16,
@@ -366,9 +336,7 @@
           "name": "UI/UX"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 17,
@@ -384,9 +352,7 @@
           "name": "Arrow Network"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 18,
@@ -405,9 +371,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 19,
@@ -426,9 +390,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 20,
@@ -447,9 +409,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 21,
@@ -468,9 +428,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 22,
@@ -486,9 +444,7 @@
           "name": "Node.js"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 22,
@@ -504,9 +460,7 @@
           "name": "Node.js"
         }
       ],
-      "isNew": false,
-      "isShortlisted": false,
-      "isInterviewed": true
+      "category": "interviewed"
     },
     {
       "id": 22,
@@ -522,9 +476,7 @@
           "name": "Big Data"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     },
     {
       "id": 23,
@@ -546,9 +498,7 @@
           "name": "UI/UX"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 24,
@@ -570,9 +520,7 @@
           "name": "UI/UX"
         }
       ],
-      "isNew": false,
-      "isShortlisted": true,
-      "isInterviewed": false
+      "category": "shortlisted"
     },
     {
       "id": 25,
@@ -594,9 +542,7 @@
           "name": "UI/UX"
         }
       ],
-      "isNew": true,
-      "isShortlisted": false,
-      "isInterviewed": false
+      "category": "new"
     }
   ]
 }
