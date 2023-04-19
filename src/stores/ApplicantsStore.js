@@ -50,10 +50,6 @@ export const useApplicantsStore = defineStore('applicant', {
       return state.applicants.filter(applicant => applicant.isNew).length 
     },
 
-    newApplicantsPercentage(state, getters) {
-      return ((getters.totalNewApplicants / getters.totalApplicants) * 100)
-    },
-
     // Related shortlisted applicants getter functions
     shortlistedApplicants(state) {
       return state.applicants.filter(applicant => applicant.isShortlisted)
@@ -61,10 +57,6 @@ export const useApplicantsStore = defineStore('applicant', {
 
     totalShortlistedApplicants(state) { 
       return state.applicants.filter(applicant => applicant.isShortlisted).length 
-    },
-
-    shortlistedApplicantsPercentage(state, getters) {
-      return ((getters.totalShortlistedApplicants / getters.totalApplicants) * 100)
     },
 
     // Related interviewed applicants getter functions    
@@ -75,9 +67,5 @@ export const useApplicantsStore = defineStore('applicant', {
     totalInterviewedApplicants(state) { 
       return state.applicants.filter(applicant => applicant.isInterviewed).length 
     },
-
-    interviewedApplicantsPercentage(state, getters) {
-      return ((getters.totalInterviewedApplicants / getters.totalApplicants) * 100)
-    }
   }
 });
