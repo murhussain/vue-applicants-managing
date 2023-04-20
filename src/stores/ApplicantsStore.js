@@ -10,6 +10,9 @@ export const useApplicantsStore = defineStore('applicant', {
 
   actions: {
     async fetchAndSetApplicants() {
+      this.loading = true;
+      this.error = null;
+
       try {
         const response = await axios.get('http://localhost:3000/applicants');
         this.applicants = response.data;
@@ -23,6 +26,9 @@ export const useApplicantsStore = defineStore('applicant', {
 
 
     async fetchAndSetApplicantsCategory(jobCode) {
+      this.loading = true;
+      this.error = null;
+      
       try {
         const response = await axios.get(`http://localhost:3000/applicants?jobCode=${jobCode}`)
         this.applicants = response.data;

@@ -25,7 +25,6 @@ export const useSelectedJobStore = defineStore({
         const response = await axios.get(`http://localhost:3000/jobs/${id}`);
         const job = response.data;
         this.job = job;
-    
         this.loading = false;
       } catch (error) {
         this.loading = false;

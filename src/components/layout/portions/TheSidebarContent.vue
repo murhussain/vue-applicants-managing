@@ -19,8 +19,11 @@
       
       <!-- The jobs section -->
       <div class="space-y-2 h-[37rem] overflow-y-auto scrollbar-hide">
-        <p v-if="loading">Loading posts...</p>
-        <div 
+        <div v-if="loading" class="h-full grid place-content-center">
+          <LoaderMd />
+        </div>
+        <div
+          v-else 
           v-for="job in filteredJobs" :key="job.id" 
           class="cursor-pointer group px-4 py-[0.7rem]"
           :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
@@ -56,6 +59,7 @@ import { storeToRefs } from 'pinia';
 import { useJobStore } from '@/stores/JobStore.js';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { RouterLink, useRoute } from 'vue-router';
+import LoaderMd from '../../spiners/LoaderMd.vue';
 
 const { jobs, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJobs } = useJobStore();

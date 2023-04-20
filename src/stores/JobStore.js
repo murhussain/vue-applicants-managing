@@ -12,6 +12,9 @@ export const useJobStore = defineStore('job', {
   actions: {
     // Fetching all jobs in the list of jobs
     async fetchAndSetJobs() {
+      this.loading = true;
+      this.error = null;
+
       try {
         const response = await axios.get('http://localhost:3000/jobs');
         this.jobs = response.data;
@@ -26,6 +29,9 @@ export const useJobStore = defineStore('job', {
 
     // Fetching an individual job based on provided id
     async fetchAndSetJob(id) {
+      this.loading = true;
+      this.error = null;
+
       try {
         const response = await axios.get(`http://localhost:3000/jobs/${id}`);
         this.job = response.data;
@@ -41,6 +47,8 @@ export const useJobStore = defineStore('job', {
     // Creating a new job in the list
     async createJob(newJob) {
       this.loading = true;
+      this.error = null;
+
       try {
         const response = await axios.post('http://localhost:3000/jobs', newJob, {
           headers: {
@@ -50,6 +58,7 @@ export const useJobStore = defineStore('job', {
         const createdJob = response.data;
         this.jobs.push(createdJob);
         this.loading = false;
+        this.error = null;
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to create job';
@@ -59,6 +68,8 @@ export const useJobStore = defineStore('job', {
 
     async deleteJob(id) {
       this.loading = true;
+      this.error = null;
+
       try {
         await axios.delete(`http://localhost:3000/jobs/${id}`);
         this.jobs = this.jobs.filter((job) => job.id !== id);
@@ -73,6 +84,8 @@ export const useJobStore = defineStore('job', {
     
     async updateJobById(jobId, updatedJob) {
       this.loading = true;
+      this.error = null;
+
       try {
         const response = await axios.put(`http://localhost:3000/jobs/${jobId}`, updatedJob, {
           headers: {
@@ -84,6 +97,8 @@ export const useJobStore = defineStore('job', {
     
         // Fetch all jobs to update the local store
         await this.fetchAndSetJobs();
+        this.loading = false;
+        this.error = null;
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to update job';

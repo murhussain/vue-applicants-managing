@@ -1,6 +1,8 @@
 <template>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-
+  <div v-if="loading" class="h-full grid place-content-center">
+    <LoaderXl />
+  </div>
+  <div v-else class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
     <div class="space-y-4">
       <!-- The category header of New Applicants -->
       <CategoryCard 
@@ -108,8 +110,13 @@ import IconUserTick from '@/components/icons/IconUserTick.vue'
 import { useApplicantsStore } from '@/stores/ApplicantsStore.js';
 import { computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia';
+import LoaderXl from '@/components/spiners/LoaderXl.vue';
+
 
 const applicantsStore = useApplicantsStore();
+const { loading } = storeToRefs(useApplicantsStore());
+
 const tApplicants = computed(() => applicantsStore.totalApplicants);
 const newApplicants = computed(() => applicantsStore.newApplicants);
 const tNew = computed(() => applicantsStore.totalNewApplicants);
@@ -118,6 +125,7 @@ const tShortlisted = computed(() => applicantsStore.totalShortlistedApplicants);
 const interviewedApplicants = computed(() => applicantsStore.interviewedApplicants);
 const tInterviewed = computed(() => applicantsStore.totalInterviewedApplicants);
 const route = useRoute();
+
 
 // Checking the presence of applicants in each category
 const hasNewApplicants = computed(() => { return newApplicants.value.length > 0; });

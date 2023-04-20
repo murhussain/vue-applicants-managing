@@ -1,6 +1,8 @@
 <template>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-
+  <div v-if="loading" class="h-full grid place-content-center">
+    <LoaderXl />
+  </div>
+  <div v-else class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
     <div class="space-y-4">
       <!-- The category header of New Applicants -->
       <CategoryCard 
@@ -92,9 +94,12 @@ import IconStar from '@/components/icons/IconStar.vue'
 import IconCheck from '@/components/icons/IconCheck.vue'
 import IconUserTick from '@/components/icons/IconUserTick.vue'
 import { useApplicantsStore } from '@/stores/ApplicantsStore.js';
+import { storeToRefs } from 'pinia';
 import { computed, onMounted } from 'vue';
+import LoaderXl from '../spiners/LoaderXl.vue';
 
 const applicantsStore = useApplicantsStore();
+const { loading } = storeToRefs(useApplicantsStore());
 
 const newApplicants = computed(() => applicantsStore.newApplicants);
 const shortlistedApplicants = computed(() => applicantsStore.shortlistedApplicants);
