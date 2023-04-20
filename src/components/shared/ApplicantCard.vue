@@ -1,7 +1,7 @@
 <template>
-  <div class="applicant-card hover:translate-x-6 hover:translate-y-4 hover:shadow-2xl hover:z-90 group">
+  <div class="applicant-card hover:translate-x-4 hover:translate-y-2 hover:shadow-2xl hover:z-90 group">
     <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-4 xl:space-x-2">
+      <div class="flex items-center space-x-2 xl:space-x-2">
         <img :src="`https://i.pravatar.cc/50?u=${email}`" alt="" 
           class="w-[2.5rem] h-[2.5rem] xl:w-[2.8rem] xl:h-[2.8rem] rounded-full ring-2 dark:border-d-body-accent-secondary 
           border-body ring-primary dark:ring-primary-dark border-[2px]"

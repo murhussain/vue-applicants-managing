@@ -15,7 +15,7 @@
   }
 
   .applicant-card {
-    @apply p-[0.8rem] xl:p-4 bg-body dark:bg-d-body-accent-secondary xl:space-y-4 
+    @apply p-[0.8rem] xl:p-[0.7rem] bg-body dark:bg-d-body-accent-secondary xl:space-y-4 
     space-y-2 rounded-lg cursor-pointer shadow-sm
   }
 
