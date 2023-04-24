@@ -114,10 +114,6 @@ import LoaderXl from '../spiners/LoaderXl.vue';
 
 const applicantsStore = useApplicantsStore();
 const { applicants, loading } = storeToRefs(useApplicantsStore());
-
-// const newApplicants = computed(() => applicantsStore.newApplicants);
-// const shortlistedApplicants = computed(() => applicantsStore.shortlistedApplicants);
-// const interviewedApplicants = computed(() => applicantsStore.interviewedApplicants);
 const tApplicants = computed(() => applicantsStore.totalApplicants);
 const tNew = computed(() => applicantsStore.totalNewApplicants);
 const tShortlisted = computed(() => applicantsStore.totalShortlistedApplicants);
@@ -146,5 +142,4 @@ function onDrop(category, event) {
 
   event.target.appendChild(document.getElementById(applicantId))
 }
-
 </script>
