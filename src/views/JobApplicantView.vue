@@ -2,7 +2,7 @@
   <div v-if="loading" class="h-full grid place-content-center">
     <LoaderXl />
   </div>
-  <div v-else class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+  <div v-show="!loading" class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
     <div class="space-y-4">
       <!-- The category header of New Applicants -->
       <CategoryCard 
