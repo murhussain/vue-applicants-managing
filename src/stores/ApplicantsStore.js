@@ -38,7 +38,22 @@ export const useApplicantsStore = defineStore('applicant', {
         this.error = 'Failed to fetch applicants';
         throw new Error('Failed to fetch applicants');
       }
+    },
+
+    async updateApplicantCategory(applicantId, newCategory) {
+      try {
+        await axios.patch(`http://localhost:3000/applicants/${applicantId}`, { category: newCategory });
+        const response = await axios.get(`http://localhost:3000/applicants/${applicantId}`);
+        const updatedApplicant = response.data;
+        const applicantIndex = this.applicants.findIndex(applicant => applicant.id === updatedApplicant.id);
+        if (applicantIndex !== -1) {
+          this.applicants[applicantIndex] = updatedApplicant;
+        }
+      } catch (error) {
+        throw new Error('Failed to update applicant category');
+      }
     }
+    
   },
 
   getters: {
