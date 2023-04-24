@@ -59,7 +59,7 @@ import { storeToRefs } from 'pinia';
 import { useJobStore } from '@/stores/JobStore.js';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { RouterLink, useRoute } from 'vue-router';
-import LoaderMd from '../../spiners/LoaderMd.vue';
+import LoaderMd from '@/components/spiners/LoaderMd.vue';
 
 const { jobs, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJobs } = useJobStore();

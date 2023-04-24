@@ -1,10 +1,12 @@
 <template>
   <div class="grid place-content-center h-full">
-    <div class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+    <div v-if="loading" class="h-full grid place-content-center">
+      <LoaderMd />
+    </div>
+    <div v-show="!loading" class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
       <h3 class="capitalize text-[24px] text-black dark:text-body font-medium">
         Update The Job
       </h3>
-      <p v-if="loading" class="dark:text-body">Loading job...</p>
       <form v-if="job" @submit.prevent="onSubmit" class="space-y-5" noValidate>
         <div class="space-y-2">
           <label for="name" class="block">
@@ -44,6 +46,7 @@ import { useJobStore } from '@/stores/JobStore.js';
 import { useRoute, useRouter } from 'vue-router';
 import { computed, onMounted } from 'vue';
 import { useFlash } from '@/composables/useFlash';
+import LoaderMd from '@/components/spiners/LoaderMd.vue';
 
 const { flash } = useFlash();
 const { job, loading } = storeToRefs(useJobStore());

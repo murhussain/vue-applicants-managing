@@ -166,7 +166,7 @@
           "name": "Python Django"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 8,
@@ -185,7 +185,7 @@
           "name": "Python Flask"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 9,
@@ -223,7 +223,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "interviewed"
+      "category": "new"
     },
     {
       "id": 11,
@@ -378,7 +378,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 19,
@@ -435,7 +435,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 22,
@@ -451,7 +451,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 22,
@@ -505,7 +505,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 24,
@@ -527,7 +527,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 25,
