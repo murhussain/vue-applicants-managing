@@ -61,7 +61,7 @@
           >
             <IconPen 
               :class="{
-                'text-body dark:text-whit': hasUpdateInPath,
+                'text-white dark:text-white': hasUpdateInPath,
                 'text-primary dark:text-primary animate-pulse': selectedJob 
               }"
             />

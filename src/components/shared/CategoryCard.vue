@@ -65,6 +65,6 @@ watch(percentage, (newValue) => {
 
 <style scoped>
 .progress-bar {
-  transition: width 3s ease-out;
+  transition: width 1s ease-out;
 }
 </style>

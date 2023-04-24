@@ -1,14 +1,17 @@
 <template>
-  <div class="grid place-content-center h-full">
+  <div class="h-full lg:grid lg:place-content-center overflow-y-auto">
     <div v-if="loading" class="h-full grid place-content-center">
       <LoaderMd />
     </div>
-    <div v-show="!loading" class="w-96 px-4 py-8 bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center space-y-4">
+    <div v-show="!loading" class="w-[22rem] sm:w-[40rem] sm:mx-auto lg:w-96 px-2 sm:px-6 py-8 
+      bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center 
+      space-y-4"
+    >
       <h3 class="capitalize text-[24px] text-black dark:text-body font-medium">
         Update The Job
       </h3>
-      <form v-if="job" @submit.prevent="onSubmit" class="space-y-5" noValidate>
-        <div class="space-y-2">
+      <form v-if="job" @submit.prevent="onSubmit" class="sm:space-y-6 space-y-5" noValidate>
+        <div class="sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:grid-cols-1 lg:space-y-2">
           <label for="name" class="block">
             <span class="label">Job Name:</span>
             <input type="text" required id="name" v-model="job.name" class="input-type"/>
