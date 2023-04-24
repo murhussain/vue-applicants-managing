@@ -19,12 +19,16 @@
       </CategoryCard>
       
       <!-- The Applicants list -->
-      <div class="applicant-card-list">
+      <div class="applicant-card-list"
+        @drop="onDrop('new', $event)" 
+        @dragover.prevent
+      >
         <ApplicantCard
-          v-for="(applicant, index) in newApplicants"
-          :key="index"
+          v-for="applicant in getApplicantsByCategory('new')" 
+          :key="applicant.id" 
+          :draggable="true" @dragstart="onDragStart(applicant, $event)" 
+          :data-category="'new'"
           :name="applicant.name"
-          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
@@ -47,10 +51,15 @@
       </CategoryCard>
 
       <!-- The Applicants list -->
-      <div class="applicant-card-list">
+      <div class="applicant-card-list"
+        @drop="onDrop('shortlisted', $event)" 
+        @dragover.prevent
+      >
         <ApplicantCard
-          v-for="(applicant, index) in shortlistedApplicants"
-          :key="index"
+          v-for="applicant in getApplicantsByCategory('shortlisted')" 
+          :key="applicant.id" 
+          :draggable="true" @dragstart="onDragStart(applicant, $event)" 
+          :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
           :skills="applicant.skills"
@@ -74,10 +83,15 @@
       </CategoryCard>
 
       <!-- The Applicants list -->
-      <div class="applicant-card-list">
+      <div class="applicant-card-list"
+        @drop="onDrop('interviewed', $event)" 
+        @dragover.prevent
+      >
         <ApplicantCard
-          v-for="(applicant, index) in interviewedApplicants"
-          :key="index"
+          v-for="applicant in getApplicantsByCategory('interviewed')" 
+          :key="applicant.id" 
+          :draggable="true" @dragstart="onDragStart(applicant, $event)" 
+          :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
           :skills="applicant.skills"
@@ -99,11 +113,11 @@ import { computed, onMounted } from 'vue';
 import LoaderXl from '../spiners/LoaderXl.vue';
 
 const applicantsStore = useApplicantsStore();
-const { loading } = storeToRefs(useApplicantsStore());
+const { applicants, loading } = storeToRefs(useApplicantsStore());
 
-const newApplicants = computed(() => applicantsStore.newApplicants);
-const shortlistedApplicants = computed(() => applicantsStore.shortlistedApplicants);
-const interviewedApplicants = computed(() => applicantsStore.interviewedApplicants);
+// const newApplicants = computed(() => applicantsStore.newApplicants);
+// const shortlistedApplicants = computed(() => applicantsStore.shortlistedApplicants);
+// const interviewedApplicants = computed(() => applicantsStore.interviewedApplicants);
 const tApplicants = computed(() => applicantsStore.totalApplicants);
 const tNew = computed(() => applicantsStore.totalNewApplicants);
 const tShortlisted = computed(() => applicantsStore.totalShortlistedApplicants);
@@ -112,4 +126,25 @@ const tInterviewed = computed(() => applicantsStore.totalInterviewedApplicants);
 onMounted(async () => {
   await applicantsStore.fetchAndSetApplicants();
 });
+
+function getApplicantsByCategory(category) {
+  return applicants.value.filter(a => a.category === category)
+}
+
+function onDragStart(applicant, event) {
+  event.dataTransfer.setData('text/plain', applicant.id)
+}
+
+function onDrop(category, event) {
+  const applicantId = event.dataTransfer.getData('text/plain')
+  const applicant = applicants.value.find(a => a.id.toString() === applicantId)
+
+  if (applicant.category !== category) {
+    applicant.category = category
+    applicantsStore.updateApplicantCategory(applicant.id, category)
+  }
+
+  event.target.appendChild(document.getElementById(applicantId))
+}
+
 </script>

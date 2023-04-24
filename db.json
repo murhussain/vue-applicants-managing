@@ -83,7 +83,7 @@
           "name": "GitHub Pages"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 3,
@@ -115,7 +115,7 @@
           "name": "Flutter"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 5,
@@ -131,7 +131,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "interviewed"
+      "category": "new"
     },
     {
       "id": 6,
@@ -185,7 +185,7 @@
           "name": "Python Flask"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 9,
@@ -223,7 +223,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 11,
@@ -261,7 +261,7 @@
           "name": "Angular.js"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 13,
@@ -283,7 +283,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 14,
@@ -359,7 +359,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 18,
@@ -378,7 +378,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 19,
@@ -416,7 +416,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 21,
@@ -451,7 +451,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 22,
@@ -505,7 +505,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "interviewed"
+      "category": "new"
     },
     {
       "id": 24,
