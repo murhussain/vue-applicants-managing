@@ -111,21 +111,21 @@
     >
       <RouterLink to="/">
         <p class="relative hover:text-black text-sm sm:text-lg dark:hover:text-white" 
-          :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/') }"
+          :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/') }"
         >
           All Applicants
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/') }"></span>
         </p>
       </RouterLink>
       <p class="relative text-sm sm:text-lg" 
-        :class="{'text-black font-medium pb-1 dark:text-white': hasApplicantsInPath}"
+        :class="{'text-black font-medium pb-[0.18rem] dark:text-white': hasApplicantsInPath}"
       >
         Job Applicants
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
       <RouterLink to="/jobs/add-new">
         <p class="relative text-sm sm:text-lg hover:text-black dark:hover:text-white" 
-          :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/jobs/add-new') }"
+          :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
           New
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
@@ -134,7 +134,7 @@
       <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
         <p v-if="selectedJob || hasUpdateInPath"  
           class="relative text-sm sm:text-lg hover:text-black dark:hover:text-white" 
-          :class="{'text-black font-medium pb-1 dark:text-white': hasUpdateInPath }"
+          :class="{'text-black font-medium pb-[0.18rem] dark:text-white': hasUpdateInPath }"
         >
           Update
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': hasUpdateInPath }"></span>

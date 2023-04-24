@@ -42,6 +42,9 @@ import { useJobStore } from '@/stores/JobStore';
 import { useFlash } from '@/composables/useFlash';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import VueNoty from 'vuejs-noty'
+import 'vuejs-noty/dist/vuejs-noty.css'
+
 
 const jobStore = useJobStore();
 const { flash } = useFlash();
@@ -57,7 +60,12 @@ const newJob = ref({
 function onSubmit() {
   if (newJob.value.name && newJob.value.code && newJob.value.initSalary) {
     jobStore.createJob(newJob.value);
-    flash('Success', 'The job has successfully added', 'success')
+    // VueNoty.success('The job has been created');
+    this.$noty.show({
+      text: 'Hello World!',
+      type: 'success',
+      timeout: 2000
+    });
     newJob.value = {
       name: '',
       code: '',

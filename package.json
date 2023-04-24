@@ -19,7 +19,8 @@
     "sweetalert2": "^11.7.3",
     "tailwind-scrollbar-hide": "^1.1.7",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vuejs-noty": "^0.1.4"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

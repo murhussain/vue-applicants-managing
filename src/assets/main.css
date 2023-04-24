@@ -6,17 +6,18 @@
 @layer components {
 
   .primary-button-rounded {
-    @apply flex items-center space-x-2 px-[1.2rem] lg:py-[0.2rem] xl:py-[0.4rem] font-medium rounded-[1.6rem] shadow-sm 
-    text-body bg-primary hover:bg-primary-dark cursor-pointer
+    @apply flex items-center space-x-2 px-[1.2rem] lg:py-[0.2rem] xl:py-[0.4rem] font-medium 
+    rounded-[1.6rem] shadow-sm text-body bg-primary hover:bg-primary-dark cursor-pointer
   }
 
   .applicant-card-list {
-    @apply sm:p-4 sm:bg-body-accent-secondary sm:dark:bg-d-body-accent rounded-xl space-y-4
+    @apply max-h-[12rem] lg:max-h-fit grid overflow-x-auto scrollbar-hide sm:p-4 
+    sm:bg-body-accent-secondary sm:dark:bg-d-body-accent sm:rounded-xl space-y-4
   }
 
   .applicant-card {
-    @apply p-[0.8rem] xl:p-[0.7rem] bg-body dark:bg-d-body-accent-secondary xl:space-y-4 
-    space-y-2 rounded-lg cursor-pointer shadow-sm
+    @apply max-h-[6rem] lg:h-max p-[0.8rem] xl:p-[0.7rem] bg-body dark:bg-d-body-accent-secondary 
+    xl:space-y-4 space-y-2 rounded-lg cursor-pointer shadow-sm
   }
 
   .tag {
@@ -25,8 +26,8 @@
   }
 
   .side-icons{
-    @apply lg:h-[1.5rem] xl:h-[2rem] lg:w-[1.5rem] xl:w-[2rem] text-gray hover:text-primary dark:text-gray/60 cursor-pointer 
-    dark:hover:text-d-white
+    @apply lg:h-[1.5rem] xl:h-[2rem] lg:w-[1.5rem] xl:w-[2rem] text-gray hover:text-primary 
+    dark:text-gray/60 cursor-pointer dark:hover:text-d-white
   }
 
   .label {
@@ -34,11 +35,10 @@
   }
 
   .input-type {
-    @apply outline-none mt-1 block w-full px-3 py-2 bg-[#f1f3fd] dark:bg-[#454959] border-b-2 border-primary 
-    rounded-md placeholder-gray  transition-all focus:border-b-4 focus:border-primary                          
-    invalid:border-pink-500 invalid:text-pink-600
-    focus:invalid:border-pink-500 focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white 
-    text-lg
+    @apply outline-none mt-1 block w-full px-3 py-2 bg-[#f1f3fd] dark:bg-[#454959] border-b-2 
+    border-primary rounded-md placeholder-gray  transition-all focus:border-b-4 focus:border-primary                          
+    invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 
+    focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white text-lg
   }
 
   .search-input-type {
