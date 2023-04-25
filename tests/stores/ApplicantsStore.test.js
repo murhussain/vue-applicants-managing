@@ -174,7 +174,7 @@ describe('ApplicantsStore', () => {
 
     it('should return the correct newApplicants', () => {
       expect(store.newApplicants).toEqual([
-        { name: 'Mur Huss', email: 'murhuss@example.com', isNew: true }
+        { category: 'new' }
       ]);
     });
 
