@@ -43,25 +43,11 @@
       "id": 10
     },
     {
-      "name": "ewe",
-      "code": "wewe",
+      "name": "djkfjfn",
+      "code": "ASD",
       "initSalary": 233,
-      "maxSalary": 432,
-      "id": 12
-    },
-    {
-      "name": "wewew",
-      "code": "WER",
-      "initSalary": 234,
-      "maxSalary": "",
-      "id": 13
-    },
-    {
-      "name": "Project Manager Senior",
-      "code": "PMS",
-      "initSalary": 700,
-      "maxSalary": 1000,
-      "id": 14
+      "maxSalary": 456,
+      "id": 15
     }
   ],
   "applicants": [
@@ -114,7 +100,7 @@
           "name": "Vue.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 4,
@@ -130,7 +116,7 @@
           "name": "Flutter"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 5,
@@ -146,7 +132,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 6,
@@ -162,7 +148,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 7,
@@ -181,7 +167,7 @@
           "name": "Python Django"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 8,
@@ -238,7 +224,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 11,
@@ -276,7 +262,7 @@
           "name": "Angular.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 13,
@@ -298,7 +284,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 14,
@@ -317,7 +303,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "new"
+      "category": "interviewed"
     },
     {
       "id": 15,
@@ -393,7 +379,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 19,
@@ -431,7 +417,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 21,
@@ -466,7 +452,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "new"
+      "category": "interviewed"
     },
     {
       "id": 22,
@@ -520,7 +506,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 24,
@@ -542,11 +528,11 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 25,
-      "name": "KAMALIZA Sandra",
+      "name": "MURASHI Hussein",
       "jobCode": "UIUX",
       "position": "Fontend Developer",
       "email": "jen@doe.com",
@@ -564,7 +550,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     }
   ]
 }

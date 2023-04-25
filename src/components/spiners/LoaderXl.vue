@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center space-x-4">
     <div id="loading"></div>
-    <p class="hidden xl:block text-6xl text-black-accent dark:text-d-white">Loading Applicants......</p>
+    <p class="hidden xl:block text-6xl text-black-accent dark:text-d-white">Loading......</p>
   </div>
 </template>
 
