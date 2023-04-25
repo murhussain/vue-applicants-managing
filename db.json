@@ -115,7 +115,7 @@
           "name": "Flutter"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 5,
@@ -131,7 +131,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 6,
@@ -283,7 +283,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 14,
@@ -343,7 +343,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 17,
@@ -378,7 +378,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 19,
@@ -397,7 +397,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "interviewed"
+      "category": "new"
     },
     {
       "id": 20,
@@ -451,7 +451,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 22,
