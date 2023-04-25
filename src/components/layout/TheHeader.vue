@@ -143,10 +143,15 @@
     </div>
 
     <!-- Drawer -->
-    <div class="fixed inset-0 h-screen bg-black dark:bg-d-white-accent bg-opacity-50 dark:bg-opacity-30 z-50 p-4" 
+    <div 
+      class="fixed inset-0 h-screen bg-black dark:bg-d-white-accent bg-opacity-50 dark:bg-opacity-30 
+      z-50 p-4" 
       :class="{ 'hidden': !showDrawer }"
     >
-      <div class="max-h-full w-full sm:w-3/5 sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto scrollbar-hide">
+      <div 
+        class="max-h-full w-full sm:w-3/5 sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
+        scrollbar-hide"
+      >
         <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
           <IconSearch />
           <input v-model="searchQuery" class="rounded-lg h-[1.7rem] bg-body dark:bg-d-body-accent

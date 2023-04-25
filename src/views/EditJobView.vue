@@ -1,17 +1,16 @@
 <template>
-  <div class="h-full lg:grid lg:place-content-center overflow-y-auto">
-    <div v-if="loading" class="h-full grid place-content-center">
-      <LoaderMd />
-    </div>
-    <div v-show="!loading" class="w-[22rem] sm:w-[40rem] sm:mx-auto lg:w-96 px-2 sm:px-6 py-8 
-      bg-body dark:bg-d-body-accent-secondary rounded-lg shadow-sm flex flex-col items-center 
-      space-y-4"
+  <div v-if="loading" class="h-full grid place-content-center">
+    <LoaderXl />
+  </div>
+  <div v-show="!loading" class="h-full lg:grid lg:place-content-center overflow-y-auto scrollbar-hide">
+    <div class="sm:w-[40rem] sm:mx-auto lg:w-96 px-2 sm:px-6 pb-8 pt-4 bg-body dark:bg-d-body-accent 
+      rounded-lg shadow-sm flex flex-col items-center space-y-4"
     >
-      <h3 class="capitalize text-[24px] text-black dark:text-body font-medium">
+      <h3 class="capitalize text-xl lg:text-[24px] text-black dark:text-body font-medium">
         Update The Job
       </h3>
       <form v-if="job" @submit.prevent="onSubmit" class="sm:space-y-6 space-y-5" noValidate>
-        <div class="sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:grid-cols-1 lg:space-y-2">
+        <div class="grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:grid-cols-1 lg:space-y-none">
           <label for="name" class="block">
             <span class="label">Job Name:</span>
             <input type="text" required id="name" v-model="job.name" class="input-type"/>
@@ -49,7 +48,7 @@ import { useJobStore } from '@/stores/JobStore.js';
 import { useRoute, useRouter } from 'vue-router';
 import { computed, onMounted } from 'vue';
 import { useFlash } from '@/composables/useFlash';
-import LoaderMd from '@/components/spiners/LoaderMd.vue';
+import LoaderXl from '@/components/spiners/LoaderXl.vue';
 
 const { flash } = useFlash();
 const { job, loading } = storeToRefs(useJobStore());
