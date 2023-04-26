@@ -264,5 +264,55 @@ describe('ApplicantsStore', () => {
         expect(store.totalInterviewedApplicants).toEqual(store.interviewedApplicants.length);
       });
     });
-  }); 
+  });
+
+  describe('updateApplicantCategory', () => {
+    let mockAxios;
+    let store;
+  
+    beforeEach(() => {
+      mockAxios = new MockAdapter(axios);
+      store = useApplicantsStore(pinia);
+    });
+  
+    afterEach(() => {
+      mockAxios.restore();
+    });
+  
+    // it('should update the category of an applicant', async () => {
+    //   const store = useApplicantsStore(pinia);
+    //   const applicantId = 1;
+    //   const newCategory = 'shortlisted';
+  
+    //   // Set up the mock response for axios
+    //   mockAxios
+    //     .onPatch(`http://localhost:3000/applicants/${applicantId}`, { category: newCategory })
+    //     .reply(200, {});
+  
+    //   // Modify the mock response to include the updated applicant data
+    //   mockAxios
+    //     .onGet(`http://localhost:3000/applicants/${applicantId}`)
+    //     .reply(200, { id: applicantId, name: 'Test Applicant', category: newCategory });
+  
+    //   // Call the action to update the applicant category
+    //   await store.updateApplicantCategory(applicantId, newCategory);
+  
+    //   // Check that the applicant category has been updated in the store
+    //   const updatedApplicant = store.applicants.find(applicant => applicant.id === applicantId);
+    //   expect(updatedApplicant.category).toEqual(newCategory);
+    // });
+  
+    it('should throw an error when the update request fails', async () => {
+      const applicantId = 1;
+      const newCategory = 'shortlisted';
+  
+      // Set up the mock response for axios to fail
+      mockAxios
+        .onPatch(`http://localhost:3000/applicants/${applicantId}`, { category: newCategory })
+        .reply(500);
+  
+      // Call the action to update the applicant category and expect it to throw an error
+      await expect(store.updateApplicantCategory(applicantId, newCategory)).rejects.toThrow('Failed to update applicant category');
+    });
+  });
 });

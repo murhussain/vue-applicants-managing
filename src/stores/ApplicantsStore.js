@@ -24,7 +24,6 @@ export const useApplicantsStore = defineStore('applicant', {
       }
     },
 
-
     async fetchAndSetApplicantsCategory(jobCode) {
       this.loading = true;
       this.error = null;
@@ -40,7 +39,6 @@ export const useApplicantsStore = defineStore('applicant', {
       }
     },
 
-    // needs to be tested
     async updateApplicantCategory(applicantId, newCategory) {
       try {
         await axios.patch(`http://localhost:3000/applicants/${applicantId}`, { category: newCategory });
@@ -54,7 +52,6 @@ export const useApplicantsStore = defineStore('applicant', {
         throw new Error('Failed to update applicant category');
       }
     }
-    
   },
 
   getters: {
