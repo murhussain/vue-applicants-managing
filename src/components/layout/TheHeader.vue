@@ -31,13 +31,7 @@
             <IconDark />
           </template>
         </div>
-        <div class="flex items-center justify-center rounded-lg h-[1.5rem] w-[1.5rem] bg-[#d8dadd] 
-          dark:bg-[#454959] sm:w-[2rem] sm:h-[2rem]"
-          @click="showMainMenu = true"
-        
-        >
-          <IconVellipsis :class="{'mr-0': isCurrentRoute('/jobs/add-new') }"/>
-        </div>
+        <IconVellipsis @click="showMainMenu = true"/>
       </div>
       <div class="hidden lg:inline-flex space-x-4 items-center">
         <div
@@ -151,7 +145,7 @@
     z-50 p-4" :class="{ 'hidden': !showDrawer }"
   >
     <div 
-      class="max-h-[80%] sm:max-h-[90%] w-full sm:w-3/5 sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
+      class="max-h-[80%] sm:max-h-[90%] w-full sm:w-1/2 sm:mr-auto bg-body dark:bg-d-body-accent overflow-y-auto 
       scrollbar-hide rounded-xl"
     >
       <div class="flex items-center justify-between px-4 py-4 border-b border-gray/40 dark:border-gray/20">
@@ -193,7 +187,7 @@
     z-50 p-4" :class="{ 'hidden': !showMainMenu }"
   >
     <div 
-      class="max-h-[40%] w-full sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
+      class="max-h-[40%] sm:max-h-[70%] w-full sm:w-2/5 sm:ml-auto bg-body dark:bg-d-body-accent overflow-y-auto 
       scrollbar-hide rounded-xl"
     >
       <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
@@ -201,23 +195,29 @@
         <IconCross @click="showMainMenu = false" />
       </div>
       <div class="px-4 py-4 space-y-4">
-        <div class="flex items-center space-x-4 group">
-          <IconPlus />
-          <p class="text-lg text-gray dark:text-d-white font-medium capitalize group-hover:text-black">
+        <div class="flex items-center justify-between group">
+          <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
+            group-hover:text-black dark:group-hover:text-body"
+          >
             Create new
           </p>
+          <IconArrowLeft />
         </div>
-        <div class="flex items-center space-x-4 group">
-          <IconPen />
-          <p class="text-lg text-gray dark:text-d-white font-medium capitalize group-hover:text-black">
+        <div class="flex items-center justify-between group">
+          <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
+            group-hover:text-black dark:group-hover:text-body"
+          >
             Update job
           </p>
+          <IconArrowLeft />
         </div>
-        <div class="flex items-center space-x-4 group">
-          <IconDelete />
-          <p class="text-lg text-gray dark:text-d-white font-medium capitalize group-hover:text-black">
+        <div class="flex items-center justify-between group">
+          <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
+            group-hover:text-black dark:group-hover:text-body"
+          >
             Delete job
           </p>
+          <IconArrowLeft />
         </div>
       </div>
     </div>
@@ -241,7 +241,7 @@ import { useFlash } from '@/composables/useFlash';
 import { useConfirmFlash } from '@/composables/confirmFlash';
 import IconLight from '@/components/icons/IconLight.vue'
 import IconDark from '@/components/icons/IconDark.vue'
-import IconPlus from '@/components/icons/IconPlus.vue'
+import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import { useDark, useToggle } from '@vueuse/core';
 import LoaderSm from '../spiners/LoaderSm.vue';
 

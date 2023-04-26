@@ -11,7 +11,7 @@
       "id": 5,
       "name": "Fullstack Developer",
       "code": "FULL",
-      "initSalary": "3000",
+      "initSalary": 3000,
       "maxSalary": 4000
     },
     {

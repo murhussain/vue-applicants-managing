@@ -12,7 +12,7 @@
               xl:w-[2rem] border border-primary dark:border-primary hover:bg-primary hover:border-none"
             :class="{ 'bg-primary border-none': isCurrentRoute('/jobs/add-new') }"
           >
-            <IconPlus :class="{ 'text-white dark:text-body': isCurrentRoute('/jobs/add-new') }" />
+            <IconPlus :class="{ 'text-white dark:text-white': isCurrentRoute('/jobs/add-new') }" />
           </div>
         </RouterLink>
       </div>
