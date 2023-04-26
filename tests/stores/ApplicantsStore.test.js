@@ -167,39 +167,102 @@ describe('ApplicantsStore', () => {
         {name: 'Jim Doe', email: 'jim.doe@example.com', isInterviewed: true},
       ];
     });
-
-    it('should return the correct totalApplicants count', () => {
-      expect(store.totalApplicants).toEqual(store.applicants.length);
+    describe('Total applicants getter', () => { 
+      it('should return the correct totalApplicants count', () => {
+        expect(store.totalApplicants).toEqual(store.applicants.length);
+      });
     });
 
-    it('should return the correct newApplicants', () => {
-      expect(store.newApplicants).toEqual([
-        { category: 'new' }
-      ]);
+    describe('NewApplicants getter', () => {
+      it('should return all applicants with category "new"', () => {
+        const mockApplicants = [
+          { id: 1, name: 'Alice', category: 'new' },
+          { id: 2, name: 'Bob', category: 'shortlisted' }, 
+          { id: 3, name: 'Charlie', category: 'new' },
+          { id: 4, name: 'David', category: 'interviewed' },
+        ];
+        store.applicants = mockApplicants;
+  
+        const newApplicants = store.newApplicants;
+  
+        expect(newApplicants).toHaveLength(2);
+        expect(newApplicants).toContainEqual(mockApplicants[0]);
+        expect(newApplicants).toContainEqual(mockApplicants[2]);
+      });
+  
+      it('should return an empty array if there are no new applicants', () => {
+        const mockApplicants = [
+          { id: 1, name: 'Alice', category: 'shortlisted' },
+          { id: 2, name: 'Bob', category: 'interviewed' }, 
+          { id: 3, name: 'Charlie', category: 'interviewed' },
+        ];
+        store.applicants = mockApplicants;
+  
+        const newApplicants = store.newApplicants;
+        expect(newApplicants).toHaveLength(0);
+      });
+
+      it('should return the correct totalNewApplicants count', () => {
+        expect(store.totalNewApplicants).toEqual(store.newApplicants.length);
+      });
     });
 
-    it('should return the correct totalNewApplicants count', () => {
-      expect(store.totalNewApplicants).toEqual(store.newApplicants.length);
-    })
+    const mockShortlistedApplicants = [
+      { id: 1, name: 'John', category: 'new' },
+      { id: 2, name: 'Jane', category: 'shortlisted' },
+      { id: 3, name: 'Bob', category: 'shortlisted' },
+      { id: 4, name: 'Alice', category: 'interviewed' },
+    ];
+    
+    describe('shortlistedApplicants getter', () => {
+      beforeEach(() => {
+        store.applicants = mockShortlistedApplicants;
+      });
+    
+      it('should return an array of shortlisted applicants', () => {
+        const shortlisted = store.shortlistedApplicants;
+        expect(Array.isArray(shortlisted)).toBe(true);
+        expect(shortlisted.length).toBe(2); // there are 2 applicants with 'shortlisted' category
+        expect(shortlisted.every(applicant => applicant.category === 'shortlisted')).toBe(true);
+      });
+    
+      it('should not include applicants with a different category', () => {
+        const shortlisted = store.shortlistedApplicants;
+        expect(shortlisted.some(applicant => applicant.category !== 'shortlisted')).toBe(false);
+      });
 
-    it('should return the correct shortlistedApplicants', () => {
-      expect(store.shortlistedApplicants).toEqual([
-        { name: 'Jane Doe', email: 'jane.doe@example.com', isShortlisted: true }
-      ]);
+      it('should return the correct totalShortlistedApplicants count', () => {
+        expect(store.totalShortlistedApplicants).toEqual(store.shortlistedApplicants.length);
+      });
     });
 
-    it('should return the correct totalShortlistedApplicants count', () => {
-      expect(store.totalShortlistedApplicants).toEqual(store.shortlistedApplicants.length);
-    });
+    const mockInterviewedApplicants = [
+      { id: 1, name: 'John', category: 'new' },
+      { id: 2, name: 'Jane', category: 'shortlisted' },
+      { id: 3, name: 'Bob', category: 'interviewed' },
+      { id: 4, name: 'Alice', category: 'interviewed' },
+    ];
 
-    it('should return the correct interviewedApplicants', () => {
-      expect(store.interviewedApplicants).toEqual([
-        {name: 'Jim Doe', email: 'jim.doe@example.com', isInterviewed: true}
-      ]);
-    });
+    describe('interviewedApplicants getter', () => {
+      beforeEach(() => {
+        store.applicants = mockInterviewedApplicants;
+      });
+    
+      it('should return an array of interviewed applicants', () => {
+        const interviewed = store.interviewedApplicants;
+        expect(Array.isArray(interviewed)).toBe(true);
+        expect(interviewed.length).toBe(2); // there are 2 applicants with 'interviewed' category
+        expect(interviewed.every(applicant => applicant.category === 'interviewed')).toBe(true);
+      });
+    
+      it('should not include applicants with a different category', () => {
+        const interviewed = store.interviewedApplicants;
+        expect(interviewed.some(applicant => applicant.category !== 'interviewed')).toBe(false);
+      });
 
-    it('should return the correct totalInterviewedApplicants count', () => {
-      expect(store.totalInterviewedApplicants).toEqual(store.interviewedApplicants.length);
+      it('should return the correct totalInterviewedApplicants count', () => {
+        expect(store.totalInterviewedApplicants).toEqual(store.interviewedApplicants.length);
+      });
     });
-  });  
+  }); 
 });
