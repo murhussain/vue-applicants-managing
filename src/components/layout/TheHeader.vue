@@ -141,51 +141,48 @@
         </p>
       </RouterLink>
     </div>
-
-    <!-- Drawer -->
+  </header>
+  <!-- Drawer -->
+  <div class="fixed inset-0 h-screen bg-black dark:bg-d-white-accent bg-opacity-50 dark:bg-opacity-30 
+    z-50 p-4" :class="{ 'hidden': !showDrawer }"
+  >
     <div 
-      class="fixed inset-0 h-screen bg-black dark:bg-d-white-accent bg-opacity-50 dark:bg-opacity-30 
-      z-50 p-4" 
-      :class="{ 'hidden': !showDrawer }"
+      class="max-h-full w-full sm:w-3/5 sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
+      scrollbar-hide"
     >
-      <div 
-        class="max-h-full w-full sm:w-3/5 sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
-        scrollbar-hide"
-      >
-        <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
-          <IconSearch />
-          <input v-model="searchQuery" class="rounded-lg h-[1.7rem] bg-body dark:bg-d-body-accent
-          outline-none text-black/80  dark:text-d-white px-4 w-[14rem]" 
-            type="text" placeholder='Search Jobs....' 
-          />
-          <div class="flex items-center justify-center rounded-lg h-[1.5rem] w-[3rem] bg-[#d8dadd] 
-          dark:bg-[#454959] text-black dark:text-d-white cursor-pointer"
-          @click="showDrawer = false"
-          >Esc</div>
-        </div>
-        <div class="py-4 space-y-2">
-          <p v-if="loading">Loading posts...</p>
-          <div 
-            v-for="job in filteredJobs" :key="job.id" 
-            class="cursor-pointer group px-4 py-[0.7rem]"
-            :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
-            @click="selectJob(job.id); showDrawer = false"
-          >
-            <RouterLink :to="'/jobs/applicants/' + job.code">  
-              <p class="text-black text-sm dark:text-d-white capitalized"
-                :class="{'font-medium': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
-              >{{ job.name }}</p>
-              <div class="flex items-center space-x-2 text-xs text-black-accent dark:text-d-white-accent">
-                <p class="">{{ job.initSalary }}$</p> 
-                <p v-show="job.maxSalary">-</p>
-                <p v-show="job.maxSalary">{{ job.maxSalary }}$</p>
-              </div>
-            </RouterLink>
-          </div>
+      <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
+        <IconSearch />
+        <input v-model="searchQuery" class="rounded-lg h-[1.7rem] bg-body dark:bg-d-body-accent
+        outline-none text-black/80  dark:text-d-white px-4 w-[14rem]" 
+          type="text" placeholder='Search Jobs....' 
+        />
+        <div class="flex items-center justify-center rounded-lg h-[1.5rem] w-[3rem] bg-[#d8dadd] 
+        dark:bg-[#454959] text-black dark:text-d-white cursor-pointer"
+        @click="showDrawer = false"
+        >Esc</div>
+      </div>
+      <div class="py-4 space-y-2">
+        <p v-if="loading">Loading posts...</p>
+        <div 
+          v-for="job in filteredJobs" :key="job.id" 
+          class="cursor-pointer group px-4 py-[0.7rem]"
+          :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
+          @click="selectJob(job.id); showDrawer = false"
+        >
+          <RouterLink :to="'/jobs/applicants/' + job.code">  
+            <p class="text-black text-sm dark:text-d-white capitalized"
+              :class="{'font-medium': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
+            >{{ job.name }}</p>
+            <div class="flex items-center space-x-2 text-xs text-black-accent dark:text-d-white-accent">
+              <p class="">{{ job.initSalary }}$</p> 
+              <p v-show="job.maxSalary">-</p>
+              <p v-show="job.maxSalary">{{ job.maxSalary }}$</p>
+            </div>
+          </RouterLink>
         </div>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <script setup>
