@@ -3,7 +3,7 @@
     lg:px-8 xl:px-12 px-4 sm:px-10 pt-2 lg:pt-0 border-b border-gray/30 dark:border-gray/10"
   >
     <div class="flex items-center justify-between">
-      <IconMenuSm class="lg:hidden text-black dark:text-d-white" @click="showDrawer = true" />
+      <IconJob class="lg:hidden text-black dark:text-d-white" @click="showDrawer = true" />
       <div>
         <LoaderSm v-if="loading" />
         <p v-if="selectedJob && !loading" class="text-black dark:text-white font-medium 
@@ -31,9 +31,13 @@
             <IconDark />
           </template>
         </div>
-        <RouterLink to="/jobs/add-new">
-          <IconPlus/>
-        </RouterLink>
+        <div class="flex items-center justify-center rounded-lg h-[1.5rem] w-[1.5rem] bg-[#d8dadd] 
+          dark:bg-[#454959] sm:w-[2rem] sm:h-[2rem]"
+          @click="showMainMenu = true"
+        
+        >
+          <IconVellipsis :class="{'mr-0': isCurrentRoute('/jobs/add-new') }"/>
+        </div>
       </div>
       <div class="hidden lg:inline-flex space-x-4 items-center">
         <div
@@ -147,10 +151,10 @@
     z-50 p-4" :class="{ 'hidden': !showDrawer }"
   >
     <div 
-      class="max-h-full w-full sm:w-3/5 sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
-      scrollbar-hide"
+      class="max-h-[80%] sm:max-h-[90%] w-full sm:w-3/5 sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
+      scrollbar-hide rounded-xl"
     >
-      <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
+      <div class="flex items-center justify-between px-4 py-4 border-b border-gray/40 dark:border-gray/20">
         <IconSearch />
         <input v-model="searchQuery" class="rounded-lg h-[1.7rem] bg-body dark:bg-d-body-accent
         outline-none text-black/80  dark:text-d-white px-4 w-[14rem]" 
@@ -183,14 +187,50 @@
       </div>
     </div>
   </div>
+
+  <!-- Main menu -->
+  <div class="fixed inset-0 h-screen bg-black dark:bg-d-white-accent bg-opacity-50 dark:bg-opacity-30 
+    z-50 p-4" :class="{ 'hidden': !showMainMenu }"
+  >
+    <div 
+      class="max-h-[40%] w-full sm:mx-auto bg-body dark:bg-d-body-accent overflow-y-auto 
+      scrollbar-hide rounded-xl"
+    >
+      <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
+        <p class="text-lg text-black dark:text-d-white font-medium capitalize">Menu</p>
+        <IconCross @click="showMainMenu = false" />
+      </div>
+      <div class="px-4 py-4 space-y-4">
+        <div class="flex items-center space-x-4 group">
+          <IconPlus />
+          <p class="text-lg text-gray dark:text-d-white font-medium capitalize group-hover:text-black">
+            Create new
+          </p>
+        </div>
+        <div class="flex items-center space-x-4 group">
+          <IconPen />
+          <p class="text-lg text-gray dark:text-d-white font-medium capitalize group-hover:text-black">
+            Update job
+          </p>
+        </div>
+        <div class="flex items-center space-x-4 group">
+          <IconDelete />
+          <p class="text-lg text-gray dark:text-d-white font-medium capitalize group-hover:text-black">
+            Delete job
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
+import IconCross from '../icons/IconCross.vue';
 import IconUserAdd from '../icons/IconUserAdd.vue';
-import IconMenuSm from '../icons/IconMenuSm.vue';
-import IconPlus from '../icons/IconPlus.vue';
+import IconJob from '../icons/IconJob.vue';
+import IconVellipsis from '../icons/IconVellipsis.vue';
 import IconSearch from '../icons/IconSearch.vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
@@ -201,6 +241,7 @@ import { useFlash } from '@/composables/useFlash';
 import { useConfirmFlash } from '@/composables/confirmFlash';
 import IconLight from '@/components/icons/IconLight.vue'
 import IconDark from '@/components/icons/IconDark.vue'
+import IconPlus from '@/components/icons/IconPlus.vue'
 import { useDark, useToggle } from '@vueuse/core';
 import LoaderSm from '../spiners/LoaderSm.vue';
 
@@ -216,6 +257,7 @@ const router = useRouter();
 const { flash } = useFlash();
 const { confirmFlash } = useConfirmFlash();
 const showDrawer = ref(false);
+const showMainMenu = ref(false);
 // State for the search query
 const searchQuery = ref('');
 
