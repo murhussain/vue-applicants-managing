@@ -62,13 +62,6 @@
       "initSalary": 23,
       "maxSalary": "",
       "id": 17
-    },
-    {
-      "name": "erere",
-      "code": "rer",
-      "initSalary": 345,
-      "maxSalary": "",
-      "id": 18
     }
   ],
   "applicants": [

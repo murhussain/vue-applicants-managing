@@ -195,23 +195,30 @@
         <IconCross @click="showMainMenu = false" />
       </div>
       <div class="px-4 py-4 space-y-4">
-        <div class="flex items-center justify-between group">
+        <RouterLink @click="showMainMenu = false" to="/jobs/add-new" class="flex items-center justify-between group">
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
             group-hover:text-black dark:group-hover:text-body"
           >
             Create new
           </p>
           <IconArrowLeft />
-        </div>
-        <div class="flex items-center justify-between group">
+        </RouterLink>
+        <RouterLink @click="showMainMenu = false" :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''" 
+          class="flex items-center justify-between group"
+          :class="{'pointer-events-none ': !selectedJob}"
+        >
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
             group-hover:text-black dark:group-hover:text-body"
+            :class="{'text-black dark:text-body': hasUpdateInPath}"
           >
             Update job
           </p>
-          <IconArrowLeft />
-        </div>
-        <div class="flex items-center justify-between group">
+          <IconArrowLeft :class="{'text-black dark:text-body': hasUpdateInPath}"/>
+        </RouterLink>
+        <div @click="deleteSelectedJob(selectedJob.id); showMainMenu = false"
+          class="flex items-center justify-between group"
+          :class="{'pointer-events-none ': !selectedJob}"
+        >
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
             group-hover:text-black dark:group-hover:text-body"
           >
