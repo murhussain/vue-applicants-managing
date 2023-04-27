@@ -17,7 +17,7 @@
           Admin Dashboard
         </p>
       </div>
-      <div class="lg:hidden flex items-center space-x-2">
+      <div class="lg:hidden flex items-center">
         <div class="flex items-center justify-center rounded-lg h-[1.5rem] w-[1.5rem] bg-[#d8dadd] 
           dark:bg-[#454959] sm:w-[2rem] sm:h-[2rem]"
           @click="toggleDark()"
@@ -31,7 +31,7 @@
             <IconDark />
           </template>
         </div>
-        <IconVellipsis @click="showMainMenu = true"/>
+        <IconVellipsis @click="showMainMenu = true" class="-mr-2" />
       </div>
       <div class="hidden lg:inline-flex space-x-4 items-center">
         <div
@@ -145,10 +145,7 @@
         outline-none text-black/80  dark:text-d-white px-4 w-[14rem]" 
           type="text" placeholder='Search Jobs....' 
         />
-        <div class="flex items-center justify-center rounded-lg h-[1.5rem] w-[3rem] bg-[#d8dadd] 
-        dark:bg-[#454959] text-black dark:text-d-white cursor-pointer"
-        @click="showDrawer = false"
-        >Esc</div>
+        <IconCross @click="showDrawer = false" />
       </div>
       <div class="py-4 space-y-2">
         <p v-if="loading">Loading posts...</p>
