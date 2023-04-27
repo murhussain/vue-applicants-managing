@@ -139,7 +139,7 @@
       class="max-h-[80%] sm:max-h-[90%] w-full sm:w-1/2 sm:mr-auto bg-body dark:bg-d-body-accent overflow-y-auto 
       scrollbar-hide rounded-lg"
     >
-      <div class="flex items-center justify-between px-4 py-4 border-b border-gray/40 dark:border-gray/20">
+      <div class="sticky top-0 bg-body dark:bg-d-body-accent flex items-center justify-between px-4 py-4 border-b border-gray/40 dark:border-gray/20">
         <IconSearch />
         <input v-model="searchQuery" class="rounded-lg h-[1.7rem] bg-body dark:bg-d-body-accent
         outline-none text-black/80  dark:text-d-white px-4 w-[14rem]" 
