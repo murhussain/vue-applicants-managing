@@ -18,7 +18,7 @@
       "id": 6,
       "name": "DevOps Engineer",
       "code": "DEVOPS",
-      "initSalary": "4000",
+      "initSalary": 4000,
       "maxSalary": "5000"
     },
     {
@@ -155,7 +155,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 7,
