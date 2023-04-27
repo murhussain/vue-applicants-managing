@@ -129,15 +129,6 @@
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
         </p>
       </RouterLink>
-      <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
-        <p v-if="selectedJob || hasUpdateInPath"  
-          class="relative text-sm sm:text-lg hover:text-black dark:hover:text-white" 
-          :class="{'text-black font-medium pb-[0.18rem] dark:text-white': hasUpdateInPath }"
-        >
-          Update
-          <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': hasUpdateInPath }"></span>
-        </p>
-      </RouterLink>
     </div>
   </header>
   <!-- Drawer -->
@@ -146,7 +137,7 @@
   >
     <div 
       class="max-h-[80%] sm:max-h-[90%] w-full sm:w-1/2 sm:mr-auto bg-body dark:bg-d-body-accent overflow-y-auto 
-      scrollbar-hide rounded-xl"
+      scrollbar-hide rounded-lg"
     >
       <div class="flex items-center justify-between px-4 py-4 border-b border-gray/40 dark:border-gray/20">
         <IconSearch />
@@ -188,36 +179,23 @@
   >
     <div 
       class="max-h-[40%] sm:max-h-[70%] w-full sm:w-2/5 sm:ml-auto bg-body dark:bg-d-body-accent overflow-y-auto 
-      scrollbar-hide rounded-xl"
+      scrollbar-hide rounded-lg"
     >
       <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
         <p class="text-lg text-black dark:text-d-white font-medium capitalize">Menu</p>
         <IconCross @click="showMainMenu = false" />
       </div>
-      <div class="px-4 py-4 space-y-4">
-        <RouterLink @click="showMainMenu = false" to="/jobs/add-new" class="flex items-center justify-between group">
-          <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
-            group-hover:text-black dark:group-hover:text-body"
-          >
-            Create new
+      <div v-if="job" class="px-4 py-4 space-y-4">
+        <RouterLink @click="showMainMenu = false" :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''" 
+          class="flex items-center justify-between group"
+        >
+          <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize">
+            Update job
           </p>
           <IconArrowLeft />
         </RouterLink>
-        <RouterLink @click="showMainMenu = false" :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''" 
-          class="flex items-center justify-between group"
-          :class="{'pointer-events-none ': !selectedJob}"
-        >
-          <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
-            group-hover:text-black dark:group-hover:text-body"
-            :class="{'text-black dark:text-body': hasUpdateInPath}"
-          >
-            Update job
-          </p>
-          <IconArrowLeft :class="{'text-black dark:text-body': hasUpdateInPath}"/>
-        </RouterLink>
         <div @click="deleteSelectedJob(selectedJob.id); showMainMenu = false"
           class="flex items-center justify-between group"
-          :class="{'pointer-events-none ': !selectedJob}"
         >
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
             group-hover:text-black dark:group-hover:text-body"
@@ -226,6 +204,11 @@
           </p>
           <IconArrowLeft />
         </div>
+      </div>
+      <div v-else class="px-4 py-4">
+        <p class="text-lg text-black-accent dark:text-d-white font-medium">
+          There is still no job selected!
+        </p>
       </div>
     </div>
   </div>
@@ -258,7 +241,7 @@ const toggleDark = useToggle(isDark);
 const { jobs } = storeToRefs(useJobStore());
 const { fetchAndSetJobs, deleteJob } = useJobStore();
 const { selectJob } = useSelectedJobStore();
-const { selectedJob, loading } = storeToRefs(useSelectedJobStore());
+const { selectedJob, loading, job } = storeToRefs(useSelectedJobStore());
 const route = useRoute();
 const router = useRouter();
 const { flash } = useFlash();

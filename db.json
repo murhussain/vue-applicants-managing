@@ -55,13 +55,6 @@
       "initSalary": 232,
       "maxSalary": "",
       "id": 16
-    },
-    {
-      "name": "dfdf",
-      "code": "df",
-      "initSalary": 23,
-      "maxSalary": "",
-      "id": 17
     }
   ],
   "applicants": [
@@ -162,7 +155,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 7,
@@ -542,7 +535,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 25,
