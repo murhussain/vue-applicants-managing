@@ -6,12 +6,12 @@
       <IconJob class="lg:hidden text-black dark:text-d-white" @click="showDrawer = true" />
       <div>
         <LoaderSm v-if="loading" />
-        <p v-if="selectedJob && !loading" class="text-black dark:text-white font-medium 
+        <p v-if="selectedJob && !loading && !error" class="text-black dark:text-white font-medium 
           sm:text-2xl xl:text-3xl capitalize"
         >
           {{selectedJob.name}}
         </p>
-        <p v-if="!selectedJob && !loading" class="text-black dark:text-white font-medium text-xl 
+        <p v-if="(!selectedJob && !loading) || error" class="text-black dark:text-white font-medium text-xl 
           sm:text-2xl xl:text-3xl capitalize"
         >
           Admin Dashboard
@@ -238,7 +238,7 @@ const toggleDark = useToggle(isDark);
 const { jobs } = storeToRefs(useJobStore());
 const { fetchAndSetJobs, deleteJob } = useJobStore();
 const { selectJob } = useSelectedJobStore();
-const { selectedJob, loading, job } = storeToRefs(useSelectedJobStore());
+const { selectedJob, loading, job, error } = storeToRefs(useSelectedJobStore());
 const route = useRoute();
 const router = useRouter();
 const { flash } = useFlash();

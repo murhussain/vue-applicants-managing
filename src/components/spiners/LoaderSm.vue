@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center space-x-4">
     <div id="loading"></div>
-    <p class="sm:text-xl text-black-accent dark:text-d-white">Loading......</p>
+    <p class="hidden sm:block sm:text-xl text-black-accent dark:text-d-white">Loading......</p>
   </div>
 </template>
 

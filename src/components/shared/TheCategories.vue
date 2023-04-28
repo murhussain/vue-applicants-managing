@@ -2,7 +2,8 @@
   <div v-if="loading" class="h-full grid place-content-center">
     <LoaderXl />
   </div>
-  <div v-show="!loading" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+  <TheError v-if="error" :error-message="error" />
+  <div v-show="!loading && !error" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
     <div class="space-y-4">
       <!-- The category header of New Applicants -->
       <CategoryCard 
@@ -111,9 +112,10 @@ import { useApplicantsStore } from '@/stores/ApplicantsStore.js';
 import { storeToRefs } from 'pinia';
 import { computed, onMounted } from 'vue';
 import LoaderXl from '../spiners/LoaderXl.vue';
+import TheError from '../shared/TheError.vue';
 
 const applicantsStore = useApplicantsStore();
-const { applicants, loading } = storeToRefs(useApplicantsStore());
+const { applicants, loading, error } = storeToRefs(useApplicantsStore());
 const tApplicants = computed(() => applicantsStore.totalApplicants);
 const tNew = computed(() => applicantsStore.totalNewApplicants);
 const tShortlisted = computed(() => applicantsStore.totalShortlistedApplicants);

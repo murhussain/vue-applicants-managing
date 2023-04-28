@@ -69,6 +69,13 @@
       "initSalary": 344,
       "maxSalary": "",
       "id": 18
+    },
+    {
+      "name": "cuy",
+      "code": "dwhjdw",
+      "initSalary": 23,
+      "maxSalary": "",
+      "id": 19
     }
   ],
   "applicants": [
@@ -169,7 +176,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 7,
@@ -473,7 +480,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 22,
@@ -527,7 +534,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 24,
@@ -549,7 +556,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 25,
