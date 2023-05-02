@@ -1,7 +1,9 @@
-<template>
-  <TheCategories />
-</template>
-
-<script setup>
-import TheCategories from '@/components/shared/TheCategories.vue';
+<script setup lang="ts">
+import TheWelcome from '../components/TheWelcome.vue'
 </script>
+
+<template>
+  <main>
+    <TheWelcome />
+  </main>
+</template>
