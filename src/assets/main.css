@@ -1,35 +1,53 @@
-@import './base.css';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
 
-  font-weight: normal;
-}
+@layer components {
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
+  .primary-button-rounded {
+    @apply flex items-center space-x-2 px-[1.2rem] lg:py-[0.2rem] xl:py-[0.4rem] font-medium 
+    rounded-[1.6rem] shadow-sm text-body bg-primary hover:bg-primary-dark cursor-pointer
+  }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+  .applicant-card-list {
+    @apply max-h-[14.5rem] sm:max-h-[16rem] lg:max-h-[21.5rem] xl:max-h-fit grid overflow-x-auto 
+    scrollbar-hide p-4 bg-body-accent-secondary dark:bg-d-body-accent rounded-xl space-y-4
+  }
+
+  .applicant-card {
+    @apply max-h-[6rem] lg:max-h-max p-[0.8rem] xl:p-[0.7rem] bg-body dark:bg-d-body-accent-secondary 
+    xl:space-y-4 space-y-2 rounded-lg cursor-pointer shadow-sm transition-all
+  }
+
+  .tag {
+    @apply border border-gray/40 group-hover:border-gray/80 dark:border-gray/20 rounded-3xl 
+    px-2 py-px text-[10px] sm:text-xs lg:text-[11px] text-black-accent dark:text-d-white-accent
+  }
+
+  .side-icons{
+    @apply lg:h-[1.5rem] xl:h-[2rem] lg:w-[1.5rem] xl:w-[2rem] text-gray hover:text-primary 
+    dark:text-gray/60 cursor-pointer dark:hover:text-d-white
+  }
+
+  .label {
+    @apply block text-sm font-medium text-black dark:text-d-white
+  }
+
+  .input-type {
+    @apply outline-none mt-1 block w-full px-3 py-2 bg-[#f1f3fd] dark:bg-[#1E293B] border-b-2 
+    border-primary rounded-md placeholder-gray  transition-all focus:border-b-4 focus:border-primary                          
+    invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 
+    focus:invalid:ring-pink-500  text-[#808080] dark:text-d-white text-lg
+  }
+
+  .search-input-type {
+    @apply hidden md:inline-flex items-center justify-center outline-none placeholder-black-accent
+    flex-shrink text-black/80 dark:text-d-white rounded-lg lg:h-[1.77rem] xl:h-[2rem] lg:w-[10rem] 
+    xl:w-[12rem] bg-gray/20 dark:bg-[#454959] py-1 px-2 text-sm xl:text-lg
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.swal2-popup {
+  background-color: #ecf5f6 !important;
 }
