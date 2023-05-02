@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import IconMenu from '@/components/icons/IconMenu.vue'
 import IconWallet from '@/components/icons/IconWallet.vue'
 import IconHome from '@/components/icons/IconHome.vue'
@@ -54,7 +54,7 @@ const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const route = useRoute();
 
-function isCurrentRoute(path) {
+function isCurrentRoute(path: string) {
   return route.path === path;
 }
 

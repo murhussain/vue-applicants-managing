@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import IconPlus from '@/components/icons/IconPlus.vue';
 import { computed, ref } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -72,7 +72,7 @@ fetchAndSetJobs();
 
 // The job of the current path
 const route = useRoute();
-function isCurrentRoute(path) {
+function isCurrentRoute(path: string) {
   return route.path === path;
 }
 
