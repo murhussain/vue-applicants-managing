@@ -41,7 +41,7 @@
             'pointer-events-none border-gray dark:border-gray/60': !selectedJob, 
             'border-danger dark:border-danger': selectedJob 
           }"
-          @click="deleteSelectedJob(selectedJob.id)"
+          @click="selectedJob?.id && deleteSelectedJob(selectedJob.id)"
         >
           <IconDelete 
             :class="{'text-danger dark:text-red-500 animate-pulse': selectedJob }"
@@ -192,7 +192,7 @@
           </p>
           <IconArrowLeft />
         </RouterLink>
-        <div @click="deleteSelectedJob(selectedJob.id); showMainMenu = false"
+        <div @click="selectedJob?.id && deleteSelectedJob(selectedJob.id); showMainMenu = false"
           class="flex items-center justify-between group"
         >
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
@@ -212,7 +212,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import IconPen from '../icons/IconPen.vue';
 import IconDelete from '../icons/IconDelete.vue';
 import IconCross from '../icons/IconCross.vue';
@@ -259,7 +259,7 @@ const filteredJobs = computed(() => {
   });
 });
 
-async function deleteSelectedJob(id) {
+async function deleteSelectedJob(id: number) {
   const result = await confirmFlash('Delete Job', 'Are you sure you want to delete this job?', 'warning');
   if (result.isConfirmed) {
     await deleteJob(id);
@@ -268,7 +268,7 @@ async function deleteSelectedJob(id) {
   }
 }
 
-function isCurrentRoute(path) {
+function isCurrentRoute(path: string) {
   return route.path === path;
 }
 

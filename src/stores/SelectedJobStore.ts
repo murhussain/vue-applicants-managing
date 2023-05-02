@@ -6,8 +6,8 @@ interface Job {
   id: number;
   name: string;
   code: string;
-  initSalary: string;
-  maxSalary: string;
+  initSalary: number;
+  maxSalary: number;
 }
 
 
@@ -68,7 +68,7 @@ export const useSelectedJobStore = defineStore({
       this.notSelected = null;
     
       try {
-        const response = await axiosInstance.get<Job>(`http://localhost:3000/jobs/${id}`);
+        const response = await axiosInstance.get<Job>(`/jobs/${id}`);
         const job = response.data;
         this.job = job;
         this.loading = false;
