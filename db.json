@@ -41,41 +41,6 @@
       "initSalary": "3600",
       "maxSalary": "4500",
       "id": 10
-    },
-    {
-      "name": "djkfjfn",
-      "code": "ASD",
-      "initSalary": 233,
-      "maxSalary": 456,
-      "id": 15
-    },
-    {
-      "name": "efdfdfdf",
-      "code": "dfdf",
-      "initSalary": 232,
-      "maxSalary": "",
-      "id": 16
-    },
-    {
-      "name": "wewe",
-      "code": "we",
-      "initSalary": 343,
-      "maxSalary": "",
-      "id": 17
-    },
-    {
-      "name": "ssdsddsd",
-      "code": "wwe",
-      "initSalary": 344,
-      "maxSalary": "",
-      "id": 18
-    },
-    {
-      "name": "cuy",
-      "code": "dwhjdw",
-      "initSalary": 23,
-      "maxSalary": "",
-      "id": 19
     }
   ],
   "applicants": [
@@ -112,7 +77,7 @@
           "name": "GitHub Pages"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 3,
@@ -128,7 +93,7 @@
           "name": "Vue.js"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 4,
@@ -176,7 +141,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 7,
@@ -233,7 +198,7 @@
           "name": "Kotlin"
         }
       ],
-      "category": "interviewed"
+      "category": "new"
     },
     {
       "id": 10,
@@ -252,7 +217,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 11,
@@ -331,7 +296,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 15,
@@ -350,7 +315,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "new"
+      "category": "interviewed"
     },
     {
       "id": 16,
@@ -388,7 +353,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 18,
@@ -426,7 +391,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 20,
@@ -480,7 +445,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 22,
@@ -499,8 +464,8 @@
       "category": "interviewed"
     },
     {
-      "id": 22,
-      "name": "Lorenzo Sacchi",
+      "id": 30,
+      "name": "Simon Sacchi",
       "jobCode": "BA",
       "position": "Software Engineer",
       "email": "john@doe.com",
@@ -512,7 +477,7 @@
           "name": "Big Data"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 23,
@@ -534,7 +499,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 24,
@@ -578,7 +543,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     }
   ]
 }

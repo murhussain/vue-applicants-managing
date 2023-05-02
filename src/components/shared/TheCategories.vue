@@ -112,7 +112,7 @@ import { useApplicantsStore } from '@/stores/ApplicantsStore.js';
 import { storeToRefs } from 'pinia';
 import { computed, onMounted } from 'vue';
 import LoaderXl from '../spiners/LoaderXl.vue';
-import TheError from '../shared/TheError.vue';
+import TheError from '@/components/shared/TheError.vue';
 
 const applicantsStore = useApplicantsStore();
 const { applicants, loading, error } = storeToRefs(useApplicantsStore());

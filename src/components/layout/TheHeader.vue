@@ -6,12 +6,12 @@
       <IconJob class="lg:hidden text-black dark:text-d-white" @click="showDrawer = true" />
       <div>
         <LoaderSm v-if="loading" />
-        <p v-if="selectedJob && !loading && !error" class="text-black dark:text-white font-medium 
+        <p v-if="selectedJob && !loading && !notSelected" class="text-black dark:text-white font-medium 
           sm:text-2xl xl:text-3xl capitalize"
         >
           {{selectedJob.name}}
         </p>
-        <p v-if="(!selectedJob && !loading) || error" class="text-black dark:text-white font-medium text-xl 
+        <p v-if="(!selectedJob && !loading) || notSelected" class="text-black dark:text-white font-medium text-xl 
           sm:text-2xl xl:text-3xl capitalize"
         >
           Admin Dashboard
@@ -131,6 +131,7 @@
       </RouterLink>
     </div>
   </header>
+  <TheError v-if="error" :error-message="error" />
   <!-- Drawer -->
   <div class="fixed inset-0 h-screen bg-black dark:bg-d-white-accent bg-opacity-50 dark:bg-opacity-30 
     z-50 p-4" :class="{ 'hidden': !showDrawer }"
@@ -231,14 +232,14 @@ import IconDark from '@/components/icons/IconDark.vue'
 import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import { useDark, useToggle } from '@vueuse/core';
 import LoaderSm from '../spiners/LoaderSm.vue';
-
+import TheError from '@/components/shared/TheError.vue';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
-const { jobs } = storeToRefs(useJobStore());
+const { jobs, error } = storeToRefs(useJobStore());
 const { fetchAndSetJobs, deleteJob } = useJobStore();
 const { selectJob } = useSelectedJobStore();
-const { selectedJob, loading, job, error } = storeToRefs(useSelectedJobStore());
+const { selectedJob, loading, job, notSelected } = storeToRefs(useSelectedJobStore());
 const route = useRoute();
 const router = useRouter();
 const { flash } = useFlash();

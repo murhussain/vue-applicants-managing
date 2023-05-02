@@ -38,7 +38,7 @@ export const useSelectedJobStore = defineStore({
   state: () => ({
     job: null,
     loading: false,
-    error: null,
+    notSelected: null,
   }),
 
   getters: {
@@ -50,7 +50,7 @@ export const useSelectedJobStore = defineStore({
   actions: {
     async selectJob(id) {
       this.loading = true;
-      this.error = null;
+      this.notSelected = null;
     
       try {
         const response = await axiosInstance.get(`http://localhost:3000/jobs/${id}`);
@@ -59,7 +59,7 @@ export const useSelectedJobStore = defineStore({
         this.loading = false;
       } catch (error) {
         this.loading = false;
-        this.error = 'Failed to fetch job';
+        this.notSelected = 'Failed to fetch job';
         // Retry logic failed, display error message to user
         this.$root.$emit('show-error', 'Failed to fetch jobs');
         throw new Error('Failed to fetch job');

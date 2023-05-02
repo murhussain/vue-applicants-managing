@@ -48,15 +48,13 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.get('http://localhost:3000/jobs');
+        const response = await axiosInstance.get('/jobs');
         this.jobs = response.data;
         this.loading = false;
         this.error = null;
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to fetch jobs';
-        // Retry logic failed, display error message to user
-        this.$root.$emit('show-error', 'Failed to fetch jobs');
         throw new Error('Failed to fetch jobs');
       }
     },
@@ -67,15 +65,13 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.get(`http://localhost:3000/jobs/${id}`);
+        const response = await axiosInstance.get(`/jobs/${id}`);
         this.job = response.data;
         this.loading = false;
         this.error = null;
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to fetch job';
-        // Retry logic failed, display error message to user
-        this.$root.$emit('show-error', 'Failed to fetch job');
         throw new Error('Failed to fetch job');
       }
     },
@@ -86,7 +82,7 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.post('http://localhost:3000/jobs', newJob, {
+        const response = await axiosInstance.post('/jobs', newJob, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -98,8 +94,6 @@ export const useJobStore = defineStore('job', {
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to create job';
-        // Retry logic failed, display error message to user
-        this.$root.$emit('show-error', 'Failed to fetch job');
         throw new Error('Failed to create job');
       }
     },    
@@ -109,15 +103,13 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        await axiosInstance.delete(`http://localhost:3000/jobs/${id}`);
+        await axiosInstance.delete(`/jobs/${id}`);
         this.jobs = this.jobs.filter((job) => job.id !== id);
         this.loading = false;
         this.error = null;
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to delete job';
-        // Retry logic failed, display error message to user
-        this.$root.$emit('show-error', 'Failed to fetch job');
         throw new Error('Failed to delete job');
       }
     }  , 
@@ -127,7 +119,7 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.put(`http://localhost:3000/jobs/${jobId}`, updatedJob, {
+        const response = await axiosInstance.put(`/jobs/${jobId}`, updatedJob, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -142,8 +134,6 @@ export const useJobStore = defineStore('job', {
       } catch (error) {
         this.loading = false;
         this.error = 'Failed to update job';
-        // Retry logic failed, display error message to user
-        this.$root.$emit('show-error', 'Failed to fetch job');
         throw new Error('Failed to update job');
       }
     }
