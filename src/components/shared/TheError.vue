@@ -15,7 +15,7 @@
           <span>Something went wrong!</span>{{"  " + error}}
         </p>
         <div @click="goBack" class="mx-auto w-[10rem] text-center bg-primary hover:bg- primary-dark text-body dark:text-d-white 
-        font-medium rounded-lg py-[0.3rem] px-6">Try again</div>
+        font-medium rounded-lg py-[0.3rem] px-6 cursor-pointer">Try again</div>
       </div>
     </div>
   </div>

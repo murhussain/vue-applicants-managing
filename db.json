@@ -39,15 +39,8 @@
       "name": "Frontend Developer",
       "code": "FRONT",
       "initSalary": "3600",
-      "maxSalary": "4500",
+      "maxSalary": 4503,
       "id": 10
-    },
-    {
-      "name": "Junior UI/UX",
-      "code": "JUI",
-      "initSalary": 100,
-      "maxSalary": "",
-      "id": 11
     }
   ],
   "applicants": [
@@ -116,7 +109,7 @@
           "name": "Flutter"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 5,
@@ -167,7 +160,7 @@
           "name": "Python Django"
         }
       ],
-      "category": "interviewed"
+      "category": "shortlisted"
     },
     {
       "id": 8,
@@ -186,7 +179,7 @@
           "name": "Python Flask"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 9,
@@ -205,7 +198,7 @@
           "name": "Kotlin"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 10,
@@ -452,7 +445,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 22,
