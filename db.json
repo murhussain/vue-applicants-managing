@@ -41,6 +41,13 @@
       "initSalary": "3600",
       "maxSalary": "4500",
       "id": 10
+    },
+    {
+      "name": "Junior UI/UX",
+      "code": "JUI",
+      "initSalary": 100,
+      "maxSalary": "",
+      "id": 11
     }
   ],
   "applicants": [
@@ -179,7 +186,7 @@
           "name": "Python Flask"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 9,
@@ -353,7 +360,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "new"
+      "category": "interviewed"
     },
     {
       "id": 18,
@@ -445,7 +452,7 @@
           "name": "Node.js"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 22,
@@ -499,7 +506,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 24,
@@ -521,7 +528,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 25,
