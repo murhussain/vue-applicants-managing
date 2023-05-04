@@ -1,6 +1,6 @@
 <template>
-  <!-- <TheCategories /> -->
-  <p class="text-black">hello</p>
+  <TheCategories />
+  <!-- <p class="text-black">hello</p> -->
 </template>
 
 <script setup>

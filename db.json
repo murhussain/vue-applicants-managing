@@ -49,7 +49,7 @@
       "name": "HABAGUHIRWA John",
       "jobCode": "UIUX",
       "position": "Software Developer",
-      "email": "john@doe.com",
+      "email": "daniella@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -68,7 +68,7 @@
       "name": "HIMBAZA Joshua",
       "jobCode": "DEVOPS",
       "position": "Network Engineer",
-      "email": "jen@doe.com",
+      "email": "faina@doe.com",
       "skills": [
         {
           "name": "MS Azure"
@@ -84,7 +84,7 @@
       "name": "Lorenzo John",
       "jobCode": "UIUX",
       "position": "Software Engineer",
-      "email": "john@doe.com",
+      "email": "fidele@doe.com",
       "skills": [
         {
           "name": ".Net"
@@ -100,7 +100,7 @@
       "name": "HABIYAREMYE Emmanuel",
       "jobCode": "BA",
       "position": "Software Engineer",
-      "email": "steve@doe.com",
+      "email": "eduard@doe.com",
       "skills": [
         {
           "name": "ASP DotNet"
@@ -116,7 +116,7 @@
       "name": "Lorenzo Sacchi",
       "jobCode": "BA",
       "position": "Software Engineer",
-      "email": "john@doe.com",
+      "email": "janvier@doe.com",
       "skills": [
         {
           "name": "PHP Laravel"
@@ -132,7 +132,7 @@
       "name": "IHIMWE Josiane",
       "jobCode": "PM",
       "position": "Project Management",
-      "email": "sarah@doe.com",
+      "email": "jackson@doe.com",
       "skills": [
         {
           "name": "MS Project"
@@ -148,7 +148,7 @@
       "name": "CYUBAHIRO Theotime",
       "jobCode": "FULL",
       "position": "Backend Develope",
-      "email": "jen@doe.com",
+      "email": "jules@doe.com",
       "skills": [
         {
           "name": "Laravel"
@@ -167,7 +167,7 @@
       "name": "HIRWA NDOLI Elvin",
       "jobCode": "FULL",
       "position": "Backend Developer",
-      "email": "steve@doe.com",
+      "email": "stephan@doe.com",
       "skills": [
         {
           "name": "Laravel"
@@ -179,14 +179,14 @@
           "name": "Python Flask"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 9,
       "name": "SHEMA Gislain Jolivet",
       "jobCode": "FULL",
       "position": "Mobile Developer",
-      "email": "john@doe.com",
+      "email": "jolivet@doe.com",
       "skills": [
         {
           "name": "Flutter"
@@ -205,7 +205,7 @@
       "name": "NDIZIHIWE Simon Pierre",
       "jobCode": "UIUX",
       "position": "Fullstack Developer",
-      "email": "joseph@doe.com",
+      "email": "claude@doe.com",
       "skills": [
         {
           "name": "Flutter"
@@ -262,7 +262,7 @@
       "name": "KAMALIZA Sandra",
       "jobCode": "FRONT",
       "position": "Fontend Developer",
-      "email": "jen@doe.com",
+      "email": "theotime@doe.com",
       "skills": [
         {
           "name": "Tailwindcss"
@@ -284,7 +284,7 @@
       "name": "NDIZIHIWE Simon Pierre",
       "jobCode": "FULL",
       "position": "Fullstack Developer",
-      "email": "joseph@doe.com",
+      "email": "christian@doe.com",
       "skills": [
         {
           "name": "Flutter"
@@ -303,7 +303,7 @@
       "name": "NDIZIHIWE Simon",
       "jobCode": "UIUX",
       "position": "Fullstack Developer",
-      "email": "joseph@doe.com",
+      "email": "alno@doe.com",
       "skills": [
         {
           "name": "Flutter"
@@ -322,7 +322,7 @@
       "name": "KAMALIZA Sandra",
       "jobCode": "FRONT",
       "position": "Fontend Developer",
-      "email": "jen@doe.com",
+      "email": "davide@doe.com",
       "skills": [
         {
           "name": "Tailwindcss"
@@ -344,7 +344,7 @@
       "name": "IHIMWE Josiane",
       "jobCode": "PM",
       "position": "Project Management",
-      "email": "sarah@doe.com",
+      "email": "gislain@doe.com",
       "skills": [
         {
           "name": "Precedence Analysis"
@@ -360,7 +360,7 @@
       "name": "HIMBAZA Joshua",
       "jobCode": "DEVOPS",
       "position": "Network Engineer",
-      "email": "jen@doe.com",
+      "email": "jado@doe.com",
       "skills": [
         {
           "name": "Certified AWS"
@@ -379,7 +379,7 @@
       "name": "HIMBAZA Joshua",
       "jobCode": "DEVOPS",
       "position": "Network Engineer",
-      "email": "jen@doe.com",
+      "email": "joseph@doe.com",
       "skills": [
         {
           "name": "Certified AWS"
@@ -398,7 +398,7 @@
       "name": "HIMBAZA Joshua",
       "jobCode": "DEVOPS",
       "position": "Network Engineer",
-      "email": "jen@doe.com",
+      "email": "paul@doe.com",
       "skills": [
         {
           "name": "Certified AWS"
@@ -417,7 +417,7 @@
       "name": "HIMBAZA Joshua",
       "jobCode": "DEVOPS",
       "position": "Network Engineer",
-      "email": "jen@doe.com",
+      "email": "joshua@doe.com",
       "skills": [
         {
           "name": "Certified AWS"
@@ -436,7 +436,7 @@
       "name": "Lorenzo Sacchi",
       "jobCode": "BA",
       "position": "Software Engineer",
-      "email": "john@doe.com",
+      "email": "jonathan@doe.com",
       "skills": [
         {
           "name": "PHP Laravel"
@@ -452,7 +452,7 @@
       "name": "Lorenzo Sacchi",
       "jobCode": "BA",
       "position": "Software Engineer",
-      "email": "john@doe.com",
+      "email": "jonass@doe.com",
       "skills": [
         {
           "name": "PHP Laravel"
@@ -468,7 +468,7 @@
       "name": "Simon Sacchi",
       "jobCode": "BA",
       "position": "Software Engineer",
-      "email": "john@doe.com",
+      "email": "josiane@doe.com",
       "skills": [
         {
           "name": "Data Science"
@@ -477,14 +477,14 @@
           "name": "Big Data"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 23,
       "name": "KAMALIZA Sandra",
       "jobCode": "UIUX",
       "position": "Fontend Developer",
-      "email": "jen@doe.com",
+      "email": "sandra@doe.com",
       "skills": [
         {
           "name": "Tailwindcss"
@@ -499,7 +499,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 24,
@@ -528,7 +528,7 @@
       "name": "MURASHI Hussein",
       "jobCode": "UIUX",
       "position": "Fontend Developer",
-      "email": "jen@doe.com",
+      "email": "hussein@doe.com",
       "skills": [
         {
           "name": "Tailwindcss"
