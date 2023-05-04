@@ -31,6 +31,7 @@
           :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
+          :email="applicant.email"
           :skills="applicant.skills"
         />
         <p class="text-center text-black dark:text-d-white-accent" 
@@ -68,6 +69,7 @@
           :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
+          :email="applicant.email"
           :skills="applicant.skills"
         />
         <p class="text-center text-black dark:text-d-white-accent" 
@@ -105,6 +107,7 @@
           :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
+          :email="applicant.email"
           :skills="applicant.skills"
         />
         <p class="text-center text-black dark:text-d-white-accent" 
@@ -117,7 +120,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CategoryCard from '@/components/shared/CategoryCard.vue'
 import ApplicantCard from '@/components/shared/ApplicantCard.vue'
 import IconStar from '@/components/icons/IconStar.vue'
@@ -153,33 +156,43 @@ const hasShortlistedApplicants = computed(() => { return shortlistedApplicants.v
 const selectedJobCode = computed(() => {return route.params.code;});
 
 onMounted(async () => {
-  // Fetch the applicants based on the selected job code
-  await applicantsStore.fetchAndSetApplicantsCategory(selectedJobCode.value);
+  if (typeof selectedJobCode.value === 'string') {
+      // Fetch the applicants based on the selected job code
+      await applicantsStore.fetchAndSetApplicantsCategory(selectedJobCode.value);
+  }
 });
+
 
 // Watch for changes in the selected job code and fetch the applicants again
 watch(selectedJobCode, async (newCode) => {
-  await applicantsStore.fetchAndSetApplicantsCategory(newCode);
+  if (typeof newCode === 'string') {
+    await applicantsStore.fetchAndSetApplicantsCategory(newCode);
+  }
 });
 
-function getApplicantsByCategory(category) {
-  return applicants.value.filter(a => a.category === category)
+function getApplicantsByCategory(category: string) {
+  return applicants.value.filter(a => a.category === category && a != null)
 }
 
-function onDragStart(applicant, event) {
-  event.dataTransfer.setData('text/plain', applicant.id)
+function onDragStart(applicant: any, event: any) {
+  if (applicant != null) {
+    event.dataTransfer.setData('text/plain', applicant.id)
+  }
 }
 
-function onDrop(category, event) {
+function onDrop(category: 'new' | 'shortlisted' | 'interviewed', event: any) {
   const applicantId = event.dataTransfer.getData('text/plain')
   const applicant = applicants.value.find(a => a.id.toString() === applicantId)
 
-  if (applicant.category !== category) {
+  if (applicant != null && applicant.category !== category) {
     applicant.category = category
     applicantsStore.updateApplicantCategory(applicant.id, category)
   }
 
-  event.target.appendChild(document.getElementById(applicantId))
+  // event.target.appendChild(document.getElementById(applicantId))
+  const applicantElement = document.getElementById(applicantId)
+  if (applicantElement != null) {
+    event.target.appendChild(applicantElement)
+  }
 }
-
 </script>

@@ -147,6 +147,10 @@ function onDrop(category: 'new' | 'shortlisted' | 'interviewed', event: any) {
     applicantsStore.updateApplicantCategory(applicant.id, category)
   }
 
-  event.target.appendChild(document.getElementById(applicantId))
+  // event.target.appendChild(document.getElementById(applicantId))
+  const applicantElement = document.getElementById(applicantId)
+  if (applicantElement != null) {
+    event.target.appendChild(applicantElement)
+  }
 }
 </script>
