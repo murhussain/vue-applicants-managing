@@ -20,10 +20,6 @@ interface ApplicantState {
   error: string | null;
 }
 
-interface GetApplicantsResponse {
-  data: Applicant[];
-}
-
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:3000'
 });
