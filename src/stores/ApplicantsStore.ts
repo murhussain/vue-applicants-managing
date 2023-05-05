@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { defineStore } from 'pinia';
-import axiosRetry from 'axios-retry';
 
 interface Applicant {
   id: number;
@@ -20,35 +19,6 @@ interface ApplicantState {
   error: string | null;
 }
 
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000'
-});
-
-// Add an interceptor to handle network errors and redirect to cached data
-axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (error) => {
-    if (error.response && error.response.status === 400) {
-      // Redirect to cached data if the server returns a 404 error
-      const cachedResponse = await caches.match(error.config.url);
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-    }
-    // Return the error if there is no cached data
-    return Promise.reject(error);
-  }
-);
-
-// Add retry logic to axios instance
-axiosRetry(axiosInstance, {
-  retries: 3, // number of retry attempts
-  retryDelay: (retryCount) => {
-    return retryCount * 1000; // retry delay in milliseconds
-  }
-});
 
 export const useApplicantsStore = defineStore('applicant', {
   state: (): ApplicantState => ({
@@ -63,7 +33,7 @@ export const useApplicantsStore = defineStore('applicant', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.get('/applicants');
+        const response = await axios.get('http://localhost:3000/applicants');
         this.applicants = response.data;
         this.loading = false;
       } catch (error) {
@@ -78,7 +48,7 @@ export const useApplicantsStore = defineStore('applicant', {
       this.error = null;
       
       try {
-        const response = await axiosInstance.get(`/applicants?jobCode=${jobCode}`)
+        const response = await axios.get(`http://localhost:3000/applicants?jobCode=${jobCode}`)
         this.applicants = response.data;
         this.loading = false;
       } catch (error) {
@@ -90,8 +60,8 @@ export const useApplicantsStore = defineStore('applicant', {
 
     async updateApplicantCategory(applicantId: number, newCategory:  'new' | 'shortlisted' | 'interviewed') {
       try {
-        await axiosInstance.patch(`/applicants/${applicantId}`, { category: newCategory });
-        const response = await axiosInstance.get<Applicant>(`/applicants/${applicantId}`);
+        await axios.patch(`http://localhost:3000/applicants/${applicantId}`, { category: newCategory });
+        const response = await axios.get<Applicant>(`http://localhost:3000/applicants/${applicantId}`);
         const updatedApplicant = response.data;
         const applicantIndex = this.applicants.findIndex(applicant => applicant.id === updatedApplicant.id);
         if (applicantIndex !== -1) {
