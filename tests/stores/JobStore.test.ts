@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useJobStore } from '../../src/stores/JobStore';
 import { PiniaVuePlugin, createPinia } from 'pinia';
 
-describe('SelectedJobStore', () => {
+describe('JobStore', () => {
   let pinia;
   let mock;
 
