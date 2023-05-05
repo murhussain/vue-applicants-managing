@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { defineStore } from 'pinia';
-import axiosRetry from 'axios-retry';
-
 interface Job {
   id: number;
   name: string;
@@ -9,43 +7,12 @@ interface Job {
   initSalary: number;
   maxSalary: number;
 }
-
 interface JobState {
   jobs: Job[];
   job: Job | null;
   loading: boolean;
   error: string | null;
 }
-
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000'
-});
-
-// Add an interceptor to handle network errors and redirect to cached data
-axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (error) => {
-    if (error.response && error.response.status === 404) {
-      // Redirect to cached data if the server returns a 404 error
-      const cachedResponse = await caches.match(error.config.url);
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-    }
-    // Return the error if there is no cached data
-    return Promise.reject(error);
-  }
-);
-
-// Add retry logic to axios instance
-axiosRetry(axiosInstance, {
-  retries: 3, // number of retry attempts
-  retryDelay: (retryCount) => {
-    return retryCount * 1000; // retry delay in milliseconds
-  }
-});
 
 export const useJobStore = defineStore('job', {
   state: (): JobState  => ({
@@ -62,7 +29,7 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.get('/jobs');
+        const response = await axios.get('http://localhost:3000/jobs');
         this.jobs = response.data;
         this.loading = false;
       } catch (error) {
@@ -78,7 +45,7 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.get<Job>(`/jobs/${id}`);
+        const response = await axios.get<Job>(`http://localhost:3000/jobs/${id}`);
         this.job = response.data;
         this.loading = false;
         this.error = null;
@@ -95,7 +62,7 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.post<Job>('/jobs', newJob, {
+        const response = await axios.post<Job>('http://localhost:3000/jobs', newJob, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -116,7 +83,7 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        await axiosInstance.delete<Job>(`/jobs/${id}`);
+        await axios.delete<Job>(`http://localhost:3000/jobs/${id}`);
         this.jobs = this.jobs.filter((job) => job.id !== id);
         this.loading = false;
         this.error = null;
@@ -132,7 +99,7 @@ export const useJobStore = defineStore('job', {
       this.error = null;
 
       try {
-        const response = await axiosInstance.put<Job>(`/jobs/${jobId}`, updatedJob, {
+        const response = await axios.put<Job>(`http://localhost:3000/jobs/${jobId}`, updatedJob, {
           headers: {
             'Content-Type': 'application/json'
           }
