@@ -1,6 +1,6 @@
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
-import { useSelectedJobStore } from '../../src/stores/SelectedJobStore';
+import { useSelectedJobStore } from '../src/stores/SelectedJobStore';
 import { PiniaVuePlugin, createPinia } from 'pinia';
 
 describe('SelectedJobStore', () => {

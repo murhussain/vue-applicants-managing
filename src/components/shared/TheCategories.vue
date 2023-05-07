@@ -153,4 +153,6 @@ function onDrop(category: 'new' | 'shortlisted' | 'interviewed', event: any) {
     event.target.appendChild(applicantElement)
   }
 }
+
+defineExpose({ onDrop })
 </script>

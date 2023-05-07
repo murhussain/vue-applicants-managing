@@ -286,4 +286,6 @@ watch(hasApplicantsInPath, (hasApplicants) => {
     useSelectedJobStore().job = null;
   }
 });
+
+defineExpose({ isCurrentRoute })
 </script>
