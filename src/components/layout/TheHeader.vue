@@ -67,7 +67,7 @@
         </RouterLink>
         <div class="primary-button-rounded cursor-pointer">
           <IconUserAdd />
-          <span>Invite candidate</span>
+          <span>{{ $t("header.button") }}</span>
         </div>
       </div>
     </div>
