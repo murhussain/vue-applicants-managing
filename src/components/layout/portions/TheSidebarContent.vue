@@ -45,9 +45,10 @@
 
     <!-- Footer section otf the sidebar -->
     <div class="grid place-content-center mb-4">
-      <button class="bg-[#d8dadd] dark:bg-d-body-accent-secondary text-black dark:text-d-white 
+      <!-- <button class="bg-[#d8dadd] dark:bg-d-body-accent-secondary text-black dark:text-d-white 
         font-medium rounded-lg py-[0.3rem] px-8 "
-      >Manage jobs</button>
+      >Manage jobs</button> -->
+      <LangSwitcher />
     </div>
   </div>
 </template>
@@ -60,6 +61,7 @@ import { useJobStore } from '@/stores/JobStore.js';
 import { useSelectedJobStore } from '@/stores/SelectedJobStore.js';
 import { RouterLink, useRoute } from 'vue-router';
 import LoaderMd from '@/components/spiners/LoaderMd.vue';
+import LangSwitcher from '@/components/shared/LangSwitcher.vue'
 
 const { jobs, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJobs } = useJobStore();

@@ -1,0 +1,32 @@
+{
+  "locale": {
+    "en": "English",
+    "fr": "French"
+  },
+  "nav": {
+    "home": "All Applicants",
+    "jobApplicant": "Job Applicants",
+    "new": "Add Job",
+    "smNew": "New",
+    "update": "Update Job",
+    "delete": "Delete Job",
+    "menu": "Menu"
+  },
+  "Jobs": {
+    "search": "Search Jobs"
+  },
+  "header": {
+    "head": "Admin Dashboard",
+    "button": "Invite candidate"
+  },
+  "job": {
+    "name": "Job Name",
+    "code": "Job Code",
+    "initSalary": "Job Initial Salary",
+    "maxSalary": "Job Maximum Salary"
+  },
+  "pages": {
+    "createJob": "Create New Job",
+    "updateJob": "Update The Job"
+  }
+}

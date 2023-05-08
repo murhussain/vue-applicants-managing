@@ -1,0 +1,32 @@
+{
+  "locale": {
+    "en": "English",
+    "fr": "French"
+  },
+  "nav": {
+    "home": "Tous candidats",
+    "jobApplicant": "Demandeurs",
+    "new": "créer emploi",
+    "smNew": "Ajouter",
+    "update": "Mise à jour",
+    "delete": "Supprimer",
+    "menu": "Menu"
+  },
+  "Jobs": {
+    "search": "Recherche de travail"
+  },
+  "header": {
+    "head": "Bord Administrateur",
+    "button": "nviter candidat"
+  },
+  "job": {
+    "name": "Travail Nom",
+    "code": "Travail Code",
+    "initSalary": "Salaire initial",
+    "maxSalary": "Salaire Maximum"
+  },
+  "pages": {
+    "createJob": "Créer nouveau travail",
+    "updateJob": "Mettre le travail"
+  }
+}
