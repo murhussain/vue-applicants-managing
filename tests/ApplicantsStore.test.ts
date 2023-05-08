@@ -1,22 +1,52 @@
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
-import { useApplicantsStore } from '@/stores/ApplicantsStore'
+import { useApplicantsStore } from '../src/stores/ApplicantsStore'
 import { PiniaVuePlugin, createPinia } from 'pinia';
-import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-describe('ApplicantsStore', () => {
-  let pinia
+describe('JobStore', () => {
+  let pinia;
   let mock;
 
   const mockApplicants = [
-    {name: 'Mur Huss', jobCode: 'DEVOPS', email: 'murhuss@example.com', isNew: true},
-    {name: 'Jane Doe', jobCode: 'UIUX', email: 'jane.doe@example.com', isShortlisted: true},
-    {name: 'Jim Doe', jobCode: 'FULL', email: 'jim.doe@example.com', isInterviewed: true},
+    { 
+      id: 1, 
+      name: 'Mur Huss', 
+      jobCode: 'DEVOPS', 
+      position:"soft engineer", 
+      email: 'murhuss@example.com',
+      skills: [
+        { name: 'flutter'},
+      ],
+      category: 'new',
+    },
+    { 
+      id: 2, 
+      name: 'Jane Doe', 
+      jobCode: 'UIUX', 
+      position:"soft engineer", 
+      email: 'jane.doe@example.com',
+      skills: [
+        { name: 'flutter'},
+        { name: 'dart'},
+      ],
+      category: 'shortlisted'
+    },
+    { 
+      id: 3, 
+      name: 'Jim Doe', 
+      jobCode: 'FULL', 
+      position:"soft engineer", 
+      email: 'jim.doe@example.com',
+      skills: [
+        { name: 'Django'},
+      ],
+      category: 'interviewed'
+    },
   ];
-  
+
   beforeEach(() => {
-    pinia = createPinia()
-    pinia.use(PiniaVuePlugin)
+    pinia = createPinia();
+    pinia.use(PiniaVuePlugin);
     mock = new MockAdapter(axios);
   });
 
@@ -42,82 +72,91 @@ describe('ApplicantsStore', () => {
   });
 
   describe('getters', () => {
-    let store;
-
-    beforeEach(() => {
-      store = useApplicantsStore(pinia);
-    });
 
     it('should return the correct totalApplicants', () => {
-      store.applicants = [{}, {}, {}];
-      expect(store.totalApplicants).toEqual(3);
-    });
-  });
+      const store = useApplicantsStore(pinia);
 
-  describe('when fetching applicants', () => {
-    let store;
-
-    beforeAll(() => {
-      store = useApplicantsStore(pinia);
-    });
-
-    it('should initialize with an empty applicants array', async () => {
-      mock.onGet('http://localhost:3000/applicants').reply(200, []);
-
-      await store.fetchAndSetApplicants();
-    
-      expect(store.applicants).toEqual([]);
-      expect(store.loading).toBeFalsy();
-      expect(store.error).toBeNull();
+      store.applicants = [
+        {
+          id: 1,
+          name: 'Mur Huss',
+          jobCode: 'DEVOPS',
+          position: "soft engineer", 
+          email: 'murhuss@example.com',
+          skills: [{ name: 'flutter' }],
+          category: 'new',
+        },
+      ];
+      expect(store.totalApplicants).toEqual(1);
     });
 
-    it('should set the applicants array to the expected value after receiving a successful response', async () => {
-      mock.onGet('http://localhost:3000/applicants').reply(200, mockApplicants);
-    
-      await store.fetchAndSetApplicants();
-    
-      expect(store.applicants).toEqual(mockApplicants);
-      expect(store.loading).toBeFalsy();
-      expect(store.error).toBeFalsy();
-    });
+    describe('when fetching applicants', () => {
 
-    it('should return the expected data when it successfully fetches the applicants', async () => {
-      mock.onGet('http://localhost:3000/applicants').reply(200, mockApplicants);
-      
-      await store.fetchAndSetApplicants();
+      it('should initialize with an empty applicants array', async () => {
+        const store = useApplicantsStore(pinia);
+
+        mock.onGet('http://localhost:3000/applicants').reply(200, []);
   
-      expect(store.loading).toBeFalsy();
-      expect(store.error).toBeNull();
-      expect(store.applicants).toEqual(mockApplicants);
-    });
-
-    it('should throw an error when attempting to fetch applicants and the request fails', async () => {
-      mock.onGet('http://localhost:3000/applicants').reply(500);
+        await store.fetchAndSetApplicants();
       
-      await expect(store.fetchAndSetApplicants()).rejects.toThrow('Failed to fetch applicants');
+        expect(store.applicants).toEqual([]);
+        expect(store.loading).toBeFalsy();
+        expect(store.error).toBeNull();
+      });
+  
+      it('should set the applicants array to the expected value after receiving a successful response', async () => {
+        const store = useApplicantsStore(pinia);
 
-      expect(store.loading).toBeFalsy();
-      expect(store.error).toEqual('Failed to fetch applicants');
-    });
+        mock.onGet('http://localhost:3000/applicants').reply(200, mockApplicants);
+      
+        await store.fetchAndSetApplicants();
+      
+        expect(store.applicants).toEqual(mockApplicants);
+        expect(store.loading).toBeFalsy();
+        expect(store.error).toBeFalsy();
+      });
+  
+      it('should return the expected data when it successfully fetches the applicants', async () => {
+        const store = useApplicantsStore(pinia);
 
-    it('should throw an error when attempting to fetch applicants and the request returns a 404 status code', async () => {
-      mock.onGet('http://localhost:3000/applicants').reply(404);
+        mock.onGet('http://localhost:3000/applicants').reply(200, mockApplicants);
+        
+        await store.fetchAndSetApplicants();
     
-      await expect(store.fetchAndSetApplicants()).rejects.toThrow('Failed to fetch applicants');
-    
-      expect(store.loading).toBeFalsy();
-      expect(store.error).toEqual('Failed to fetch applicants');
+        expect(store.loading).toBeFalsy();
+        expect(store.error).toBeNull();
+        expect(store.applicants).toEqual(mockApplicants);
+      });
+  
+      it('should throw an error when attempting to fetch applicants and the request fails', async () => {
+        const store = useApplicantsStore(pinia);
+
+        mock.onGet('http://localhost:3000/applicants').reply(500);
+        
+        await expect(store.fetchAndSetApplicants()).rejects.toThrow('Failed to fetch applicants');
+  
+        expect(store.loading).toBeFalsy();
+        expect(store.error).toEqual('Failed to fetch applicants');
+      });
+  
+      it('should throw an error when attempting to fetch applicants and the request returns a 404 status code', async () => {
+        const store = useApplicantsStore(pinia);
+
+        mock.onGet('http://localhost:3000/applicants').reply(404);
+      
+        await expect(store.fetchAndSetApplicants()).rejects.toThrow('Failed to fetch applicants');
+      
+        expect(store.loading).toBeFalsy();
+        expect(store.error).toEqual('Failed to fetch applicants');
+      });
     });
   });
 
   describe('when fetching applicants by job code', () => {
-    let store;
-
-    beforeAll(() => {
-      store = useApplicantsStore(pinia);
-    });
 
     it('should set the applicants array to the expected value after receiving a successful response', async () => {
+      const store = useApplicantsStore(pinia);
+
       mock.onGet('http://localhost:3000/applicants?jobCode=jobCode').reply(200, mockApplicants);
     
       await store.fetchAndSetApplicantsCategory('jobCode');
@@ -128,6 +167,8 @@ describe('ApplicantsStore', () => {
     });
 
     it('should return the expected data when it successfully fetches the applicants based on job code', async () => {
+      const store = useApplicantsStore(pinia);
+
       mock.onGet('http://localhost:3000/applicants?jobCode=jobCode').reply(200, mockApplicants);
       
       await store.fetchAndSetApplicantsCategory('jobCode');
@@ -138,6 +179,8 @@ describe('ApplicantsStore', () => {
     });
 
     it('should throw an error when attempting to fetch applicants based on job code and the request fails', async () => {
+      const store = useApplicantsStore(pinia);
+
       mock.onGet('http://localhost:3000/applicants?jobCode=jobCode').reply(500);
       
       await expect(store.fetchAndSetApplicantsCategory('jobCode')).rejects.toThrow('Failed to fetch applicants');
@@ -147,9 +190,10 @@ describe('ApplicantsStore', () => {
     });
 
     it('should throw an error when attempting to fetch applicants and the request returns a 404 status code', async () => {
+      const store = useApplicantsStore(pinia);
+
       mock.onGet('http://localhost:3000/applicants').reply(404);
-    
-      await expect(store.fetchAndSetApplicants('jobCode')).rejects.toThrow('Failed to fetch applicants');
+      await expect(store.fetchAndSetApplicantsCategory('jobCode')).rejects.toThrow('Failed to fetch applicants');
     
       expect(store.loading).toBeFalsy();
       expect(store.error).toEqual('Failed to fetch applicants');
@@ -161,11 +205,6 @@ describe('ApplicantsStore', () => {
 
     beforeAll(() => {
       store = useApplicantsStore(pinia);
-      store.applicants = [
-        {name: 'Mur Huss', email: 'murhuss@example.com', isNew: true},
-        {name: 'Jane Doe', email: 'jane.doe@example.com', isShortlisted: true},
-        {name: 'Jim Doe', email: 'jim.doe@example.com', isInterviewed: true},
-      ];
     });
     describe('Total applicants getter', () => { 
       it('should return the correct totalApplicants count', () => {
@@ -251,7 +290,7 @@ describe('ApplicantsStore', () => {
       it('should return an array of interviewed applicants', () => {
         const interviewed = store.interviewedApplicants;
         expect(Array.isArray(interviewed)).toBe(true);
-        expect(interviewed.length).toBe(2); // there are 2 applicants with 'interviewed' category
+        expect(interviewed.length).toBe(2);
         expect(interviewed.every(applicant => applicant.category === 'interviewed')).toBe(true);
       });
     
@@ -278,29 +317,6 @@ describe('ApplicantsStore', () => {
     afterEach(() => {
       mockAxios.restore();
     });
-  
-    // it('should update the category of an applicant', async () => {
-    //   const store = useApplicantsStore(pinia);
-    //   const applicantId = 1;
-    //   const newCategory = 'shortlisted';
-  
-    //   // Set up the mock response for axios
-    //   mockAxios
-    //     .onPatch(`http://localhost:3000/applicants/${applicantId}`, { category: newCategory })
-    //     .reply(200, {});
-  
-    //   // Modify the mock response to include the updated applicant data
-    //   mockAxios
-    //     .onGet(`http://localhost:3000/applicants/${applicantId}`)
-    //     .reply(200, { id: applicantId, name: 'Test Applicant', category: newCategory });
-  
-    //   // Call the action to update the applicant category
-    //   await store.updateApplicantCategory(applicantId, newCategory);
-  
-    //   // Check that the applicant category has been updated in the store
-    //   const updatedApplicant = store.applicants.find(applicant => applicant.id === applicantId);
-    //   expect(updatedApplicant.category).toEqual(newCategory);
-    // });
   
     it('should throw an error when the update request fails', async () => {
       const applicantId = 1;

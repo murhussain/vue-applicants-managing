@@ -1,7 +1,8 @@
-import Swal from 'sweetalert2'
+import type { SweetAlertIcon } from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 export function useConfirmFlash() {
-  function confirmFlash(title, message, level = 'info') {
+  function confirmFlash(title: string, message: string, level: SweetAlertIcon = 'info') {
     return Swal.fire({
       title: title,
       text: message,

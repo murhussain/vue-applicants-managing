@@ -31,6 +31,7 @@
           :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
+          :email="applicant.email"
           :skills="applicant.skills"
         />
       </div>
@@ -63,6 +64,7 @@
           :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
+          :email="applicant.email"
           :skills="applicant.skills"
         />
       </div>
@@ -95,6 +97,7 @@
           :data-category="'new'"
           :name="applicant.name"
           :position="applicant.position"
+          :email="applicant.email"
           :skills="applicant.skills"
         />
       </div>
@@ -102,7 +105,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CategoryCard from '@/components/shared/CategoryCard.vue'
 import ApplicantCard from '@/components/shared/ApplicantCard.vue'
 import IconStar from '@/components/icons/IconStar.vue'
@@ -125,23 +128,31 @@ onMounted(async () => {
   await applicantsStore.fetchAndSetApplicants();
 });
 
-function getApplicantsByCategory(category) {
-  return applicants.value.filter(a => a.category === category)
+function getApplicantsByCategory(category: string) {
+  return applicants.value.filter(a => a.category === category && a != null)
 }
 
-function onDragStart(applicant, event) {
-  event.dataTransfer.setData('text/plain', applicant.id)
+function onDragStart(applicant: any, event: any) {
+  if (applicant != null) {
+    event.dataTransfer.setData('text/plain', applicant.id)
+  }
 }
 
-function onDrop(category, event) {
+function onDrop(category: 'new' | 'shortlisted' | 'interviewed', event: any) {
   const applicantId = event.dataTransfer.getData('text/plain')
   const applicant = applicants.value.find(a => a.id.toString() === applicantId)
 
-  if (applicant.category !== category) {
+  if (applicant != null && applicant.category !== category) {
     applicant.category = category
     applicantsStore.updateApplicantCategory(applicant.id, category)
   }
 
-  event.target.appendChild(document.getElementById(applicantId))
+  // event.target.appendChild(document.getElementById(applicantId))
+  const applicantElement = document.getElementById(applicantId)
+  if (applicantElement != null) {
+    event.target.appendChild(applicantElement)
+  }
 }
+
+defineExpose({ onDrop })
 </script>

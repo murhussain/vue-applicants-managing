@@ -1,7 +1,8 @@
-import Swal from 'sweetalert2'
+import type { SweetAlertIcon } from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 export function useFlash() {
-  function flash(title, message, level) {
+  function flash(title: string, message: string, level: SweetAlertIcon) {
     return Swal.fire({
       title: title,
       text: message,

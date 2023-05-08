@@ -21,13 +21,26 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { PropType } from 'vue';
 import IconHand from '@/components/icons/IconHand.vue'
 
 defineProps({
-  name: String,
-  email: String,
-  position: String,
-  skills: Array,
+  name: {
+    type: String as PropType<string>,
+    required: true,
+  },
+  email: {
+    type: String as PropType<string>,
+    required: true,
+  },
+  position: {
+    type: String as PropType<string>,
+    required: true,
+  },
+  skills: {
+    type: Array as PropType<{ name: string }[]>,
+    required: true,
+  },
 });
 </script>

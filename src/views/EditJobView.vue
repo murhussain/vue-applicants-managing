@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import { useJobStore } from '@/stores/JobStore.js';
 import { useRoute, useRouter } from 'vue-router';
@@ -63,7 +63,7 @@ onMounted(async () => {
 
 async function onSubmit() {
   // Check if any of the required fields is empty
-  if (!job.value.name || !job.value.code || !job.value.initSalary) {
+  if (!job.value?.name || !job.value.code || !job.value.initSalary) {
     flash('Invalid Data','Some of the required input fields are left blank', 'error')
     return;
   }
