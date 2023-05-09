@@ -1,0 +1,48 @@
+{
+  "locale": {
+    "en": "English",
+    "fr": "French"
+  },
+  "nav": {
+    "home": "All Applicants",
+    "jobApplicant": "Job Applicants",
+    "new": "Add Job",
+    "smNew": "New",
+    "update": "Update Job",
+    "delete": "Delete Job",
+    "menu": "Menu",
+    "info": "There is still no job selected!"
+  },
+  "jobs": {
+    "search": "Search Jobs"
+  },
+  "header": {
+    "head": "Admin Dashboard",
+    "button": "Invite candidate"
+  },
+  "job": {
+    "name": "Job Name",
+    "code": "Job Code",
+    "initSalary": "Job Initial Salary",
+    "maxSalary": "Job Maximum Salary"
+  },
+  "pages": {
+    "createJob": "Create New Job",
+    "updateJob": "Update The Job",
+    "createBtn": "Create",
+    "updateBtn": "Update"
+  },
+  "jobCategory": {
+    "new": "New",
+    "shortlisted": "Shortlisted",
+    "interviewed": "Interviewed",
+    "info": "No {category} applicants for this job"
+  },
+  "notifications": {
+    "success": "Success",
+    "invalid": "Invalid Data",
+    "jobAdded": "The job has successfully added",
+    "jobUpdated": "The job has successfully updated",
+    "required": "Some of the required input fields are left blank"
+  }
+}

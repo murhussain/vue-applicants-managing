@@ -1,0 +1,48 @@
+{
+  "locale": {
+    "en": "English",
+    "fr": "French"
+  },
+  "nav": {
+    "home": "Tous candidats",
+    "jobApplicant": "Demandeurs",
+    "new": "créer emploi",
+    "smNew": "Ajouter",
+    "update": "Mise à jour",
+    "delete": "Supprimer",
+    "menu": "Menu",
+    "info": "Il n'y a toujours pas d'emploi sélectionné!"
+  },
+  "jobs": {
+    "search": "Recherche de travail"
+  },
+  "header": {
+    "head": "Bord Administrateur",
+    "button": "Inviter un candidat"
+  },
+  "job": {
+    "name": "Travail Nom",
+    "code": "Travail Code",
+    "initSalary": "Salaire initial",
+    "maxSalary": "Salaire Maximum"
+  },
+  "pages": {
+    "createJob": "Créer nouveau travail",
+    "updateJob": "Mettre le travail",
+    "createBtn": "Créer",
+    "updateBtn": "Mise à jour"
+  },
+  "jobCategory": {
+    "new": "Nouveau",
+    "shortlisted": "Présélectionné",
+    "interviewed": "Interviewé",
+    "info": "Aucun candidat {category} pour ce poste"
+  },
+  "notifications": {
+    "success": "Mise à jour",
+    "invalid": "Données invalides",
+    "jobAdded": "Le travail a été ajouté avec succès",
+    "jobUpdated": "Le travail a été mis à jour avec succès",
+    "required": "Certains des champs de saisie obligatoires sont laissés vides"
+  }
+}

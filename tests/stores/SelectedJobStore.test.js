@@ -38,7 +38,7 @@ describe('SelectedJobStore', () => {
   
     it('should initialize with error set to null', () => {
       const store = useSelectedJobStore(pinia);
-      expect(store.error).toBeNull();
+      expect(store.notSelected).toBeNull();
     });
   });
 
@@ -58,7 +58,7 @@ describe('SelectedJobStore', () => {
   
       expect(store.job).toEqual(expectedJob);
       expect(store.loading).toBeFalsy();
-      expect(store.error).toBeNull();
+      expect(store.notSelected).toBeNull();
     });
   
     it('should throw an error when attempting to select a job and the request fails', async () => {
@@ -68,7 +68,7 @@ describe('SelectedJobStore', () => {
       await expect(store.selectJob(jobId)).rejects.toThrow('Failed to fetch job');
   
       expect(store.loading).toBeFalsy();
-      expect(store.error).toEqual('Failed to fetch job');
+      expect(store.notSelected).toEqual('Failed to fetch job');
     });
   
     it('should throw an error when attempting to select a job and the request returns a 404 status code', async () => {
@@ -78,7 +78,7 @@ describe('SelectedJobStore', () => {
       await expect(store.selectJob(jobId)).rejects.toThrow('Failed to fetch job');
   
       expect(store.loading).toBeFalsy();
-      expect(store.error).toEqual('Failed to fetch job');
+      expect(store.notSelected).toEqual('Failed to fetch job');
     });
   });
 

@@ -7,7 +7,7 @@
     <div class="space-y-4">
       <!-- The category header of New Applicants -->
       <CategoryCard 
-        title="New" 
+        :title="$t('jobCategory.new')" 
         :applicantsCategory="tNew" 
         :totalApplicants="tApplicants" 
         bgColor="bg-[#c8cff7] dark:bg-[#363C5D]" 
@@ -39,7 +39,7 @@
     <div class="space-y-4">
       <!-- The category header of Shortlisted Applicants -->
       <CategoryCard 
-        title="Shortlisted" 
+        :title="$t('jobCategory.shortlisted')" 
         :applicantsCategory="tShortlisted" 
         :totalApplicants="tApplicants" 
         bgColor="bg-secondary-accent dark:bg-[#603920]" 
@@ -71,7 +71,7 @@
     <div class="space-y-4">
       <!-- The category header of Interviewed Applicants -->
       <CategoryCard 
-        title="Interviewed" 
+        :title="$t('jobCategory.interviewed')" 
         :applicantsCategory="tInterviewed" 
         :totalApplicants="tApplicants" 
         bgColor="bg-third-accent dark:bg-[#295255]" 

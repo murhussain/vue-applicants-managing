@@ -14,7 +14,7 @@
         <p v-if="(!selectedJob && !loading) || notSelected" class="text-black dark:text-white font-medium text-xl 
           sm:text-2xl xl:text-3xl capitalize"
         >
-          Admin Dashboard
+        {{ $t("header.head") }}
         </p>
       </div>
       <div class="lg:hidden flex items-center">
@@ -47,7 +47,7 @@
             :class="{'text-danger dark:text-red-500 animate-pulse': selectedJob }"
           />
         </div>
-        <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
+        <RouterLink :to="selectedJob ? Tr.i18nRoute({ path:'/jobs/update/' + selectedJob.id }) : ''">
           <div
             class="grid place-content-center group rounded-full lg:h-[1.8rem] lg:w-[1.8rem] xl:h-[2rem] 
             xl:w-[2rem] border cursor-pointer hover:bg-primary hover:border-none"
@@ -67,39 +67,39 @@
         </RouterLink>
         <div class="primary-button-rounded cursor-pointer">
           <IconUserAdd />
-          <span>Invite candidate</span>
+          <span>{{ $t("header.button") }}</span>
         </div>
       </div>
     </div>
     <div class="hidden lg:inline-flex space-x-10 text-black-accent dark:text-d-white">
-      <RouterLink to="/">
+      <RouterLink :to="Tr.i18nRoute({ name: 'home' })" >
         <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/') }"
         >
-          All Applicants
+          {{ $t("nav.home") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/') }"></span>
         </p>
       </RouterLink>
       <p class="relative xl:text-lg" 
         :class="{'text-black font-medium pb-1 dark:text-white': hasApplicantsInPath}"
       >
-        Job Applicants
+        {{ $t("nav.jobApplicant") }}
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
-      <RouterLink to="/jobs/add-new">
+      <RouterLink :to="Tr.i18nRoute({ name: 'createJob' })" >
         <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
-          Add Job
+          {{ $t("nav.new") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
         </p>
       </RouterLink>
-      <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
+      <RouterLink :to="selectedJob ? Tr.i18nRoute({ path:'/jobs/update/' + selectedJob.id }) : ''">
         <p v-if="selectedJob || hasUpdateInPath" 
           class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': hasUpdateInPath }"
         >
-          Update Job
+          {{ $t("nav.update") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasUpdateInPath }"></span>
         </p>
       </RouterLink>
@@ -107,25 +107,25 @@
     <div class="flex items-center justify-center lg:hidden space-x-4 sm:space-x-10 text-black-accent 
       dark:text-d-white"
     >
-      <RouterLink to="/">
+      <RouterLink :to="Tr.i18nRoute({ name: 'home' })" >
         <p class="relative hover:text-black text-sm sm:text-lg dark:hover:text-white" 
           :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/') }"
         >
-          All Applicants
+          {{ $t("nav.home") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/') }"></span>
         </p>
       </RouterLink>
       <p class="relative text-sm sm:text-lg" 
         :class="{'text-black font-medium pb-[0.18rem] dark:text-white': hasApplicantsInPath}"
       >
-        Job Applicants
+        {{ $t("nav.jobApplicant") }}
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
-      <RouterLink to="/jobs/add-new">
+      <RouterLink :to="Tr.i18nRoute({ name: 'createJob' })">
         <p class="relative text-sm sm:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
-          New
+          {{ $t("nav.smNew") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
         </p>
       </RouterLink>
@@ -144,19 +144,18 @@
         <IconSearch />
         <input v-model="searchQuery" class="rounded-lg h-[1.7rem] bg-body dark:bg-d-body-accent
         outline-none text-black/80  dark:text-d-white px-4 w-[14rem]" 
-          type="text" placeholder='Search Jobs....' 
+          type="text" :placeholder='$t("jobs.search")' 
         />
         <IconCross @click="showDrawer = false" />
       </div>
       <div class="py-4 space-y-2">
-        <p v-if="loading">Loading posts...</p>
         <div 
           v-for="job in filteredJobs" :key="job.id" 
           class="cursor-pointer group px-4 py-[0.7rem]"
           :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
           @click="selectJob(job.id); showDrawer = false"
         >
-          <RouterLink :to="'/jobs/applicants/' + job.code">  
+          <RouterLink :to="Tr.i18nRoute({ path:'/jobs/applicants/' + job.code })">  
             <p class="text-black text-sm dark:text-d-white capitalized"
               :class="{'font-medium': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
             >{{ job.name }}</p>
@@ -180,7 +179,7 @@
       scrollbar-hide rounded-lg"
     >
       <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
-        <p class="text-lg text-black dark:text-d-white font-medium capitalize">Menu</p>
+        <p class="text-lg text-black dark:text-d-white font-medium capitalize">{{ $t("nav.menu") }}</p>
         <IconCross @click="showMainMenu = false" />
       </div>
       <div v-if="job" class="px-4 py-4 space-y-4">
@@ -188,7 +187,7 @@
           class="flex items-center justify-between group"
         >
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize">
-            Update job
+            {{ $t("nav.update") }}
           </p>
           <IconArrowLeft />
         </RouterLink>
@@ -198,14 +197,14 @@
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
             group-hover:text-black dark:group-hover:text-body"
           >
-            Delete job
+            {{ $t("nav.delete") }}
           </p>
           <IconArrowLeft />
         </div>
       </div>
       <div v-else class="px-4 py-4">
         <p class="text-lg text-black-accent dark:text-d-white font-medium">
-          There is still no job selected!
+          {{ $t("nav.info") }}
         </p>
       </div>
     </div>
@@ -233,6 +232,7 @@ import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import { useDark, useToggle } from '@vueuse/core';
 import LoaderSm from '../spiners/LoaderSm.vue';
 import TheError from '@/components/shared/TheError.vue';
+import Tr from "@/i18n/translation"
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
