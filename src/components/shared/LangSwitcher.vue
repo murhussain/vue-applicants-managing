@@ -13,19 +13,22 @@
   </select>
 </template>
 
-<script>
-  import { useI18n } from 'vue-i18n'
-  import Tr from "@/i18n/translation"
+<script setup>
+import { useI18n } from 'vue-i18n'
+import Tr from '@/i18n/translation'
+import { useRouter } from "vue-router"
 
-  export default {
-    setup() {
-      const { t, locale } = useI18n()
-      const supportedLocales = Tr.supportedLocales
-      const switchLanguage = async (event) => {
-        const newLocale = event.target.value
-        await Tr.switchLanguage(newLocale)
-      }
-      return { t, locale, supportedLocales, switchLanguage } // <--- 4
-    }
+const { t, locale } = useI18n()
+const router = useRouter() 
+const supportedLocales = Tr.supportedLocales
+
+const switchLanguage = async (event) => {
+  const newLocale = event.target.value
+  await Tr.switchLanguage(newLocale)
+  try {
+    await router.replace({ params: { locale: newLocale } })  // <--- 3
+  } catch(e) {
+    router.push("/")
   }
+}
 </script>

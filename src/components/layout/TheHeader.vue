@@ -47,7 +47,7 @@
             :class="{'text-danger dark:text-red-500 animate-pulse': selectedJob }"
           />
         </div>
-        <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
+        <RouterLink :to="selectedJob ? Tr.i18nRoute({ path:'/jobs/update/' + selectedJob.id }) : ''">
           <div
             class="grid place-content-center group rounded-full lg:h-[1.8rem] lg:w-[1.8rem] xl:h-[2rem] 
             xl:w-[2rem] border cursor-pointer hover:bg-primary hover:border-none"
@@ -72,7 +72,7 @@
       </div>
     </div>
     <div class="hidden lg:inline-flex space-x-10 text-black-accent dark:text-d-white">
-      <RouterLink to="/">
+      <RouterLink :to="Tr.i18nRoute({ name: 'home' })" >
         <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/') }"
         >
@@ -86,7 +86,7 @@
         {{ $t("nav.jobApplicant") }}
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
-      <RouterLink to="/jobs/add-new">
+      <RouterLink :to="Tr.i18nRoute({ name: 'createJob' })" >
         <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
@@ -94,7 +94,7 @@
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
         </p>
       </RouterLink>
-      <RouterLink :to="selectedJob ? '/jobs/update/' + selectedJob.id : ''">
+      <RouterLink :to="selectedJob ? Tr.i18nRoute({ path:'/jobs/update/' + selectedJob.id }) : ''">
         <p v-if="selectedJob || hasUpdateInPath" 
           class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': hasUpdateInPath }"
@@ -107,7 +107,7 @@
     <div class="flex items-center justify-center lg:hidden space-x-4 sm:space-x-10 text-black-accent 
       dark:text-d-white"
     >
-      <RouterLink to="/">
+      <RouterLink :to="Tr.i18nRoute({ name: 'home' })" >
         <p class="relative hover:text-black text-sm sm:text-lg dark:hover:text-white" 
           :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/') }"
         >
@@ -121,7 +121,7 @@
         {{ $t("nav.jobApplicant") }}
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
-      <RouterLink to="/jobs/add-new">
+      <RouterLink :to="Tr.i18nRoute({ name: 'createJob' })">
         <p class="relative text-sm sm:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
@@ -155,7 +155,7 @@
           :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
           @click="selectJob(job.id); showDrawer = false"
         >
-          <RouterLink :to="'/jobs/applicants/' + job.code">  
+          <RouterLink :to="Tr.i18nRoute({ path:'/jobs/applicants/' + job.code })">  
             <p class="text-black text-sm dark:text-d-white capitalized"
               :class="{'font-medium': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
             >{{ job.name }}</p>
@@ -232,6 +232,7 @@ import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import { useDark, useToggle } from '@vueuse/core';
 import LoaderSm from '../spiners/LoaderSm.vue';
 import TheError from '@/components/shared/TheError.vue';
+import Tr from "@/i18n/translation"
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
