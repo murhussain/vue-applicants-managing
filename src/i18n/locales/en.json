@@ -13,7 +13,7 @@
     "menu": "Menu",
     "info": "There is still no job selected!"
   },
-  "Jobs": {
+  "jobs": {
     "search": "Search Jobs"
   },
   "header": {
@@ -29,5 +29,11 @@
   "pages": {
     "createJob": "Create New Job",
     "updateJob": "Update The Job"
+  },
+  "jobCategory": {
+    "new": "New",
+    "shortlisted": "Shortlisted",
+    "interviewed": "Interviewed",
+    "info": "No {category} applicants for this job"
   }
 }

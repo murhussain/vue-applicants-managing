@@ -13,7 +13,7 @@
     "menu": "Menu",
     "info": "Il n'y a toujours pas d'emploi sélectionné!"
   },
-  "Jobs": {
+  "jobs": {
     "search": "Recherche de travail"
   },
   "header": {
@@ -29,5 +29,11 @@
   "pages": {
     "createJob": "Créer nouveau travail",
     "updateJob": "Mettre le travail"
+  },
+  "jobCategory": {
+    "new": "Nouveau",
+    "shortlisted": "Présélectionné",
+    "interviewed": "Interviewé",
+    "info": "Aucun candidat {category} pour ce poste"
   }
 }

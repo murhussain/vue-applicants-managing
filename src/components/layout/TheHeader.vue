@@ -144,7 +144,7 @@
         <IconSearch />
         <input v-model="searchQuery" class="rounded-lg h-[1.7rem] bg-body dark:bg-d-body-accent
         outline-none text-black/80  dark:text-d-white px-4 w-[14rem]" 
-          type="text" placeholder='Search Jobs....' 
+          type="text" :placeholder='$t("jobs.search")' 
         />
         <IconCross @click="showDrawer = false" />
       </div>

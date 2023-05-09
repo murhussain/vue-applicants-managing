@@ -5,7 +5,7 @@
       <div class="lg:h-[4.2rem] xl:h-[4.4rem] flex items-center justify-between px-3 py-4 border-b border-gray/25 
         dark:border-gray/10"
       >
-        <input v-model="searchQuery" className='search-input-type' type="text" placeholder='Search Jobs....' />
+        <input v-model="searchQuery" className='search-input-type' type="text" :placeholder="$t('jobs.search')" />
         <RouterLink to="/jobs/add-new">
           <div 
             class="grid place-content-center group rounded-lg lg:h-[1.7rem] xl:h-[2rem] lg:w-[1.7rem] 
@@ -45,9 +45,6 @@
 
     <!-- Footer section otf the sidebar -->
     <div class="grid place-content-center mb-4">
-      <!-- <button class="bg-[#d8dadd] dark:bg-d-body-accent-secondary text-black dark:text-d-white 
-        font-medium rounded-lg py-[0.3rem] px-8 "
-      >Manage jobs</button> -->
       <LangSwitcher />
     </div>
   </div>
