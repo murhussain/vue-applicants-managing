@@ -28,7 +28,9 @@
   },
   "pages": {
     "createJob": "Créer nouveau travail",
-    "updateJob": "Mettre le travail"
+    "updateJob": "Mettre le travail",
+    "createBtn": "Créer",
+    "updateBtn": "Mise à jour"
   },
   "jobCategory": {
     "new": "Nouveau",

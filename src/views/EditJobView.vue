@@ -7,24 +7,24 @@
       rounded-lg shadow-sm flex flex-col items-center space-y-4"
     >
       <h3 class="capitalize text-xl lg:text-[24px] text-black dark:text-body font-medium">
-        Update The Job
+        {{$t("pages.updateJob")}}
       </h3>
       <form v-if="job" @submit.prevent="onSubmit" class="sm:space-y-6 space-y-5" noValidate>
         <div class="grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:grid-cols-1 lg:space-y-none">
           <label for="name" class="block">
-            <span class="label">Job Name:</span>
+            <span class="label">{{$t("job.name")}}:</span>
             <input type="text" required id="name" v-model="job.name" class="input-type"/>
           </label>
           <label for="code" class="block">
-            <span class="label">Job Code:</span>
+            <span class="label">{{$t("job.code")}}:</span>
             <input type="text" required id="code" v-model="job.code" class="input-type"/>
           </label>
           <label for="initSalary" class="block">
-            <span class="label">Job Initial Salary:</span>
+            <span class="label">{{$t("job.initSalary")}}:</span>
             <input type="number" required id="initSalary" v-model="job.initSalary" class="input-type"/>
           </label>
           <label for="maxSalary" class="block">
-            <span class="label">Job Maximum Salary:</span>
+            <span class="label">{{$t("job.maxSalary")}}:</span>
             <input type="number" id="maxSalary" v-model="job.maxSalary" class="input-type"/>
           </label>
         </div>
@@ -34,7 +34,7 @@
             text-white font-bold text-lg text-center"
             type="submit"
           >
-            Update
+            {{ $t('pages.updateBtn') }}
           </button>
         </div>
       </form>

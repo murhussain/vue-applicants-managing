@@ -28,7 +28,9 @@
   },
   "pages": {
     "createJob": "Create New Job",
-    "updateJob": "Update The Job"
+    "updateJob": "Update The Job",
+    "createBtn": "Create",
+    "updateBtn": "Update"
   },
   "jobCategory": {
     "new": "New",
