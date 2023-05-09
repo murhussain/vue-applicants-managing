@@ -50,7 +50,9 @@ import { useFlash } from '@/composables/useFlash';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import LoaderXl from '@/components/spiners/LoaderXl.vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const jobStore = useJobStore();
 const { loading } = storeToRefs(useJobStore());
 const { flash } = useFlash();
@@ -66,7 +68,7 @@ const newJob = ref({
 function onSubmit() {
   if (newJob.value.name && newJob.value.code && newJob.value.initSalary) {
     jobStore.createJob(newJob.value);
-    flash('Success', 'The job has successfully added', 'success')
+    flash(t("notifications.success"), t("notifications.jobAdded"), 'success')
     newJob.value = {
       name: '',
       code: '',
@@ -75,7 +77,7 @@ function onSubmit() {
     };
     router.push('/');
   } else {
-    flash('Invalid Data','Some of the required input fields are left blank', 'error')
+    flash(t("notifications.invalid"), t("notifications.required"), 'error')
   }
 }
 </script>

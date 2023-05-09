@@ -37,5 +37,12 @@
     "shortlisted": "Présélectionné",
     "interviewed": "Interviewé",
     "info": "Aucun candidat {category} pour ce poste"
+  },
+  "notifications": {
+    "success": "Mise à jour",
+    "invalid": "Données invalides",
+    "jobAdded": "Le travail a été ajouté avec succès",
+    "jobUpdated": "Le travail a été mis à jour avec succès",
+    "required": "Certains des champs de saisie obligatoires sont laissés vides"
   }
 }

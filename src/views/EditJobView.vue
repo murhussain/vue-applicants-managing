@@ -49,7 +49,9 @@ import { useRoute, useRouter } from 'vue-router';
 import { computed, onMounted } from 'vue';
 import { useFlash } from '@/composables/useFlash';
 import LoaderXl from '@/components/spiners/LoaderXl.vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const { flash } = useFlash();
 const { job, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJob, updateJobById } = useJobStore();
@@ -64,11 +66,11 @@ onMounted(async () => {
 async function onSubmit() {
   // Check if any of the required fields is empty
   if (!job.value.name || !job.value.code || !job.value.initSalary) {
-    flash('Invalid Data','Some of the required input fields are left blank', 'error')
+    flash(t("notifications.invalid"), t("notifications.required"), 'error')
     return;
   }
   await updateJobById(jobId.value, job.value);
   router.push('/');
-  flash('Success', `The job has successfully updated`, 'success')
+  flash(t("notifications.success"), t("notifications.jobUpdated"), 'success')
 }
 </script>

@@ -37,5 +37,12 @@
     "shortlisted": "Shortlisted",
     "interviewed": "Interviewed",
     "info": "No {category} applicants for this job"
+  },
+  "notifications": {
+    "success": "Success",
+    "invalid": "Invalid Data",
+    "jobAdded": "The job has successfully added",
+    "jobUpdated": "The job has successfully updated",
+    "required": "Some of the required input fields are left blank"
   }
 }

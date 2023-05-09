@@ -41,6 +41,13 @@
       "initSalary": "3600",
       "maxSalary": "4500",
       "id": 10
+    },
+    {
+      "name": "dnsjdks",
+      "code": "dsjsdjhsd",
+      "initSalary": 234,
+      "maxSalary": "",
+      "id": 11
     }
   ],
   "applicants": [
@@ -429,7 +436,7 @@
           "name": "Huawei Cloud"
         }
       ],
-      "category": "shortlisted"
+      "category": "interviewed"
     },
     {
       "id": 22,
@@ -477,7 +484,7 @@
           "name": "Big Data"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 23,
