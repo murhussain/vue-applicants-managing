@@ -14,7 +14,7 @@
         <p v-if="(!selectedJob && !loading) || notSelected" class="text-black dark:text-white font-medium text-xl 
           sm:text-2xl xl:text-3xl capitalize"
         >
-          Admin Dashboard
+        {{ $t("header.head") }}
         </p>
       </div>
       <div class="lg:hidden flex items-center">
@@ -76,21 +76,21 @@
         <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/') }"
         >
-          All Applicants
+          {{ $t("nav.home") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/') }"></span>
         </p>
       </RouterLink>
       <p class="relative xl:text-lg" 
         :class="{'text-black font-medium pb-1 dark:text-white': hasApplicantsInPath}"
       >
-        Job Applicants
+        {{ $t("nav.jobApplicant") }}
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
       <RouterLink to="/jobs/add-new">
         <p class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
-          Add Job
+          {{ $t("nav.new") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
         </p>
       </RouterLink>
@@ -99,7 +99,7 @@
           class="relative xl:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-1 dark:text-white': hasUpdateInPath }"
         >
-          Update Job
+          {{ $t("nav.update") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.26rem] w-1/2': hasUpdateInPath }"></span>
         </p>
       </RouterLink>
@@ -111,21 +111,21 @@
         <p class="relative hover:text-black text-sm sm:text-lg dark:hover:text-white" 
           :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/') }"
         >
-          All Applicants
+          {{ $t("nav.home") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/') }"></span>
         </p>
       </RouterLink>
       <p class="relative text-sm sm:text-lg" 
         :class="{'text-black font-medium pb-[0.18rem] dark:text-white': hasApplicantsInPath}"
       >
-        Job Applicants
+        {{ $t("nav.jobApplicant") }}
         <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': hasApplicantsInPath}"></span>
       </p>
       <RouterLink to="/jobs/add-new">
         <p class="relative text-sm sm:text-lg hover:text-black dark:hover:text-white" 
           :class="{'text-black font-medium pb-[0.18rem] dark:text-white': isCurrentRoute('/jobs/add-new') }"
         >
-          New
+          {{ $t("nav.smNew") }}
           <span :class="{'absolute bottom-0 left-0 bg-primary h-[0.10rem] sm:h-[0.20rem] w-1/2': isCurrentRoute('/jobs/add-new') }"></span>
         </p>
       </RouterLink>
@@ -149,7 +149,6 @@
         <IconCross @click="showDrawer = false" />
       </div>
       <div class="py-4 space-y-2">
-        <p v-if="loading">Loading posts...</p>
         <div 
           v-for="job in filteredJobs" :key="job.id" 
           class="cursor-pointer group px-4 py-[0.7rem]"
@@ -180,7 +179,7 @@
       scrollbar-hide rounded-lg"
     >
       <div class="flex items-center justify-between px-4 py-2 border-b border-gray/40 dark:border-gray/20">
-        <p class="text-lg text-black dark:text-d-white font-medium capitalize">Menu</p>
+        <p class="text-lg text-black dark:text-d-white font-medium capitalize">{{ $t("nav.menu") }}</p>
         <IconCross @click="showMainMenu = false" />
       </div>
       <div v-if="job" class="px-4 py-4 space-y-4">
@@ -188,7 +187,7 @@
           class="flex items-center justify-between group"
         >
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize">
-            Update job
+            {{ $t("nav.update") }}
           </p>
           <IconArrowLeft />
         </RouterLink>
@@ -198,14 +197,14 @@
           <p class="text-lg text-black-accent dark:text-d-white font-medium capitalize 
             group-hover:text-black dark:group-hover:text-body"
           >
-            Delete job
+            {{ $t("nav.delete") }}
           </p>
           <IconArrowLeft />
         </div>
       </div>
       <div v-else class="px-4 py-4">
         <p class="text-lg text-black-accent dark:text-d-white font-medium">
-          There is still no job selected!
+          {{ $t("nav.info") }}
         </p>
       </div>
     </div>

@@ -10,7 +10,8 @@
     "smNew": "Ajouter",
     "update": "Mise à jour",
     "delete": "Supprimer",
-    "menu": "Menu"
+    "menu": "Menu",
+    "info": "Il n'y a toujours pas d'emploi sélectionné!"
   },
   "Jobs": {
     "search": "Recherche de travail"

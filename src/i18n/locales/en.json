@@ -10,7 +10,8 @@
     "smNew": "New",
     "update": "Update Job",
     "delete": "Delete Job",
-    "menu": "Menu"
+    "menu": "Menu",
+    "info": "There is still no job selected!"
   },
   "Jobs": {
     "search": "Search Jobs"
