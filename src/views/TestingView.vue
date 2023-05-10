@@ -109,4 +109,6 @@ function onDrop(category, event) {
     event.target.appendChild(document.getElementById(applicantId));
   }
 }
+
+defineExpose({ getApplicantsByCategory });
 </script>
