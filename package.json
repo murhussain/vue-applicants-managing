@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "test": "vitest --run --reporter verbose",
-    "test-jest": "jest",
+    "test": "vitest --run --reporter verbose --watch",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",

@@ -41,6 +41,20 @@
       "initSalary": "3600",
       "maxSalary": 4503,
       "id": 10
+    },
+    {
+      "name": "uyut",
+      "code": "df",
+      "initSalary": 23,
+      "maxSalary": "",
+      "id": 11
+    },
+    {
+      "name": "dfdfbd",
+      "code": "dje",
+      "initSalary": 233,
+      "maxSalary": 344,
+      "id": 12
     }
   ],
   "applicants": [

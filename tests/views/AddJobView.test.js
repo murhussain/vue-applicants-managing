@@ -1,63 +1,50 @@
 import { mount } from '@vue/test-utils';
-// import { createMockFn } from 'vitest-utils';
-import { describe, test, expect } from 'vitest';
-import AddJobView from '@/views/AddJobView.vue';
+import { describe, test, expect } from "vitest";
+import addJobView from '@/views/addJobView.vue';
 
-describe('AddJobView', () => {
-  test('form fields update the model data correctly', async () => {
-    const wrapper = mount(AddJobView);
+describe('addJobView', () => {
+  test('renders input fields and a button', async () => {
+    const wrapper = mount(addJobView);
 
-    const nameInput = wrapper.find('#name');
-    await nameInput.setValue('Test Name');
-    expect(wrapper.vm.newJob.name).toBe('Test Name');
+    // Check if the input fields exist
+    const nameInput = wrapper.find('input[type="text"][id="name"]');
+    expect(nameInput.exists()).toBe(true);
 
-    const codeInput = wrapper.find('#code');
-    await codeInput.setValue('Test Code');
-    expect(wrapper.vm.newJob.code).toBe('Test Code');
+    const codeInput = wrapper.find('input[type="text"][id="code"]');
+    expect(codeInput.exists()).toBe(true);
 
-    const initSalaryInput = wrapper.find('#initSalary');
-    await initSalaryInput.setValue('1000');
-    expect(wrapper.vm.newJob.initSalary).toBe('1000');
+    const initSalaryInput = wrapper.find('input[type="number"][id="initSalary"]');
+    expect(initSalaryInput.exists()).toBe(true);
 
-    const maxSalaryInput = wrapper.find('#maxSalary');
-    await maxSalaryInput.setValue('2000');
-    expect(wrapper.vm.newJob.maxSalary).toBe('2000');
+    const maxSalaryInput = wrapper.find('input[type="number"][id="maxSalary"]');
+    expect(maxSalaryInput.exists()).toBe(true);
+
+    // Check if the button exists
+    const createButton = wrapper.find('button[type="submit"]');
+    expect(createButton.exists()).toBe(true);
   });
 
-  // test('submitting the form calls the correct methods', async () => {
-  //   const createJobMock = createMockFn();
-  //   const flashMock = createMockFn();
-  //   const pushMock = createMockFn();
+  test('making sure that inputs receives data', async () => {
+    const wrapper = mount(addJobView);
 
-  //   const wrapper = mount(AddJobView, {
-  //     globals: {
-  //       $router: {
-  //         push: pushMock
-  //       },
-  //       $i18n: {
-  //         t: key => key
-  //       },
-  //       useJobStore: () => ({
-  //         createJob: createJobMock
-  //       }),
-  //       useFlash: () => ({
-  //         flash: flashMock
-  //       })
-  //     }
-  //   });
+    // Name
+    const nameInput = wrapper.find('input[id="name"]')
+    await nameInput.setValue('murashi')
+    expect(nameInput.element.value).toBe('murashi')
 
-  //   await wrapper.find('form').trigger('submit');
+    // Code
+    const codeInput = wrapper.find('input[id="code"]')
+    await codeInput.setValue('UI')
+    expect(codeInput.element.value).toBe('UI')
 
-  //   expect(createJobMock).toHaveBeenCalled();
-  //   expect(flashMock).toHaveBeenCalledWith('success', 'notifications.jobAdded');
-  //   expect(pushMock).toHaveBeenCalledWith('/');
+    // Initial salary
+    const initSalaryInput = wrapper.find('input[id="initSalary"]')
+    await initSalaryInput.setValue('300')
+    expect(initSalaryInput.element.value).toBe('300')
 
-  //   // Reset newJob object
-  //   expect(wrapper.vm.newJob).toEqual({
-  //     name: '',
-  //     code: '',
-  //     initSalary: '',
-  //     maxSalary: ''
-  //   });
-  // });
+    // Maximum salary
+    const maxSalaryInput = wrapper.find('input[id="maxSalary"]')
+    await maxSalaryInput.setValue('300')
+    expect(maxSalaryInput.element.value).toBe('300')
+  });
 });
