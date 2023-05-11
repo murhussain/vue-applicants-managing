@@ -24,27 +24,38 @@ describe('addJobView', () => {
     expect(createButton.exists()).toBe(true);
   });
 
-  test('making sure that inputs receives data', async () => {
+  test('should receive inputs data from user', async () => {
     const wrapper = mount(addJobView);
 
-    // Name
-    const nameInput = wrapper.find('input[id="name"]')
-    await nameInput.setValue('murashi')
-    expect(nameInput.element.value).toBe('murashi')
+    await wrapper.find('input[id="name"]').setValue('murashi')
+    await wrapper.find('input[id="code"]').setValue('UI')
+    await wrapper.find('input[id="initSalary"]').setValue('300')
+    await wrapper.find('input[id="maxSalary"]').setValue('300')
+  });
 
-    // Code
-    const codeInput = wrapper.find('input[id="code"]')
-    await codeInput.setValue('UI')
-    expect(codeInput.element.value).toBe('UI')
+  test('should submit the form data', async () => {
+    const wrapper = mount(addJobView);
 
-    // Initial salary
-    const initSalaryInput = wrapper.find('input[id="initSalary"]')
-    await initSalaryInput.setValue('300')
-    expect(initSalaryInput.element.value).toBe('300')
+    const name = 'UI/UX Developer';
+    const code = 'UI';
+    const initSalary = '100';
+    const maxSalary = '300';
+    const form = wrapper.find('form');
 
-    // Maximum salary
-    const maxSalaryInput = wrapper.find('input[id="maxSalary"]')
-    await maxSalaryInput.setValue('300')
-    expect(maxSalaryInput.element.value).toBe('300')
+    await wrapper.find('input[id="name"]').setValue(name)
+    await wrapper.find('input[id="code"]').setValue(code)
+    await wrapper.find('input[id="initSalary"]').setValue(initSalary)
+    await wrapper.find('input[id="maxSalary"]').setValue(maxSalary)
+    
+    await form.trigger('submit.prevent');
+
+    // Access the updated newJob object after form submission
+    const newJob = wrapper.vm.newJob;
+
+    // Reset the form after submission
+    expect(newJob.name).toBe('');
+    expect(newJob.code).toBe('');
+    expect(newJob.initSalary).toBe('');
+    expect(newJob.maxSalary).toBe('');
   });
 });

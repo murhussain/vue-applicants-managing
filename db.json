@@ -55,6 +55,20 @@
       "initSalary": 233,
       "maxSalary": 344,
       "id": 12
+    },
+    {
+      "name": "sdsds",
+      "code": "er",
+      "initSalary": 2344,
+      "maxSalary": "",
+      "id": 13
+    },
+    {
+      "name": "rutaremara",
+      "code": "www",
+      "initSalary": 234,
+      "maxSalary": "",
+      "id": 14
     }
   ],
   "applicants": [

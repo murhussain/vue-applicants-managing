@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full lg:grid lg:place-content-center overflow-y-auto scrollbar-hide">
+  <div class='h-full lg:grid lg:place-content-center overflow-y-auto scrollbar-hide'>
     <div 
       class="sm:w-[40rem] sm:mx-auto lg:w-96 px-2 sm:px-6 pb-8 pt-4 bg-body dark:bg-d-body-accent 
       rounded-lg shadow-sm flex flex-col items-center space-y-4"
@@ -27,10 +27,8 @@
           </label>
         </div>
         <div>
-          <button
-            className="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-md
-            text-white font-bold text-lg text-center"
-            type="submit"
+          <button class="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-md
+            text-white font-bold text-lg text-center" type="submit"
           >
             Create
           </button>
@@ -41,9 +39,7 @@
 </template>
 
 <script setup>
-import { ref, defineEmits, emit } from 'vue';
-
-defineEmits(['submit']);
+import { ref } from 'vue';
 
 const newJob = ref({
   name: '',
@@ -52,7 +48,21 @@ const newJob = ref({
   maxSalary: ''
 });
 
-async function onSubmit() {
-  emit('submit', newJob.value);
-}
+const onSubmit = () => {
+  const { name, code, initSalary, maxSalary } = newJob.value;
+  const job = {
+    name,
+    code,
+    initSalary,
+    maxSalary
+  };
+
+  // Reset the form after submission
+  newJob.value = {
+    name: '',
+    code: '',
+    initSalary: '',
+    maxSalary: ''
+  };
+};
 </script>
