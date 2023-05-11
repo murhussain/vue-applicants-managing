@@ -58,4 +58,49 @@ describe('addJobView', () => {
     expect(newJob.initSalary).toBe('');
     expect(newJob.maxSalary).toBe('');
   });
+
+  test('binds input fields to newJob object', async () => {
+    const wrapper = mount(addJobView);
+  
+    const nameInput = wrapper.find('input[id="name"]');
+    const codeInput = wrapper.find('input[id="code"]');
+    const initSalaryInput = wrapper.find('input[id="initSalary"]');
+    const maxSalaryInput = wrapper.find('input[id="maxSalary"]');
+  
+    // Enter values in the input fields
+    await nameInput.setValue('UI/UX Developer');
+    await codeInput.setValue('UI');
+    await initSalaryInput.setValue(100);
+    await maxSalaryInput.setValue(300);
+  
+    // Access the updated newJob object
+    const newJob = wrapper.vm.newJob;
+  
+    // Check if the values are correctly bound
+    expect(newJob.name).toBe('UI/UX Developer');
+    expect(newJob.code).toBe('UI');
+    expect(newJob.initSalary).toBe(100);
+    expect(newJob.maxSalary).toBe(300);
+  });
+
+  test('validates numeric input fields', async () => {
+    const wrapper = mount(addJobView);
+  
+    const initSalaryInput = wrapper.find('input[id="initSalary"]');
+    const maxSalaryInput = wrapper.find('input[id="maxSalary"]');
+  
+    // Enter valid numeric values
+    await initSalaryInput.setValue('100');
+    await maxSalaryInput.setValue('300');
+  
+    // Check if the input values are valid
+    expect(wrapper.find('.error-message').exists()).toBe(false);
+  
+    // Enter invalid non-numeric values
+    await initSalaryInput.setValue('abc');
+    await maxSalaryInput.setValue('xyz');
+  
+    // Check if the input values are invalid
+    expect(wrapper.find('.error-message').exists()).toBe(false);
+  });  
 });

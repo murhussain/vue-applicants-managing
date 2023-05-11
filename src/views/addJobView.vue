@@ -40,7 +40,9 @@
 
 <script setup>
 import { ref } from 'vue';
+// import { useJobStore } from '@/stores/JobStore';
 
+// const jobStore = useJobStore();
 const newJob = ref({
   name: '',
   code: '',
@@ -56,6 +58,9 @@ const onSubmit = () => {
     initSalary,
     maxSalary
   };
+
+  // Create a new job
+  // jobStore.createJob(job);
 
   // Reset the form after submission
   newJob.value = {
