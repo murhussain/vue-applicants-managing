@@ -4,25 +4,25 @@
       class="sm:w-[40rem] sm:mx-auto lg:w-96 px-2 sm:px-6 pb-8 pt-4 bg-body dark:bg-d-body-accent 
       rounded-lg shadow-sm flex flex-col items-center space-y-4"
     >
-    <h3 class="capitalize text-xl lg:text-[24px] text-black dark:text-body font-medium">
-        Create New Job
+      <h3 class="capitalize text-xl lg:text-[24px] text-black dark:text-body font-medium">
+        {{$t("pages.createJob")}}
       </h3>
       <form @submit.prevent="onSubmit" class="sm:space-y-6 space-y-5" noValidate>
         <div class="grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:grid-cols-1 lg:space-y-none">
           <label for="name" class="block">
-            <span class="label">Job Name:</span>
+            <span class="label">{{$t("job.name")}}:</span>
             <input type="text" required id="name" class="input-type" v-model="newJob.name" />
           </label>
           <label for="code" class="block">
-            <span class="label">Job Code:</span>
+            <span class="label">{{$t("job.code")}}:</span>
             <input type="text" required id="code" class="input-type" v-model="newJob.code" />
           </label>
           <label for="initSalary" class="block">
-            <span class="label">Job Initial Salary:</span>
+            <span class="label">{{$t("job.initSalary")}}:</span>
             <input type="number" required id="initSalary" class="input-type" v-model="newJob.initSalary" />
           </label>
           <label for="maxSalary" class="block">
-            <span class="label">Job Maximum Salary:</span>
+            <span class="label">{{$t("job.maxSalary")}}:</span>
             <input type="number" id="maxSalary" class="input-type" v-model="newJob.maxSalary" />
           </label>
         </div>
@@ -30,7 +30,7 @@
           <button class="w-full bg-primary hover:bg-primary-dark transition-all py-2.5 px-10 rounded-md
             text-white font-bold text-lg text-center" type="submit"
           >
-            Create
+            {{ $t('pages.createBtn') }}
           </button>
         </div>
       </form>

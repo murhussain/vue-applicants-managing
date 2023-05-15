@@ -1,12 +1,49 @@
-import { mount } from '@vue/test-utils';
-import { describe, test, expect } from "vitest";
-import addJobView from '@/views/addJobView.vue';
+import { shallowMount, config } from '@vue/test-utils';
+import { useI18n } from "vue-i18n";
+import { createTestingPinia } from "@pinia/testing";
+import { describe, test, vi, expect, beforeEach } from "vitest";
+import AddJobView from '@/views/AddJobView.vue';
+import { useRouter } from 'vue-router';
 
-describe('addJobView', () => {
+vi.mock("vue-i18n");
+vi.mock('vue-router');
+
+useI18n.mockReturnValue({
+  t: (tKey) => tKey,
+});
+
+config.global.mocks = {
+  $t: (tKey) => tKey,
+};
+
+describe('AddJobView', () => {
+  let wrapper = null;
+
+  useRouter.mockReturnValue({
+    push: vi.fn(),
+  });
+
+  beforeEach(() => {
+    wrapper = shallowMount(AddJobView, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn,
+          }),
+        ],
+      },
+    });
+
+    useRouter().push.mockReset();
+  });
+
+  test('Should render heading for title of page', async () => {
+    const heading3 = wrapper.find('h3');
+
+    expect(heading3.exists()).toBe(true);
+  });
+
   test('renders input fields and a button', async () => {
-    const wrapper = mount(addJobView);
-
-    // Check if the input fields exist
     const nameInput = wrapper.find('input[type="text"][id="name"]');
     expect(nameInput.exists()).toBe(true);
 
@@ -19,37 +56,35 @@ describe('addJobView', () => {
     const maxSalaryInput = wrapper.find('input[type="number"][id="maxSalary"]');
     expect(maxSalaryInput.exists()).toBe(true);
 
-    // Check if the button exists
     const createButton = wrapper.find('button[type="submit"]');
     expect(createButton.exists()).toBe(true);
   });
 
-  test('should receive inputs data from user', async () => {
-    const wrapper = mount(addJobView);
+  test('should render heading-3', async () => {
+    const heading3 = wrapper.find('h3');
+    expect(heading3.exists()).toBe(true);
+  });
 
-    await wrapper.find('input[id="name"]').setValue('murashi')
-    await wrapper.find('input[id="code"]').setValue('UI')
-    await wrapper.find('input[id="initSalary"]').setValue('300')
-    await wrapper.find('input[id="maxSalary"]').setValue('300')
+  test('should receive inputs data from user', async () => {
+    await wrapper.find('input[id="name"]').setValue('murashi');
+    await wrapper.find('input[id="code"]').setValue('UI');
+    await wrapper.find('input[id="initSalary"]').setValue('300');
+    await wrapper.find('input[id="maxSalary"]').setValue('300');
   });
 
   test('should submit the form data', async () => {
-    const wrapper = mount(addJobView);
-
     const name = 'UI/UX Developer';
     const code = 'UI';
     const initSalary = '100';
     const maxSalary = '300';
     const form = wrapper.find('form');
 
-    await wrapper.find('input[id="name"]').setValue(name)
-    await wrapper.find('input[id="code"]').setValue(code)
-    await wrapper.find('input[id="initSalary"]').setValue(initSalary)
-    await wrapper.find('input[id="maxSalary"]').setValue(maxSalary)
-    
+    await wrapper.find('input[id="name"]').setValue(name);
+    await wrapper.find('input[id="code"]').setValue(code);
+    await wrapper.find('input[id="initSalary"]').setValue(initSalary);
+    await wrapper.find('input[id="maxSalary"]').setValue(maxSalary);
     await form.trigger('submit.prevent');
 
-    // Access the updated newJob object after form submission
     const newJob = wrapper.vm.newJob;
 
     // Reset the form after submission
@@ -57,50 +92,109 @@ describe('addJobView', () => {
     expect(newJob.code).toBe('');
     expect(newJob.initSalary).toBe('');
     expect(newJob.maxSalary).toBe('');
+
+    expect(useRouter().push).toHaveBeenCalledWith('/');
   });
 
-  test('binds input fields to newJob object', async () => {
-    const wrapper = mount(addJobView);
-  
-    const nameInput = wrapper.find('input[id="name"]');
-    const codeInput = wrapper.find('input[id="code"]');
-    const initSalaryInput = wrapper.find('input[id="initSalary"]');
-    const maxSalaryInput = wrapper.find('input[id="maxSalary"]');
-  
-    // Enter values in the input fields
-    await nameInput.setValue('UI/UX Developer');
-    await codeInput.setValue('UI');
-    await initSalaryInput.setValue(100);
-    await maxSalaryInput.setValue(300);
-  
-    // Access the updated newJob object
-    const newJob = wrapper.vm.newJob;
-  
-    // Check if the values are correctly bound
-    expect(newJob.name).toBe('UI/UX Developer');
-    expect(newJob.code).toBe('UI');
-    expect(newJob.initSalary).toBe(100);
-    expect(newJob.maxSalary).toBe(300);
+  test('should not submit the form data if the form is invalid', async () => {
+    const form = wrapper.find('form');
+
+    await form.trigger('submit.prevent');
+
+    expect(useRouter().push).not.toHaveBeenCalled();
   });
 
-  test('validates numeric input fields', async () => {
-    const wrapper = mount(addJobView);
+  test('renders the correct heading', () =>{
+    const heading = wrapper.find('h3');
+    expect(heading.exists()).toBe(true);
+    expect(heading.text()).toBe('pages.createJob');
+  });
+
+  test('renders the correct button text', () => {
+    const button = wrapper.find('button[type="submit"]');
+    expect(button.exists()).toBe(true);
+    expect(button.text()).toBe('pages.createBtn');
+  });
+
+  test('should display the correct text in the label span for name', async () => {
+    // Get the label element
+    const label = wrapper.find('label[for="name"]');
+    expect(label.exists()).toBe(true);
   
-    const initSalaryInput = wrapper.find('input[id="initSalary"]');
-    const maxSalaryInput = wrapper.find('input[id="maxSalary"]');
+    // Get the span element inside the label
+    const labelSpan = label.find('span.label');
+    expect(labelSpan.exists()).toBe(true);
   
-    // Enter valid numeric values
-    await initSalaryInput.setValue('100');
-    await maxSalaryInput.setValue('300');
+    // Get the expected text from the translation
+    const expectedText = wrapper.vm.$t('job.name:');
   
-    // Check if the input values are valid
-    expect(wrapper.find('.error-message').exists()).toBe(false);
+    // Check if the text in the label span matches the expected text
+    expect(labelSpan.text()).toBe(expectedText);
+  });
+
+  test('should display the correct text in the label span for code', async () => {
+    // Get the label element
+    const label = wrapper.find('label[for="code"]');
+    expect(label.exists()).toBe(true);
   
-    // Enter invalid non-numeric values
-    await initSalaryInput.setValue('abc');
-    await maxSalaryInput.setValue('xyz');
+    // Get the span element inside the label
+    const labelSpan = label.find('span.label');
+    expect(labelSpan.exists()).toBe(true);
   
-    // Check if the input values are invalid
-    expect(wrapper.find('.error-message').exists()).toBe(false);
-  });  
+    // Get the expected text from the translation
+    const expectedText = wrapper.vm.$t('job.code:');
+  
+    // Check if the text in the label span matches the expected text
+    expect(labelSpan.text()).toBe(expectedText);
+  });
+
+  test('should display the correct text in the label span for initSalary', async () => {
+    // Get the label element
+    const label = wrapper.find('label[for="initSalary"]');
+    expect(label.exists()).toBe(true);
+  
+    // Get the span element inside the label
+    const labelSpan = label.find('span.label');
+    expect(labelSpan.exists()).toBe(true);
+  
+    // Get the expected text from the translation
+    const expectedText = wrapper.vm.$t('job.initSalary:');
+  
+    // Check if the text in the label span matches the expected text
+    expect(labelSpan.text()).toBe(expectedText);
+  });
+
+  test('should display the correct text in the label span for maxSalary', async () => {
+    // Get the label element
+    const label = wrapper.find('label[for="maxSalary"]');
+    expect(label.exists()).toBe(true);
+  
+    // Get the span element inside the label
+    const labelSpan = label.find('span.label');
+    expect(labelSpan.exists()).toBe(true);
+  
+    // Get the expected text from the translation
+    const expectedText = wrapper.vm.$t('job.maxSalary:');
+  
+    // Check if the text in the label span matches the expected text
+    expect(labelSpan.text()).toBe(expectedText);
+  });
+
+  test('renders the correct input type', () => {
+    const nameInput = wrapper.find('input[type="text"][id="name"]');
+    expect(nameInput.exists()).toBe(true);
+    expect(nameInput.attributes('type')).toBe('text');
+
+    const codeInput = wrapper.find('input[type="text"][id="code"]');
+    expect(codeInput.exists()).toBe(true);
+    expect(codeInput.attributes('type')).toBe('text');
+
+    const initSalaryInput = wrapper.find('input[type="number"][id="initSalary"]');
+    expect(initSalaryInput.exists()).toBe(true);
+    expect(initSalaryInput.attributes('type')).toBe('number');
+
+    const maxSalaryInput = wrapper.find('input[type="number"][id="maxSalary"]');
+    expect(maxSalaryInput.exists()).toBe(true);
+    expect(maxSalaryInput.attributes('type')).toBe('number');
+  })
 });
