@@ -30,6 +30,7 @@
           :draggable="true" @dragstart="onDragStart(applicant, $event)" 
           :data-category="'new'"
           :name="applicant.name"
+          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
@@ -62,6 +63,7 @@
           :draggable="true" @dragstart="onDragStart(applicant, $event)" 
           :data-category="'new'"
           :name="applicant.name"
+          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
@@ -94,6 +96,7 @@
           :draggable="true" @dragstart="onDragStart(applicant, $event)" 
           :data-category="'new'"
           :name="applicant.name"
+          :email="applicant.email"
           :position="applicant.position"
           :skills="applicant.skills"
         />
@@ -142,6 +145,9 @@ function onDrop(category, event) {
     applicantsStore.updateApplicantCategory(applicant.id, category)
   }
 
-  event.target.appendChild(document.getElementById(applicantId))
+  const applicantElement = document.getElementById(applicantId)
+  if (applicantElement != null) {
+    event.target.appendChild(applicantElement)
+  }
 }
 </script>

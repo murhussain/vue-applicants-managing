@@ -121,7 +121,7 @@
           "name": "Vue.js"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 4,
@@ -169,7 +169,7 @@
           "name": "Arrow Network"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 7,
@@ -324,7 +324,7 @@
           "name": "UI/UX Designer"
         }
       ],
-      "category": "shortlisted"
+      "category": "new"
     },
     {
       "id": 15,
@@ -505,7 +505,7 @@
           "name": "Big Data"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     },
     {
       "id": 23,
@@ -571,7 +571,7 @@
           "name": "UI/UX"
         }
       ],
-      "category": "new"
+      "category": "shortlisted"
     }
   ]
 }
