@@ -43,7 +43,14 @@ describe('AddJobView', () => {
     expect(heading3.exists()).toBe(true);
   });
 
-  test('renders input fields and a button', async () => {
+  test('renders the correct heading', () =>{
+    const heading = wrapper.find('h3');
+    expect(heading.exists()).toBe(true);
+    expect(heading.text()).toBe('pages.createJob');
+  });
+
+
+  test('renders input fields and a button', () => {
     const nameInput = wrapper.find('input[type="text"][id="name"]');
     expect(nameInput.exists()).toBe(true);
 
@@ -58,11 +65,6 @@ describe('AddJobView', () => {
 
     const createButton = wrapper.find('button[type="submit"]');
     expect(createButton.exists()).toBe(true);
-  });
-
-  test('should render heading-3', async () => {
-    const heading3 = wrapper.find('h3');
-    expect(heading3.exists()).toBe(true);
   });
 
   test('should receive inputs data from user', async () => {
@@ -102,12 +104,6 @@ describe('AddJobView', () => {
     await form.trigger('submit.prevent');
 
     expect(useRouter().push).not.toHaveBeenCalled();
-  });
-
-  test('renders the correct heading', () =>{
-    const heading = wrapper.find('h3');
-    expect(heading.exists()).toBe(true);
-    expect(heading.text()).toBe('pages.createJob');
   });
 
   test('renders the correct button text', () => {

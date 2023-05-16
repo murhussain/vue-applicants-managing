@@ -3,7 +3,7 @@ import { useI18n } from "vue-i18n";
 import { createTestingPinia } from "@pinia/testing";
 import { describe, test, vi, expect, beforeEach } from "vitest";
 import EditJobView from '@/views/EditJobView.vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 vi.mock("vue-i18n");
 vi.mock('vue-router');
@@ -23,6 +23,12 @@ describe('AddJobView', () => {
     push: vi.fn(),
   });
 
+  useRoute.mockReturnValue({
+    params: {
+      jobId: 'jobId',
+    },
+  });
+
   beforeEach(() => {
     wrapper = shallowMount(EditJobView, {
       global: {
@@ -33,7 +39,23 @@ describe('AddJobView', () => {
         ],
       },
     });
+    // useRouter().push.mockReset();
+  });
 
-    useRouter().push.mockReset();
+  test('Should render heading for title of page', async () => {
+    const heading3 = wrapper.find('h3');
+
+    expect(heading3.exists()).toBe(true);
+  });
+
+  test('renders the correct heading', () =>{
+    const heading = wrapper.find('h3');
+    expect(heading.exists()).toBe(true);
+    expect(heading.text()).toBe('pages.updateJob');
+  });
+
+  test('renders the loading state', () => {
+    const loadingSpinner = wrapper.findComponent({ name: 'LoaderXl' });
+    expect(loadingSpinner.exists()).toBe(false);
   });
 });
