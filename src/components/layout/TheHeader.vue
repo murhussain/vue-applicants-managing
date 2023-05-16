@@ -11,7 +11,7 @@
         >
           {{selectedJob.name}}
         </p>
-        <p v-if="(!selectedJob && !loading) || notSelected" class="text-black dark:text-white font-medium text-xl 
+        <p id="dHeading" v-if="(!selectedJob && !loading) || notSelected" class="text-black dark:text-white font-medium text-xl 
           sm:text-2xl xl:text-3xl capitalize"
         >
         {{ $t("header.head") }}
@@ -246,7 +246,6 @@ const { flash } = useFlash();
 const { confirmFlash } = useConfirmFlash();
 const showDrawer = ref(false);
 const showMainMenu = ref(false);
-// State for the search query
 const searchQuery = ref('');
 
 fetchAndSetJobs();

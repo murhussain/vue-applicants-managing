@@ -15,7 +15,18 @@ config.global.mocks = {
 
 describe('addJobView', () => {
   test('renders input fields and a button', async () => {
-    const wrapper = mount(addJobView);
+    TypeError: Invalid value used as weak map key
+ ❯ registerStub ../../../../../Mur's%20Drive/HandsOnArea/Vue-JS%20Pitch/Personal%20Projects/vue-jobApplicants-app/node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.mjs:1302:11
+ ❯ createInstance ../../../../../Mur's%20Drive/HandsOnArea/Vue-JS%20Pitch/Personal%20Projects/vue-jobApplicants-app/node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.mjs:8019:5
+ ❯ Module.mount ../../../../../Mur's%20Drive/HandsOnArea/Vue-JS%20Pitch/Personal%20Projects/vue-jobApplicants-app/node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.mjs:8243:14
+ ❯ tests/components/Header.test.js:28:15
+     26| 
+     27|   beforeEach(() => {
+     28|     wrapper = mount(TheHeader, {
+       |               ^
+     29|       global: {
+     30|         plugins: [
+
 
     // Check if the input fields exist
     const nameInput = wrapper.find('input[type="text"][id="name"]');

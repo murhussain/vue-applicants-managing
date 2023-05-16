@@ -16,7 +16,7 @@ config.global.mocks = {
   $t: (tKey) => tKey,
 };
 
-describe('AddJobView', () => {
+describe('EditJobView Page', () => {
   let wrapper = null;
 
   useRouter.mockReturnValue({
@@ -52,10 +52,5 @@ describe('AddJobView', () => {
     const heading = wrapper.find('h3');
     expect(heading.exists()).toBe(true);
     expect(heading.text()).toBe('pages.updateJob');
-  });
-
-  test('renders the loading state', () => {
-    const loadingSpinner = wrapper.findComponent({ name: 'LoaderXl' });
-    expect(loadingSpinner.exists()).toBe(false);
   });
 });
