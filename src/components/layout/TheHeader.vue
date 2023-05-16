@@ -154,12 +154,14 @@
           v-for="job in filteredJobs" :key="job.id" 
           class="cursor-pointer group px-4 py-[0.7rem]"
           :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
-          @click="selectJob(job.id); showDrawer = false"
+          @click="job.id !== undefined ? selectJob(job.id) : null; showDrawer = false"
         >
           <RouterLink :to="'/jobs/applicants/' + job.code">  
             <p class="text-black text-sm dark:text-d-white capitalized"
               :class="{'font-medium': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
-            >{{ job.name }}</p>
+            >
+              {{ job.name }}
+            </p>
             <div class="flex items-center space-x-2 text-xs text-black-accent dark:text-d-white-accent">
               <p class="">{{ job.initSalary }}$</p> 
               <p v-show="job.maxSalary">-</p>

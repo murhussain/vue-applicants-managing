@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { defineStore } from 'pinia';
 interface Job {
-  id: number;
+  id?: number;
   name: string;
   code: string;
   initSalary: number;

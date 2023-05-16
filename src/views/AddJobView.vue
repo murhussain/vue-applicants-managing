@@ -43,7 +43,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import { useJobStore } from '@/stores/JobStore';
 import { useFlash } from '@/composables/useFlash';
@@ -59,8 +59,8 @@ const router = useRouter();
 const newJob = ref({
   name: '',
   code: '',
-  initSalary: '',
-  maxSalary: ''
+  initSalary: 0,
+  maxSalary: 0
 });
 
 function onSubmit() {
@@ -70,8 +70,8 @@ function onSubmit() {
     newJob.value = {
       name: '',
       code: '',
-      initSalary: '',
-      maxSalary: ''
+      initSalary: 0,
+      maxSalary: 0
     };
     router.push('/');
   } else {

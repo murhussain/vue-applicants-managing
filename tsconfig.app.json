@@ -7,7 +7,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "verbatimModuleSyntax": true,
     "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "paths": {

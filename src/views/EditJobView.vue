@@ -55,7 +55,7 @@ const { job, loading } = storeToRefs(useJobStore());
 const { fetchAndSetJob, updateJobById } = useJobStore();
 const route = useRoute();
 const router = useRouter();
-const jobId = computed(() => route.params.jobId);
+const jobId = computed<number>(() => Number(route.params.jobId));
 
 onMounted(async () => {
   await fetchAndSetJob(jobId.value);

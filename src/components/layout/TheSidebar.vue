@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import TheSidebarIcons from './portions/TheSidebarIcons.vue';
 import TheSidebarContent from './portions/TheSidebarContent.vue';
 </script>

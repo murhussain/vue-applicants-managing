@@ -27,7 +27,7 @@
           v-for="job in filteredJobs" :key="job.id" 
           class="cursor-pointer group px-4 py-[0.7rem]"
           :class="{'bg-[#f1f3fd] dark:bg-d-body-accent-secondary border-r-4 border-primary': isCurrentRoute(`/jobs/applicants/${job.code}`) }"
-          @click="selectJob(job.id)"
+          @click="job.id !== undefined ? selectJob(job.id) : null"
         >
           <RouterLink :to="'/jobs/applicants/' + job.code">  
             <p class="text-black group-hover:font-medium lg:text-sm xl:text-base dark:text-d-white capitalized"
