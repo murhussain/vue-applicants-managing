@@ -1,3 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`HomeView Page > renders correctly 1`] = `"<the-categories-stub></the-categories-stub>"`;
+
+exports[`HomeView Page > should render homeView correctly 1`] = `"<the-categories-stub></the-categories-stub>"`;

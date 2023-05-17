@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JobApplicantView Page > should render jobApplicant correctly 1`] = `
+"<!--v-if-->
+<!--v-if-->
+<div class=\\"grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6\\">
+  <div class=\\"space-y-4\\">
+    <!-- The category header of New Applicants -->
+    <!--[object Object]-->
+    <!-- The Applicants list -->
+    <div class=\\"applicant-card-list\\">
+      <p class=\\"text-center text-black dark:text-d-white-accent\\">jobCategory.info</p>
+    </div>
+  </div>
+  <div class=\\"space-y-4\\">
+    <!-- The category header of Shortlisted Applicants -->
+    <!--[object Object]-->
+    <!-- The Applicants list -->
+    <div class=\\"applicant-card-list\\">
+      <p class=\\"text-center text-black dark:text-d-white-accent\\">jobCategory.info</p>
+    </div>
+  </div>
+  <div class=\\"space-y-4\\">
+    <!-- The category header of Interviewed Applicants -->
+    <!--[object Object]-->
+    <!-- The Applicants list -->
+    <div class=\\"applicant-card-list\\">
+      <p class=\\"text-center text-black dark:text-d-white-accent\\">jobCategory.info</p>
+    </div>
+  </div>
+</div>"
+`;

@@ -30,7 +30,7 @@ describe('HomeView Page', () => {
     });  
   });
 
-  test("renders correctly", () => {
+  test("should render homeView correctly", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
