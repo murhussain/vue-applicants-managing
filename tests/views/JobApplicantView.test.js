@@ -45,25 +45,6 @@ describe('JobApplicantView Page', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  // test("should call onDragStart when dragging starts", () => {
-  //   const applicant = {
-  //     id: 1,
-  //     name: "Mur Hussein",
-  //     email: "mur@example.com",
-  //     position: "Developer",
-  //     skills: ["HTML", "CSS", "JavaScript"]
-  //   };
-  //   const event = {
-  //     dataTransfer: {
-  //       setData: vi.fn()
-  //     }
-  //   };
-
-  //   wrapper.vm.onDragStart(applicant, event);
-
-  //   expect(wrapper.vm.onDragStart).toHaveBeenCalledWith(applicant, event);
-  //   expect(event.dataTransfer.setData).toHaveBeenCalledWith('text/plain', applicant.id);
-  // });
   test("should call onDragStart when dragging starts", () => {
     const applicant = {
       id: 1,
@@ -79,7 +60,6 @@ describe('JobApplicantView Page', () => {
     };
   
     wrapper.vm.onDragStart(applicant, event);
-  
     expect(wrapper.vm.onDragStart).toHaveBeenCalledWith(applicant, event);
   });
 
@@ -95,7 +75,6 @@ describe('JobApplicantView Page', () => {
     };
 
     wrapper.vm.onDrop(category, event);
-
     expect(wrapper.vm.onDrop).toHaveBeenCalledWith(category, event);
   });
 });
